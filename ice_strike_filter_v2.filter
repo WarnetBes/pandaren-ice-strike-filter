@@ -1,0 +1,216 @@
+#===============================================================================================================
+# Ice Strike Invoker (Monk) — SSF Filter v2 (Этапы 1+2: 27–60)
+# Для PandarenDeepRover (Forbidden Rites)
+#
+# Отличия v2 от v1:
+#   + Стафы приоритизированы: топ-базы крит/урон (Aegis/Wyrm/Lunar/Striking/Dreaming/Guardian/Bladed)
+#     показаны даже Magic (для крафта), обычные — только Rare.
+#   + ES/EV базы к билду (Ancestral Tiara, Sleek Jacket, Sirenscale Gloves, Sekhema Sandals
+#     и т.п.) — показываются даже Normal/Magic: это базы для крафта этапа 2.
+#   + Uncut Spirit Gem — отдельный яркий приоритет (отсюда крафтится Herald of Thunder).
+#   + Доп. секция "ЭТАП 2": всё, что нужно на 30–60.
+#
+# УСТАНОВКА: положи в %userprofile%\Documents\My Games\Path of Exile 2\
+# В игре: Options -> UI -> Loot Filter -> выбрать -> Reload (если правил файл вручную)
+#===============================================================================================================
+
+#--- 1. Голд ----------------------------------------------------------------------------------------------------
+Show
+	BaseType == "Gold"
+	SetFontSize 30
+	SetTextColor 255 255 255 255
+	SetBorderColor 255 255 255 255
+	MinimapIcon 0 Yellow Circle
+
+#--- 2. Валюта (орбы и всё стекуемое) --------------------------------------------------------------------------
+Show
+	Class == "Stackable Currency"
+	SetFontSize 42
+	SetTextColor 255 200 0 255
+	SetBorderColor 255 200 0 255
+	SetBackgroundColor 40 30 0 255
+	PlayAlertSound 2 300
+	PlayEffect Yellow
+	MinimapIcon 0 Yellow Diamond
+
+#--- 3. Uncut гемы ----------------------------------------------------------------------------------------------
+#-- 3a. Uncut SPIRIT Gem — ПРИОРИТЕТ (этап 2: сюда крафтится Herald of Thunder/Wind Dancer/Precision)
+Show
+	BaseType == "Uncut Spirit Gem"
+	SetFontSize 48
+	SetTextColor 255 80 220 255
+	SetBorderColor 255 80 220 255
+	SetBackgroundColor 60 0 45 255
+	PlayAlertSound 5 300
+	PlayEffect Pink
+	MinimapIcon 0 Pink Star
+
+#-- 3b. Uncut Skill/Support (все)
+Show
+	BaseType "Uncut Skill Gem" "Uncut Support Gem"
+	SetFontSize 45
+	SetTextColor 0 240 240 255
+	SetBorderColor 0 240 240 255
+	SetBackgroundColor 0 40 40 255
+	PlayAlertSound 3 300
+	PlayEffect Cyan
+	MinimapIcon 0 Cyan Star
+
+#--- 4. Готовые гемы (Skill/Support) ---------------------------------------------------------------------------
+Show
+	Class == "Skill Gems" "Support Gems"
+	SetFontSize 42
+	SetTextColor 0 240 240 255
+	SetBorderColor 0 240 240 255
+
+#--- 5. Джувелы (под Darkness Enthroned / сокеты) + Релики (Trial of the Sekhema — словарь, по желанию) ---------
+Show
+	Class == "Jewels"
+	SetFontSize 44
+	SetTextColor 220 120 255 255
+	SetBorderColor 220 120 255 255
+	SetBackgroundColor 40 0 60 255
+	PlayAlertSound 4 300
+	PlayEffect Pink
+	MinimapIcon 0 Pink Hexagon
+
+#-- 5b. Релики (по NeverSink: Class не используется, ловится по BaseType)
+Show
+	BaseType == "Amphora Relic" "Coffer Relic" "Incense Relic" "Seal Relic" "Tapestry Relic" "Urn Relic" "Vase Relic"
+	SetFontSize 40
+	SetTextColor 0 240 190 255
+	SetBorderColor 0 240 190 255
+	PlayAlertSound 3 300
+	PlayEffect Blue Temp
+
+#--- 6. Уники (всегда, все) ------------------------------------------------------------------------------------
+Show
+	Rarity Unique
+	SetFontSize 46
+	SetTextColor 255 180 0 255
+	SetBorderColor 255 180 0 255
+	SetBackgroundColor 60 30 0 255
+	PlayAlertSound 5 300
+	PlayEffect Orange
+	MinimapIcon 0 Orange Star
+
+#===============================================================================================================
+# >>>>> СТАФЫ (Quarterstaves) — приоритизированные <<<<<
+#===============================================================================================================
+
+#-- 7a. ТОП-базы стафов (для крит/AS/fiz+ele-крафта): показываем ДАЖЕ Magic — крафтим Orb of Transmutation/Alchemy
+Show
+	Class == "Quarterstaves"
+	BaseType == "Aegis Quarterstaff" "Wyrm Quarterstaff" "Lunar Quarterstaff" "Striking Quarterstaff" "Dreaming Quarterstaff" "Guardian Quarterstaff" "Bladed Quarterstaff"
+	Rarity Normal Magic
+	SetFontSize 44
+	SetTextColor 120 255 255 255
+	SetBorderColor 0 220 220 255
+	SetBackgroundColor 0 40 50 255
+	PlayEffect Cyan
+	MinimapIcon 1 Cyan Diamond
+
+#-- 7b. Стафы RARE (все базы) — твоё оружие
+Show
+	Class == "Quarterstaves"
+	Rarity Rare
+	SetFontSize 43
+	SetTextColor 255 255 255 255
+	SetBorderColor 255 150 0 255
+	SetBackgroundColor 60 25 0 255
+	MinimapIcon 1 Orange Diamond
+
+#-- 7c. Обычные базы стафов (Non-Magic, Non-Rare): скрыты (перехватится 7a только для топ-баз)
+
+#===============================================================================================================
+# >>>>> ЭТАП 2 (30–60): ES/EV базы к билду <<<<<
+#===============================================================================================================
+
+#--- 8. ШЛЕМЫ ES (тиары): Ancestral Tiara = база Brimstone Cowl (из PoB) ---------------------
+#   Показываем Normal/Magic тоже: крафтим ES/b Энергощит на этапе 2
+Show
+	Class == "Helmets"
+	BaseType == "Ancestral Tiara" "Sorcerous Tiara" "Magus Tiara" "Skycrown Tiara" "Kamasan Tiara" "Feathered Tiara" "Sandsworn Tiara" "Jungle Tiara" "Wicker Tiara" "Chain Tiara" "Jade Tiara"
+	Rarity Normal Magic
+	SetFontSize 42
+	SetTextColor 200 200 255 255
+	SetBorderColor 120 120 255 255
+	SetBackgroundColor 20 20 60 255
+	MinimapIcon 1 White Diamond
+
+#--- 9. БРОНЯ: гибрид EV+ES (базы типа Sleek Jacket → Victory Cloak из PoB) --------------------
+#   Normal/Magic показываем — это базы под крафт ES на этапе 2
+Show
+	Class == "Body Armours"
+	BaseType == "Sleek Jacket" "Slipstrike Vest" "Swiftstalker Coat" "Pathfinder Coat" "Wyrmscale Coat" "Serpentscale Coat" "Lizardscale Coat" "Rhoahide Coat" "Corsair Coat" "Smuggler Coat" "Cloaked Mail" "Shrouded Mail" "Ironclad Vestments" "Conjurer Mantle" "Sacrificial Mantle" "Shaman Mantle" "Wolfskin Mantle" "Occultist Mantle" "Seastorm Mantle" "Death Mantle" "Heartcarver Mantle" "Tideseer Mantle" "Corvus Mantle" "Vile Robe" "Silk Robe" "Ceremonial Robe" "Tattered Robe" "Feathered Robe" "Elementalist Robe" "Sacramental Robe" "Enlightened Robe" "Altar Robe"
+	Rarity Normal Magic
+	SetFontSize 40
+	SetTextColor 200 200 255 255
+	SetBorderColor 120 120 255 255
+	SetBackgroundColor 20 20 60 255
+
+#--- 10. Перчатки Sirenscale (база → Pandemonium Paw из PoB) -----------------------------------
+Show
+	Class == "Gloves"
+	BaseType == "Sirenscale Gloves" "Gold Gloves" "Opulent Gloves" "Intricate Gloves" "Jewelled Gloves" "Embroidered Gloves"
+	Rarity Normal Magic
+	SetFontSize 40
+	SetTextColor 200 200 255 255
+	SetBorderColor 120 120 255 255
+	SetBackgroundColor 20 20 60 255
+
+#--- 11. Ботинки Sekhema Sandals (база → Mind Dash из PoB) -------------------------------------
+Show
+	Class == "Boots"
+	BaseType == "Sekhema Sandals" "Feathered Sandals" "Silk Slippers" "Charmed Shoes" "Cavalry Boots" "Treerunner Shoes" "Wanderer Shoes" "Lizardscale Boots"
+	Rarity Normal Magic
+	SetFontSize 40
+	SetTextColor 200 200 255 255
+	SetBorderColor 120 120 255 255
+	SetBackgroundColor 20 20 60 255
+
+#--- 12. КОРПУСА/ШЛЕМЫ/Перчатки/Ботинки RARE (универсальная секция) -----------------------------
+Show
+	Class == "Body Armours" "Helmets" "Gloves" "Boots"
+	Rarity Rare
+	SetFontSize 40
+	SetTextColor 255 255 255 255
+	SetBorderColor 200 200 200 255
+	SetBackgroundColor 30 30 40 255
+
+#--- 13. Кольца/Амулеты/Пояса (Rare) — ВАЖНО: резисты ----------------------------------------------------
+Show
+	Class == "Rings" "Amulets" "Belts"
+	Rarity Rare
+	SetFontSize 42
+	SetTextColor 255 220 120 255
+	SetBorderColor 255 200 80 255
+	SetBackgroundColor 50 40 0 255
+	MinimapIcon 1 Yellow Diamond
+
+#--- 14. РУНЫ (Runes / Soul Cores / Idols) — крафт (по NeverSink: Class "Augment", ловля по части BaseType) ----
+Show
+	BaseType "Rune" "Soul Core" "Idol"
+	SetFontSize 40
+	SetTextColor 150 255 150 255
+	SetBorderColor 150 255 150 255
+
+#--- 15. Фляги/Чармы ---------------------------------------------------------------------------------------
+Show
+	Class == "Life Flasks" "Mana Flasks" "Charms"
+	SetFontSize 36
+	SetTextColor 200 255 200 255
+	SetBorderColor 100 160 100 255
+
+#--- 16. ПРОЧЕЕ: редкое оружие (альтернативы) ----------------------------------------------------------------
+Show
+	Class == "Bows" "Crossbows" "Sceptres" "Wands" "Staves" "Spears" "Bucklers" "Shields" "Foci"
+	Rarity Rare
+	SetFontSize 36
+	SetTextColor 220 220 220 255
+	SetBorderColor 100 100 100 255
+
+#--- 17. Всё остальное, что не подпало — ПРЯЧЕМ ПОЛНОСТЬЮ -----------------------------------------------------
+Hide
+	SetFontSize 10
+	SetTextColor 100 100 100 255
