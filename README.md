@@ -2,26 +2,28 @@
 
 SSF Loot Filter для **PandarenDeepRover** (Monk, Ice Strike Invoker, PoE2 — лига Forbidden Rites).
 
-## Файлы
+Кастомный левелинг-фильтр **v2** (этапы 1+2: 27–60) + запасной **NeverSink 0.10.4** (Regular).
 
-| Файл | Назначение |
+## Состав репозитория
+
+| Файл | Что это |
 |---|---|
-| `ice_strike_filter_v2.filter` | Кастомный левелинг-фильтр **v2** (этапы 1+2: 27–60). Приоритеты: валюта, Uncut Spirit Gem (→ Herald of Thunder), топ-стафы Magic/Rare, ES/EV-базы под билд. 24 Class и 79 BaseType — все валидны. |
-| `neversink_regular.filter` | NeverSink 0.10.4 **REGULAR** (актуальная версия из GitHub, SHA-256 сверен). Запасной/полный фильтр. |
+| `ice_strike_filter_v2.filter` | Кастомный левелинг-фильтр **v2**. Приоритеты: стафы (топ-базы крит/урон даже Magic — под крафт), Rare-шмот, Uncut Spirit Gem (отсюда Herald of Thunder), ES/EV-базы к билду этапа 2, резисты на кольцах/амулетах/поясах, джувелы, валюта. |
+| `ice_strike_filter.filter` | Левелинг-фильтр **v1** (27+). Базовая версия без приоритизации стафов и секции этапа 2. |
+| `neversink_regular.filter` | NeverSink 0.10.4 **REGULAR** — оригинальный файл с GitHub (SHA-256 сверен). Запасной/расширенный фильтр. |
 
 ## Установка (PoE2)
 
-1. Скопируй файл в папку:
+1. Скопируй файл фильтра в папку (НЕ в `onlinefilters`!):
    ```
    %userprofile%\Documents\My Games\Path of Exile 2\
    ```
-   (НЕ в подпапку `onlinefilters`!)
-2. В игре: `Escape → Options → Game/UI → Loot Filter` → выбрать фильтр.
-3. Если правил файл вручную — жми **Reload** в том же меню.
-4. Скрытые после фильтра предметы можно показать клавишей (смотри Key Pickup → Use Bound Key, по умолчанию Alt/метка).
+2. В игре: `Escape → Options → Game/UI → Loot Filter` → выбери фильтр.
+3. Если правил файл вручную — нажми **Reload** в списке (игра не перезагружает фильтр сама).
+4. Рекомендуется задать горячую клавишу выделения дропа (Key Pickup / Use Bound Key), чтобы не зажимать Alt/пробел.
 
-## Ресурсы
+## Ссылки
 
-- Претендент билда (PoB 28880): https://poe.ninja/poe2/pob/28880
-- NeverSink-репозиторий: https://github.com/NeverSinkDev/NeverSink-Filter-for-PoE2
-- Настройка под себя: https://filterblade.xyz
+- Целевой билд (PoB 28880): https://poe.ninja/poe2/pob/28880
+- NeverSink-оригинал: https://github.com/NeverSinkDev/NeverSink-Filter-for-PoE2
+- Кастомизация фильтров: https://filterblade.xyz
