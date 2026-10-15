@@ -2,13 +2,14 @@
 
 SSF Loot Filter для **PandarenDeepRover** (Monk, Ice Strike Invoker, PoE2 — лига Forbidden Rites).
 
-Кастомный **v3** (эндгейм, L80+) + левелинг **v2** (этапы 1+2: 27–60) + запасной **NeverSink 0.10.4** (Regular).
+Кастомный **v4** (эндгейм, L80+, актуален под патч 0.5.5 Forbidden Rites) + левелинг **v2** (этапы 1+2: 27–60) + запасной **NeverSink 0.10.4** (Regular).
 
 ## Состав репозитория
 
 | Файл | Что это |
 |---|---|
-| `ice_strike_filter_v3.filter` | **ЭНДГЕЙМ-фильтр v3 (L80+, рекомендован).** Waystone-тиры (T13+ звонок), эссенции (Greater/Perfect громко), Omens, Augments (руны/Soul Cores/идолы), Tablets, Breach-осколки/катализаторы, ключи пинакля/сейфа. Топ-базы гира N/M под крафт: Torment/Devout/Assassin Garb, Ancestral/Kamasan/Sorcerous Tiara, Secured/Vaal/Elegant Wraps, Quickslip/Daggerfoot Shoes, Two-Stone Ring, Fine/Heavy/Double Belt, Lunar/Lapis Amulet. Левелинг-базы убраны, слабые фляги скрыты. Синтаксис сверен с NeverSink-PoE2. |
+| `ice_strike_filter_v4.filter` | **ЭНДГЕЙМ-фильтр v4 (L80+, РЕКОМЕНДОВАН, патч 0.5.5).** Новое против v3: Wombgifts (механика Forbidden Rites) — громко; валюта протирирована T0–T3 (Divine/Mirror/Hinekora/Perfect Exa мега-громко, топ-орбы + Cryptic Key/Shattered Triskelion/Liquid Verisium со звуком, остальной Stackable Currency — тихо, фикс «шумовой слепоты»); Breachstones по тирам (Flawless/Pure громко); Perfect Glacial/Desert Rune — руны резистов билда, звезда; вэйстоуны T15/T16 — звезда+звук; Omens — звук только топ-крафту. Всё унаследованное из v3: Waystone-тиры, эссенции (Greater/Perfect громко), Augments (руны/Soul Cores/идолы), Tablets, ключи пинакля/сейфа, топ-базы гира N/M под крафт. Все имена сверены с base_items 0.5.5 (build 4.5.5.2) и NeverSink-PoE2 0.10.4. |
+| `ice_strike_filter_v3.filter` | Эндгейм-фильтр **v3** (L80+, предыдущая версия). |
 | `ice_strike_filter_v2.filter` | Кастомный левелинг-фильтр **v2**. Приоритеты: стафы (топ-базы крит/урон даже Magic — под крафт), Rare-шмот, Uncut Spirit Gem (отсюда Herald of Thunder), ES/EV-базы к билду этапа 2, резисты на кольцах/амулетах/поясах, джувелы, валюта. |
 | `ice_strike_filter.filter` | Левелинг-фильтр **v1** (27+). Базовая версия без приоритизации стафов и секции этапа 2. |
 | `neversink_regular.filter` | NeverSink 0.10.4 **REGULAR** — оригинальный файл с GitHub (SHA-256 сверен). Запасной/расширенный фильтр. |
