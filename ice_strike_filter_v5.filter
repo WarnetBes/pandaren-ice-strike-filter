@@ -1,0 +1,444 @@
+#===============================================================================================================
+# Ice Strike Invoker — SSF Filter v5 (ЭНДГЕЙМ L80+, фликер-CI, патч 0.5.5 Forbidden Rites)
+# Для PandarenDeepRover, актуализация от 17.10.2026
+#
+# Отличия v5 от v4 (все имена сверены с base_items 0.5.5 build 4.5.5.2 + NeverSink-PoE2 0.10.4):
+#   + БАЗЫ ЭТАЛОНА hVyJaA3I26cF (L93 CI, №529) добавлены в N/M-подсветку под крафт:
+#     посох Sinister Quarterstaff (Brood Call +5 attack), тело Sleek Jacket (Grim Coat — база Doom Suit владельца),
+#     сапоги Charmed Shoes (Armageddon Slippers, Deflection 21%), кольцо Unset Ring (+1 слот скилла, у эталона и владельца ×2!),
+#     амулет Gold Amulet (Rapture Collar) + Pearlescent/Solar Amulet; стафы Bolting/Razor/Skullcrusher/Warding
+#   + ещё эндгейм-деф сапоги Wanderer Shoes под крафт
+#   + убран дубль "Omen of Greater Exaltation" в блоке Omens
+# Отличия v4 от v3:
+#   + Wombgifts (5 шт.) — НОВАЯ механика 0.5.5 (генезис-бижутерия) — раньше молча съедались
+#   + ВАЛЮТА ПРОТИРОИРОВАНА (главный фикс v3: Divine Orb и Scroll of Wisdom звенели одинаково):
+#     T0 легендар / T1 топ (звук+звезда) / T2 механо-валюта Runes of Aldur (icon) / T3 остальное — тишина
+#   + BREACHSTONES тиражированы: Flawless/Pure громче Charged; Plain — тише (Breach = farma-дуэт по плану №514)
+#   + Perfect Glacial/Desert Rune — отдельный громкий блок (твои руны резистов, остаток холода −17)
+#   + Вэйстоуны: новый верхний тир T15/T16; T13–T14 средне-громко
+#   + Omens: звук снят с массы (50 шт. слишком шумели), оставлен топ-крафту (Greater Exaltation/Annulment/Coronation)
+# Унаследовано из v3 без изменений: топ-базы гира №251, эссенции, Uncut-гемы, уники, quarterstaves.
+#
+# Синтаксис: BaseType "X" без == = substring-match (проверено). Class сверены по base_items 0.5.5.
+#
+# УСТАЛОВКА: %userprofile%\Documents\My Games\Path of Exile 2\ice_strike_filter_v5.filter
+# В игре: Options -> UI -> Loot Filter -> выбрать -> Reload
+#===============================================================================================================
+
+#--- 0. T0: ЛЕГЕНДАРНАЯ ВАЛЮТА (мега-громко) -------------------------------------------------------------------------
+Show
+	BaseType == "Mirror of Kalandra" "Hinekora's Lock" "Perfect Exalted Orb" "Divine Orb"
+	SetFontSize 48
+	SetTextColor 255 255 255 255
+	SetBorderColor 255 255 0 255
+	SetBackgroundColor 130 30 0 255
+	PlayAlertSound 5 300
+	PlayEffect Yellow
+	MinimapIcon 0 Yellow Star
+
+#--- 1. ГОЛД (тихо, всегда) -----------------------------------------------------------------------------------------
+Show
+	BaseType == "Gold"
+	SetFontSize 32
+	SetTextColor 170 158 126 255
+	MinimapIcon 1 Yellow Circle
+
+#--- 2. КЛЮЧИ ПИНАКЛЯ / СЕЙФА / ЖУРНАЛЫ ЭКСПЕДИЦИИ ------------------------------------------------------------------
+Show
+	Class == "Pinnacle Keys" "Vault Keys" "Expedition Logbook"
+	SetFontSize 46
+	SetTextColor 255 255 0 255
+	SetBorderColor 255 255 0 255
+	SetBackgroundColor 80 60 0 255
+	PlayAlertSound 5 300
+	PlayEffect Yellow
+	MinimapIcon 0 Yellow Star
+
+#--- 3. ЭССЕНЦИИ: Greater/Perfect — ГРОМКО (топ-модификаторы для апгрейда гира) -------------------------------------
+Show
+	BaseType "Greater Essence" "Perfect Essence"
+	SetFontSize 46
+	SetTextColor 200 240 120 255
+	SetBorderColor 200 240 120 255
+	SetBackgroundColor 0 60 0 255
+	PlayAlertSound 4 300
+	PlayEffect Green
+	MinimapIcon 0 Green Star
+
+#-- 3b. Эссенции обычные / Lesser
+Show
+	BaseType "Essence"
+	SetFontSize 38
+	SetTextColor 160 220 120 255
+	SetBorderColor 120 180 100 255
+
+#--- 4. BREACH (фарм-механика №514): осколки/катализсты + КАМНИ ПО ТИРАМ ---------------------------------------------
+#-- 4a. Flawless/Pure Breachstone — босс-камни: громко
+Show
+	BaseType "Flawless Breachstone" "Pure Breachstone"
+	SetFontSize 46
+	SetTextColor 255 120 255 255
+	SetBorderColor 200 80 255 255
+	SetBackgroundColor 60 0 70 255
+	PlayAlertSound 5 300
+	PlayEffect Pink
+	MinimapIcon 0 Purple Star
+
+#-- 4b. Enriched/Charged Breachstone — средне-громко
+Show
+	BaseType "Enriched Breachstone" "Charged Breachstone"
+	SetFontSize 43
+	SetTextColor 255 120 255 255
+	SetBorderColor 200 80 255 255
+	SetBackgroundColor 50 0 60 255
+	PlayAlertSound 3 200
+	MinimapIcon 0 Purple Diamond
+
+#-- 4c. Катализсты + осколки Breach + plain Breachstone (вход в Breach — ловим всё, средне)
+Show
+	BaseType "Catalyst" "Splinter" "Breachstone" "Breachlord"
+	SetFontSize 40
+	SetTextColor 255 120 255 255
+	SetBorderColor 200 80 255 255
+	SetBackgroundColor 50 0 60 255
+	MinimapIcon 1 Purple Diamond
+
+#--- 5. WOMBGIFTS — НОВАЯ механика 0.5.5 Forbidden Rites (генезис-бижутерия) — ВСЕ громко ---------------------------
+Show
+	Class == "Wombgifts"
+	SetFontSize 46
+	SetTextColor 255 200 120 255
+	SetBorderColor 255 160 60 255
+	SetBackgroundColor 70 40 0 255
+	PlayAlertSound 5 300
+	PlayEffect Yellow
+	MinimapIcon 0 Yellow Star
+
+#--- 6. OMEN'ы: топ-крафт со звуком ----------------------------------------------------------------------------------
+Show
+	BaseType == "Omen of Greater Exaltation" "Omen of Greater Annulment" "Omen of Sinistral Coronation" "Omen of Dextral Coronation"
+	SetFontSize 44
+	SetTextColor 90 200 255 255
+	SetBorderColor 90 200 255 255
+	SetBackgroundColor 0 45 70 255
+	PlayAlertSound 3 250
+	MinimapIcon 0 Blue Star
+
+#-- 6b. Остальные Omens — ярко, но без звука (50 видов очень шумели)
+Show
+	Class == "Omen"
+	SetFontSize 41
+	SetTextColor 90 200 255 255
+	SetBorderColor 90 200 255 255
+	SetBackgroundColor 0 35 55 255
+	MinimapIcon 1 Blue Diamond
+
+#--- 7. АУГМЕНТЫ: Perfect Glacial/Desert Rune — РУНЫ РЕЗИСТОВ БИЛДА (остаток холода −17) ----------------------------
+Show
+	BaseType == "Perfect Glacial Rune" "Perfect Desert Rune"
+	SetFontSize 46
+	SetTextColor 150 255 150 255
+	SetBorderColor 150 255 150 255
+	SetBackgroundColor 10 60 10 255
+	PlayAlertSound 4 300
+	PlayEffect Green
+	MinimapIcon 0 Green Star
+
+#-- 7b. Остальные Руны / Soul Cores / Идолы — весь класс Augment
+Show
+	Class == "Augment"
+	SetFontSize 40
+	SetTextColor 150 255 150 255
+	SetBorderColor 150 255 150 255
+	SetBackgroundColor 10 45 10 255
+	MinimapIcon 1 Green Diamond
+
+#--- 8. ТАБЛЕТКИ (Ritual/Temple/Breach/Abyss/Expedition/Overseer/Irradiated/Delirium — 8 видов, класс Tablet) --------
+Show
+	Class == "Tablet"
+	SetFontSize 44
+	SetTextColor 255 200 0 255
+	SetBorderColor 255 200 0 255
+	SetBackgroundColor 60 40 0 255
+	PlayAlertSound 2 250
+	MinimapIcon 0 Yellow Star
+
+#--- 9. ВЭЙСТОУНЫ ---------------------------------------------------------------------------------------------------
+#-- 9a. T15/T16 — топ-эндгейм: громко
+Show
+	WaystoneTier >= 15
+	Class == "Waystones"
+	SetFontSize 46
+	SetTextColor 255 255 255 255
+	SetBorderColor 255 120 0 255
+	SetBackgroundColor 110 50 0 255
+	PlayAlertSound 6 300
+	MinimapIcon 0 Orange Star
+
+#-- 9b. T13–T14: звонок
+Show
+	WaystoneTier >= 13
+	WaystoneTier <= 14
+	Class == "Waystones"
+	SetFontSize 44
+	SetTextColor 255 255 255 255
+	SetBorderColor 255 120 0 255
+	SetBackgroundColor 90 40 0 255
+	PlayAlertSound 6 250
+	MinimapIcon 0 Orange Circle
+
+#-- 9c. T6–T12
+Show
+	WaystoneTier >= 6
+	WaystoneTier <= 12
+	Class == "Waystones"
+	SetFontSize 41
+	SetTextColor 220 220 200 255
+	SetBorderColor 200 190 100 255
+
+#-- 9d. T1–T5 — мелко
+Show
+	Class == "Waystones"
+	SetFontSize 36
+	SetTextColor 200 200 200 255
+
+#--- 10. Валюта T1: ТОП-ОРБЫ + механика Forbidden Rites ---------------------------------------------------------------
+# Cryptic Key / Shattered Triskelion / Liquid Verisium — по канону NeverSink-PoE2 (top currency tier)
+Show
+	BaseType == "Exalted Orb" "Greater Exalted Orb" "Orb of Annulment" "Fracturing Orb" "Eternal Orb" "Vaal Orb" "Perfect Chaos Orb" "Cryptic Key" "Shattered Triskelion" "Liquid Verisium" "Exceptional Verisium"
+	SetFontSize 44
+	SetTextColor 255 200 0 255
+	SetBorderColor 255 200 0 255
+	SetBackgroundColor 60 40 0 255
+	PlayAlertSound 2 250
+	MinimapIcon 1 Yellow Diamond
+
+#-- 10b. Валюта T2: механо-валюта Runes of Aldur / Kalguur (частая — icon, без звука)
+Show
+	BaseType "Thaumaturgic Flux" "Starlit Ore" "Alloy"
+	SetFontSize 40
+	SetTextColor 255 200 0 255
+	SetBorderColor 200 160 60 255
+	MinimapIcon 1 Yellow Diamond
+
+#-- 10c. Валюта T3: ОСТАЛЬНОЙ Stackable Currency — тихо (скроллы/осадки не должны звенеть; выше уже поймано всё ценное)
+Show
+	Class == "Stackable Currency"
+	SetFontSize 38
+	SetTextColor 255 200 0 255
+	SetBorderColor 180 140 40 255
+
+#--- 11. UNCUT-гемы --------------------------------------------------------------------------------------------------
+#-- 11a. Uncut SPIRIT Gem (Herald-тройка/Blasphemy — твой резерв-бюджет)
+Show
+	BaseType == "Uncut Spirit Gem"
+	SetFontSize 48
+	SetTextColor 255 80 220 255
+	SetBorderColor 255 80 220 255
+	SetBackgroundColor 60 0 45 255
+	PlayAlertSound 5 300
+	PlayEffect Pink
+	MinimapIcon 0 Pink Star
+
+#-- 11b. Uncut Skill/Support
+Show
+	BaseType "Uncut Skill Gem" "Uncut Support Gem"
+	SetFontSize 45
+	SetTextColor 0 240 240 255
+	SetBorderColor 0 240 240 255
+	SetBackgroundColor 0 40 40 255
+	PlayAlertSound 3 300
+	PlayEffect Cyan
+	MinimapIcon 0 Cyan Star
+
+#--- 12. Готовые гемы ------------------------------------------------------------------------------------------------
+Show
+	Class == "Skill Gems" "Support Gems"
+	SetFontSize 40
+	SetTextColor 0 240 240 255
+	SetBorderColor 0 240 240 255
+
+#--- 13. ДЖЕВЕЛЫ (Heart of the Well / сокеты; все — SSF не разбираем) --------------------------------------------------
+Show
+	Class == "Jewels" "Talismans"
+	SetFontSize 44
+	SetTextColor 220 120 255 255
+	SetBorderColor 220 120 255 255
+	SetBackgroundColor 40 0 60 255
+	PlayAlertSound 4 250
+	PlayEffect Pink
+	MinimapIcon 0 Pink Hexagon
+
+#-- 13b. Релики Sekhema
+Show
+	BaseType == "Amphora Relic" "Coffer Relic" "Incense Relic" "Seal Relic" "Tapestry Relic" "Urn Relic" "Vase Relic"
+	SetFontSize 40
+	SetTextColor 0 240 190 255
+	SetBorderColor 0 240 190 255
+	PlayAlertSound 3 300
+	PlayEffect Blue Temp
+
+#--- 14. УНИКИ (всегда; SSF — каждый потенциальный сайдгард) ---------------------------------------------------------
+Show
+	Rarity Unique
+	SetFontSize 46
+	SetTextColor 255 180 0 255
+	SetBorderColor 255 180 0 255
+	SetBackgroundColor 60 30 0 255
+	PlayAlertSound 5 300
+	PlayEffect Orange
+	MinimapIcon 0 Orange Star
+
+#===============================================================================================================
+# >>>>> ОРУЖИЕ: Quarterstaves <<<<<
+#===============================================================================================================
+
+#-- 15a. ТОП-базы стафов (эталон Brood Call = Sinister +5 attack; апгрейд Collapsing Horizon): даже Magic — под крафт
+Show
+	Class == "Quarterstaves"
+	BaseType == "Aegis Quarterstaff" "Wyrm Quarterstaff" "Lunar Quarterstaff" "Striking Quarterstaff" "Dreaming Quarterstaff" "Guardian Quarterstaff" "Bladed Quarterstaff" "Sinister Quarterstaff" "Bolting Quarterstaff" "Razor Quarterstaff" "Skullcrusher Quarterstaff" "Warding Quarterstaff"
+	Rarity Normal Magic
+	SetFontSize 44
+	SetTextColor 120 255 255 255
+	SetBorderColor 0 220 220 255
+	SetBackgroundColor 0 40 50 255
+	PlayEffect Cyan
+	MinimapIcon 1 Cyan Diamond
+
+#-- 15b. Стафы Rare (все базы)
+Show
+	Class == "Quarterstaves"
+	Rarity Rare
+	SetFontSize 43
+	SetTextColor 255 255 255 255
+	SetBorderColor 255 150 0 255
+	SetBackgroundColor 60 25 0 255
+	MinimapIcon 1 Orange Diamond
+
+#===============================================================================================================
+# >>>>> ТОП-БАЗЫ ПОД ПЛАН №251 (Normal/Magic = заготовки под крафт, ES/EV цели) <<<<<
+#===============================================================================================================
+
+#--- 16. ТЕЛО EV/ES (DexInt) — дух + EV + ES (Grim Coat/Doom Suit = Sleek Jacket — база эталона и владельца)
+Show
+	Class == "Body Armours"
+	BaseType == "Assassin Garb" "Devout Garb" "Torment Jacket" "Ascetic Garb" "Clandestine Jacket" "Monastic Garb" "Sleek Jacket"
+	Rarity Normal Magic
+	SetFontSize 44
+	SetTextColor 120 255 150 255
+	SetBorderColor 120 255 150 255
+	SetBackgroundColor 0 50 20 255
+	PlayEffect Green
+	MinimapIcon 0 Green Diamond
+
+#--- 17. ШЛЕМ ES (Int-тиары — CI-путь) + гибрид-маски DexInt
+Show
+	Class == "Helmets"
+	BaseType == "Ancestral Tiara" "Kamasan Tiara" "Sorcerous Tiara" "Grinning Mask" "Soaring Mask" "Faridun Mask"
+	Rarity Normal Magic
+	SetFontSize 42
+	SetTextColor 200 200 255 255
+	SetBorderColor 120 120 255 255
+	SetBackgroundColor 20 20 60 255
+	MinimapIcon 1 Blue Diamond
+
+#--- 18. ПЕРЧАТКИ (Sirenscale из PoB + топ DexInt Wraps)
+Show
+	Class == "Gloves"
+	BaseType == "Sirenscale Gloves" "Secured Wraps" "Vaal Wraps" "Elegant Wraps"
+	Rarity Normal Magic
+	SetFontSize 40
+	SetTextColor 200 200 255 255
+	SetBorderColor 120 120 255 255
+	SetBackgroundColor 20 20 60 255
+	MinimapIcon 1 Blue Diamond
+
+#--- 19. САПОГИ (Sekhema из PoB + топ DexInt Shoes; Quickslip/Daggerfoot = 30% MS базы; Charmed Shoes = Armageddon Slippers эталона, Deflection)
+Show
+	Class == "Boots"
+	BaseType == "Sekhema Sandals" "Quickslip Shoes" "Daggerfoot Shoes" "Charmed Shoes" "Wanderer Shoes"
+	Rarity Normal Magic
+	SetFontSize 40
+	SetTextColor 200 200 255 255
+	SetBorderColor 120 120 255 255
+	SetBackgroundColor 20 20 60 255
+	MinimapIcon 1 Blue Diamond
+
+#--- 20. КОЛЬЦА — даже Normal/Magic: Two-Stone (Fire+Cold) = резисты; Unset Ring = +1 слот скилла (эталон и владелец ×2!)
+Show
+	Class == "Rings"
+	BaseType == "Two-Stone Ring" "Ruby Ring" "Sapphire Ring" "Topaz Ring" "Amethyst Ring" "Prismatic Ring" "Unset Ring"
+	Rarity Normal Magic
+	SetFontSize 42
+	SetTextColor 255 220 120 255
+	SetBorderColor 255 200 80 255
+	SetBackgroundColor 50 40 0 255
+	MinimapIcon 0 Yellow Diamond
+
+#--- 21. ПОЯСА + АМУЛЕТЫ — топ-базы под N/M-крафт (чарм-слоты роаллятся отдельно на любой базе)
+Show
+	Class == "Belts"
+	BaseType == "Fine Belt" "Heavy Belt" "Double Belt"
+	Rarity Normal Magic
+	SetFontSize 40
+	SetTextColor 255 220 120 255
+	SetBorderColor 255 200 80 255
+	SetBackgroundColor 50 40 0 255
+	MinimapIcon 1 Yellow Diamond
+
+Show
+	Class == "Amulets"
+	BaseType == "Lunar Amulet" "Lapis Amulet" "Stellar Amulet" "Veridical Chain" "Gold Amulet" "Pearlescent Amulet" "Solar Amulet"
+	Rarity Normal Magic
+	SetFontSize 40
+	SetTextColor 255 220 120 255
+	SetBorderColor 255 200 80 255
+	SetBackgroundColor 50 40 0 255
+	MinimapIcon 1 Yellow Diamond
+
+#--- 22. RARE-ЦЕЛО (универсальная сетка) -----------------------------------------------------------------------------
+#-- 22a. Кольца/Амулеты/Пояса Rare (резисты/ES/дух)
+Show
+	Class == "Rings" "Amulets" "Belts"
+	Rarity Rare
+	SetFontSize 42
+	SetTextColor 255 220 120 255
+	SetBorderColor 255 200 80 255
+	SetBackgroundColor 50 40 0 255
+	MinimapIcon 1 Yellow Diamond
+
+#-- 22b. Броня/шлемы/перчатки/сапоги Rare
+Show
+	Class == "Body Armours" "Helmets" "Gloves" "Boots"
+	Rarity Rare
+	SetFontSize 40
+	SetTextColor 255 255 255 255
+	SetBorderColor 200 200 200 255
+	SetBackgroundColor 30 30 40 255
+
+#--- 23. ЧАРМЫ (все) + ФЛЯКИ только эндгейм-уровня --------------------------------------------------------------------
+Show
+	Class == "Charms"
+	SetFontSize 38
+	SetTextColor 200 255 200 255
+	SetBorderColor 100 160 100 255
+
+Show
+	Class == "Life Flasks" "Mana Flasks"
+	ItemLevel >= 60
+	SetFontSize 34
+	SetTextColor 200 255 200 255
+	SetBorderColor 100 160 100 255
+
+#--- 24. Прочее редкое оружие (для золота/разбора) — тише ------------------------------------------------------------
+Show
+	Class == "Bows" "Crossbows" "Sceptres" "Wands" "Staves" "Spears" "Bucklers" "Shields" "Foci" "Quivers" "One Hand Maces" "Two Hand Maces"
+	Rarity Rare
+	SetFontSize 34
+	SetTextColor 220 220 220 255
+	SetBorderColor 100 100 100 255
+
+#--- 25. ФИНАЛ: всё непойманное — скрыть -----------------------------------------------------------------------------
+Hide
+	SetFontSize 10
+	SetTextColor 100 100 100 255
