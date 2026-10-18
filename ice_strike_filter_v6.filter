@@ -1,7 +1,13 @@
 #===============================================================================================================
-# Ice Strike Invoker — SSF Filter v5 (ЭНДГЕЙМ L80+, фликер-CI, патч 0.5.5 Forbidden Rites)
-# Для PandarenDeepRover, актуализация от 17.10.2026
+# Ice Strike Invoker — SSF Filter v6 (ЭНДГЕЙМ L80+, фликер-CI, патч 0.5.5 Forbidden Rites)
+# Для PandarenDeepRover, актуализация от 18.10.2026 (v6.1)
 #
+# Отличия v6.1 от v5 (18.10, все имена сверены с base_items 0.5.5 build 4.5.5.2 + poe2db):
+#   + TIME-LOST ДЖЕВЕЛЫ (Ruby/Emerald/Sapphire/Diamond) — мега-громко, ТОЧНЫЙ список ==
+#     (substring "Time-Lost" зацепил бы Time-Lost Incubator — проверено по base_items)
+#   - ТАЛИСМАНЫ ПОЛНОСТЬЮ УБРАНЫ из подсветки: по poe2db это 2H-оружие Друида (Str+Int, Shapeshift)
+#     — несовместимо с Quarterstaff-билдом; редкие уходят в финальный Hide, уники ловит блок 14
+#   + GREATER GLACIAL/DESERT RUNE — средний блок (кап-этап билда)
 # Отличия v5 от v4 (все имена сверены с base_items 0.5.5 build 4.5.5.2 + NeverSink-PoE2 0.10.4):
 #   + БАЗЫ ЭТАЛОНА hVyJaA3I26cF (L93 CI, №529) добавлены в N/M-подсветку под крафт:
 #     посох Sinister Quarterstaff (Brood Call +5 attack), тело Sleek Jacket (Grim Coat — база Doom Suit владельца),
@@ -268,9 +274,20 @@ Show
 	SetTextColor 0 240 240 255
 	SetBorderColor 0 240 240 255
 
-#--- 13. ДЖЕВЕЛЫ (Heart of the Well / сокеты; все — SSF не разбираем) --------------------------------------------------
+#-- 13a. TIME-LOST ДЖЕВЕЛЫ (50+ div, билд-цель: Time-Lost Sapphire под крит-вилку) — мега-громко
 Show
-	Class == "Jewels" "Talismans"
+	BaseType == "Time-Lost Ruby" "Time-Lost Emerald" "Time-Lost Sapphire" "Time-Lost Diamond"
+	SetFontSize 48
+	SetTextColor 255 150 255 255
+	SetBorderColor 255 80 255 255
+	SetBackgroundColor 70 0 100 255
+	PlayAlertSound 5 300
+	PlayEffect Pink
+	MinimapIcon 0 Pink Star
+
+#-- 13b. ДЖЕВЕЛЫ остальные (Heart of the Well ловится блоком 14 Unique; сапфиры/редкие — тут)
+Show
+	Class == "Jewels"
 	SetFontSize 44
 	SetTextColor 220 120 255 255
 	SetBorderColor 220 120 255 255
