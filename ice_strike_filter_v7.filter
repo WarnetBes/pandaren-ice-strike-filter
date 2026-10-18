@@ -1,6 +1,26 @@
 #===============================================================================================================
-# Ice Strike Invoker — SSF Filter v6 (ЭНДГЕЙМ L80+, фликер-CI, патч 0.5.5 Forbidden Rites)
-# Для PandarenDeepRover, актуализация от 18.10.2026 (v6.1)
+# Ice Strike Invoker — SSF Filter v7 (ЭНДГЕЙМ L80+, фликер-CI, патч 0.5.5 Forbidden Rites)
+# Для PandarenDeepRover, актуализация от 18.10.2026 (v7.0)
+#
+# Отличия v7 от v6.1 (18.10, синтаксис сверен с офиц. справочником GGG /item-filter/about, агент №4):
+#   + CHARMЫ: Class == "Charms" — ГРОМКО все (44pt, зелёный, звук 3/200, beam+иконка) — обереги с обрядами Rites
+#     ловятся по классу, цены неважны (13 баз по base_items 0.5.5)
+#   + DJINN BARYA в блоке 2 (Class == "Trial Coins"; Balbala's/Yoon's/Rangeen's = Quest Items, на пол не падают)
+#   + ИНСКРИБЕД УЛЬТИМАТУМ (класс "Inscribed Ultimatum") + CHRONICLE OF ATZOATL (Misc Map Items) — блок 2b
+#   + ANCIENT/FADED/WEATHERED CRISIS FRAGMENT + ORIGIN CORE — уже ловятся блоком 2 (класс Pinnacle Keys, подтвердил датамайн)
+#   + AN AUDIENCE WITH THE KING (Map Fragments) — блок 2b; Chimeral Inscribed Ultimatum = Quest Items, игнор
+#   + SANCTIFIED RELIC (класс "Sanctified Relics", бывший мёртвый датамайн 0.3 — в 0.5.5 живой) — блок 13d
+#   + TRANSCENDENT ARM/LEG — 12 баз инкружии (Guarding/Caster/Commanding/Combat/Decrepifying/Deflective Arm;
+#     Calm/Evasive/Restorative/Sprinters/Sturdy/Surefooted Leg) — блок 13e, точный список ==
+#   + PERFECT/GREATER JEWELLER'S ORB — добавлены в T1-валюту (блок 10)
+#   + GREATER-РУНЫ остальные (не билдовые) — средний тир 42pt, звук 3/200 (NS tier D), блок 7b2
+#   + СПЛИНТЕРЫ Breach: StackSize >= 15 — звонок (блок 4c0, меньше — тихо как раньше)
+#   + UNCUT SKILL GEM GemLevel >= 18 — громко (блок 11b0)
+#   + Вэйстоуны T13–T14: звонок СНЯТ (шум) — визуал оставлен; T15/T16 без изменений
+#   + FIX: SetFontSize 45/48 вне диапазона 1–45 офиц. справочника → везде clamp до 45
+#   + FIX: INSTALL-строка ссылалась на v5; также чин мусора (全) в комментарии блока 23
+# НЕ добавлено сознательно: Heist (не реализован), Pantheon Souls/Pieces/Memories/Incubators/Voidstone/Maven's
+#   Invitation (мёртвый датамайн 0.5.5); Import не используется (может молча съесть хвост — тред GGG 3710331).
 #
 # Отличия v6.1 от v5 (18.10, все имена сверены с base_items 0.5.5 build 4.5.5.2 + poe2db):
 #   + TIME-LOST ДЖЕВЕЛЫ (Ruby/Emerald/Sapphire/Diamond) — мега-громко, ТОЧНЫЙ список ==
@@ -27,14 +47,14 @@
 #
 # Синтаксис: BaseType "X" без == = substring-match (проверено). Class сверены по base_items 0.5.5.
 #
-# УСТАЛОВКА: %userprofile%\Documents\My Games\Path of Exile 2\ice_strike_filter_v5.filter
+# УСТАНОВКА: %userprofile%\Documents\My Games\Path of Exile 2\ice_strike_filter_v7.filter
 # В игре: Options -> UI -> Loot Filter -> выбрать -> Reload
 #===============================================================================================================
 
 #--- 0. T0: ЛЕГЕНДАРНАЯ ВАЛЮТА (мега-громко) -------------------------------------------------------------------------
 Show
 	BaseType == "Mirror of Kalandra" "Hinekora's Lock" "Perfect Exalted Orb" "Divine Orb"
-	SetFontSize 48
+	SetFontSize 45
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 255 0 255
 	SetBackgroundColor 130 30 0 255
@@ -49,10 +69,10 @@ Show
 	SetTextColor 170 158 126 255
 	MinimapIcon 1 Yellow Circle
 
-#--- 2. КЛЮЧИ ПИНАКЛЯ / СЕЙФА / ЖУРНАЛЫ ЭКСПЕДИЦИИ ------------------------------------------------------------------
+#--- 2. КЛЮЧИ ПИНАКЛЯ / СЕЙФА / ЖУРНАЛЫ ЭКСПЕДИЦИИ / BARYA (Trial Coins) + CRISIS-ФРАГМЕНТЫ/Origin Core (Pinnacle Keys) -
 Show
-	Class == "Pinnacle Keys" "Vault Keys" "Expedition Logbook"
-	SetFontSize 46
+	Class == "Pinnacle Keys" "Vault Keys" "Expedition Logbook" "Trial Coins"
+	SetFontSize 45
 	SetTextColor 255 255 0 255
 	SetBorderColor 255 255 0 255
 	SetBackgroundColor 80 60 0 255
@@ -60,10 +80,22 @@ Show
 	PlayEffect Yellow
 	MinimapIcon 0 Yellow Star
 
+
+#-- 2b. INSCRIBED ULTIMATUM + CHRONICLE OF ATZOATL (Misc Map Items) + AUDIENCE WITH THE KING (Map Fragments) --------
+Show
+	Class == "Inscribed Ultimatum" "Misc Map Items" "Map Fragments"
+	BaseType == "Inscribed Ultimatum" "Chronicle of Atzoatl" "An Audience with the King"
+	SetFontSize 45
+	SetTextColor 255 255 0 255
+	SetBorderColor 255 150 0 255
+	SetBackgroundColor 90 45 0 255
+	PlayAlertSound 5 250
+	MinimapIcon 0 Yellow Star
+
 #--- 3. ЭССЕНЦИИ: Greater/Perfect — ГРОМКО (топ-модификаторы для апгрейда гира) -------------------------------------
 Show
 	BaseType "Greater Essence" "Perfect Essence"
-	SetFontSize 46
+	SetFontSize 45
 	SetTextColor 200 240 120 255
 	SetBorderColor 200 240 120 255
 	SetBackgroundColor 0 60 0 255
@@ -82,7 +114,7 @@ Show
 #-- 4a. Flawless/Pure Breachstone — босс-камни: громко
 Show
 	BaseType "Flawless Breachstone" "Pure Breachstone"
-	SetFontSize 46
+	SetFontSize 45
 	SetTextColor 255 120 255 255
 	SetBorderColor 200 80 255 255
 	SetBackgroundColor 60 0 70 255
@@ -100,6 +132,17 @@ Show
 	PlayAlertSound 3 200
 	MinimapIcon 0 Purple Diamond
 
+
+#-- 4c0. Breach-сплинтеры полными пачками: StackSize >= 15
+Show
+	BaseType "Splinter"
+	StackSize >= 15
+	SetFontSize 43
+	SetTextColor 255 120 255 255
+	SetBorderColor 200 80 255 255
+	SetBackgroundColor 50 0 60 255
+	PlayAlertSound 3 200
+	MinimapIcon 0 Purple Diamond
 #-- 4c. Катализсты + осколки Breach + plain Breachstone (вход в Breach — ловим всё, средне)
 Show
 	BaseType "Catalyst" "Splinter" "Breachstone" "Breachlord"
@@ -112,7 +155,7 @@ Show
 #--- 5. WOMBGIFTS — НОВАЯ механика 0.5.5 Forbidden Rites (генезис-бижутерия) — ВСЕ громко ---------------------------
 Show
 	Class == "Wombgifts"
-	SetFontSize 46
+	SetFontSize 45
 	SetTextColor 255 200 120 255
 	SetBorderColor 255 160 60 255
 	SetBackgroundColor 70 40 0 255
@@ -142,7 +185,7 @@ Show
 #--- 7. АУГМЕНТЫ: Perfect Glacial/Desert Rune — РУНЫ РЕЗИСТОВ БИЛДА (остаток холода −17) ----------------------------
 Show
 	BaseType == "Perfect Glacial Rune" "Perfect Desert Rune"
-	SetFontSize 46
+	SetFontSize 45
 	SetTextColor 150 255 150 255
 	SetBorderColor 150 255 150 255
 	SetBackgroundColor 10 60 10 255
@@ -160,6 +203,17 @@ Show
 	PlayAlertSound 4 250
 	MinimapIcon 0 Green Diamond
 
+
+#-- 7b2. GREATER-РУНЫ остальные (NS tier D): средне-громко, до тихого 7c
+Show
+	Class == "Augment"
+	BaseType "Greater "
+	SetFontSize 42
+	SetTextColor 150 255 150 255
+	SetBorderColor 150 255 150 255
+	SetBackgroundColor 10 45 10 255
+	PlayAlertSound 3 200
+	MinimapIcon 1 Green Diamond
 #-- 7c. Остальные Руны / Soul Cores / Идолы — весь класс Augment
 Show
 	Class == "Augment"
@@ -184,14 +238,14 @@ Show
 Show
 	WaystoneTier >= 15
 	Class == "Waystones"
-	SetFontSize 46
+	SetFontSize 45
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 120 0 255
 	SetBackgroundColor 110 50 0 255
 	PlayAlertSound 6 300
 	MinimapIcon 0 Orange Star
 
-#-- 9b. T13–T14: звонок
+#-- 9b. T13–T14: громко, БЕЗ звонка (шум)
 Show
 	WaystoneTier >= 13
 	WaystoneTier <= 14
@@ -200,7 +254,6 @@ Show
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 120 0 255
 	SetBackgroundColor 90 40 0 255
-	PlayAlertSound 6 250
 	MinimapIcon 0 Orange Circle
 
 #-- 9c. T6–T12
@@ -221,7 +274,7 @@ Show
 #--- 10. Валюта T1: ТОП-ОРБЫ + механика Forbidden Rites ---------------------------------------------------------------
 # Cryptic Key / Shattered Triskelion / Liquid Verisium — по канону NeverSink-PoE2 (top currency tier)
 Show
-	BaseType == "Exalted Orb" "Greater Exalted Orb" "Orb of Annulment" "Fracturing Orb" "Eternal Orb" "Vaal Orb" "Perfect Chaos Orb" "Cryptic Key" "Shattered Triskelion" "Liquid Verisium" "Exceptional Verisium"
+	BaseType == "Exalted Orb" "Greater Exalted Orb" "Orb of Annulment" "Fracturing Orb" "Eternal Orb" "Vaal Orb" "Perfect Chaos Orb" "Cryptic Key" "Shattered Triskelion" "Liquid Verisium" "Exceptional Verisium" "Perfect Jeweller's Orb" "Greater Jeweller's Orb"
 	SetFontSize 44
 	SetTextColor 255 200 0 255
 	SetBorderColor 255 200 0 255
@@ -248,7 +301,7 @@ Show
 #-- 11a. Uncut SPIRIT Gem (Herald-тройка/Blasphemy — твой резерв-бюджет)
 Show
 	BaseType == "Uncut Spirit Gem"
-	SetFontSize 48
+	SetFontSize 45
 	SetTextColor 255 80 220 255
 	SetBorderColor 255 80 220 255
 	SetBackgroundColor 60 0 45 255
@@ -256,6 +309,18 @@ Show
 	PlayEffect Pink
 	MinimapIcon 0 Pink Star
 
+
+#-- 11b0. UNCUT SKILL GEM уровня 18+ — громко (эндгейм-камни)
+Show
+	BaseType == "Uncut Skill Gem"
+	GemLevel >= 18
+	SetFontSize 45
+	SetTextColor 0 240 240 255
+	SetBorderColor 0 240 240 255
+	SetBackgroundColor 0 40 40 255
+	PlayAlertSound 5 250
+	PlayEffect Cyan
+	MinimapIcon 0 Cyan Star
 #-- 11b. Uncut Skill/Support
 Show
 	BaseType "Uncut Skill Gem" "Uncut Support Gem"
@@ -277,7 +342,7 @@ Show
 #-- 13a. TIME-LOST ДЖЕВЕЛЫ (50+ div, билд-цель: Time-Lost Sapphire под крит-вилку) — мега-громко
 Show
 	BaseType == "Time-Lost Ruby" "Time-Lost Emerald" "Time-Lost Sapphire" "Time-Lost Diamond"
-	SetFontSize 48
+	SetFontSize 45
 	SetTextColor 255 150 255 255
 	SetBorderColor 255 80 255 255
 	SetBackgroundColor 70 0 100 255
@@ -305,10 +370,34 @@ Show
 	PlayAlertSound 3 300
 	PlayEffect Blue Temp
 
+
+#-- 13d. SANCTIFIED RELIC — живой класс 0.5.5 (был мёртв в 0.3)
+Show
+	Class == "Sanctified Relics"
+	SetFontSize 42
+	SetTextColor 0 240 190 255
+	SetBorderColor 0 240 190 255
+	SetBackgroundColor 0 40 50 255
+	PlayAlertSound 3 200
+	PlayEffect Blue Temp
+	MinimapIcon 0 Blue Hexagon
+
+#-- 13e. TRANSCENDENT ARM/LEG (Incursion, 12 баз) — точный список ==
+Show
+	Class == "Transcendent Arm" "Transcendent Leg"
+	BaseType == "Guarding Arm" "Caster Arm" "Commanding Arm" "Combat Arm" "Decrepifying Arm" "Deflective Arm" "Calm Leg" "Evasive Leg" "Restorative Leg" "Sprinters Leg" "Sturdy Leg" "Surefooted Leg"
+	SetFontSize 44
+	SetTextColor 120 255 255 255
+	SetBorderColor 0 220 220 255
+	SetBackgroundColor 0 40 50 255
+	PlayAlertSound 4 250
+	PlayEffect Cyan
+	MinimapIcon 0 Cyan Hexagon
+
 #--- 14. УНИКИ (всегда; SSF — каждый потенциальный сайдгард) ---------------------------------------------------------
 Show
 	Rarity Unique
-	SetFontSize 46
+	SetFontSize 45
 	SetTextColor 255 180 0 255
 	SetBorderColor 255 180 0 255
 	SetBackgroundColor 60 30 0 255
@@ -443,12 +532,16 @@ Show
 	SetBorderColor 200 200 200 255
 	SetBackgroundColor 30 30 40 255
 
-#--- 23. ЧАРМЫ (все) + ФЛЯКИ только эндгейм-уровня --------------------------------------------------------------------
+#--- 23. ЧАРМЫ (все, громко — решение владельца 18.10: обереги с обрядами ловить ВСЕ, цены неважны) + ФЛЯКИ только эндгейм-уровня ----
 Show
 	Class == "Charms"
-	SetFontSize 38
+	SetFontSize 44
 	SetTextColor 200 255 200 255
-	SetBorderColor 100 160 100 255
+	SetBorderColor 100 255 100 255
+	SetBackgroundColor 20 60 20 255
+	PlayAlertSound 3 200
+	PlayEffect Green
+	MinimapIcon 0 Green Circle
 
 Show
 	Class == "Life Flasks" "Mana Flasks"
