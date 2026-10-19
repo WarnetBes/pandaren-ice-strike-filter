@@ -205,9 +205,10 @@ Show
 
 
 #-- 7b2. GREATER-РУНЫ остальные (NS tier D): средне-громко, до тихого 7c
+#   Точный перечень 20 Greater-рун (base_items 0.5.5), НЕ подстрока - не цепляет валюту/эссенции/фласки
 Show
 	Class == "Augment"
-	BaseType "Greater "
+	BaseType == "Greater Desert Rune" "Greater Glacial Rune" "Greater Storm Rune" "Greater Iron Rune" "Greater Body Rune" "Greater Mind Rune" "Greater Rebirth Rune" "Greater Inspiration Rune" "Greater Stone Rune" "Greater Vision Rune" "Greater Robust Rune" "Greater Adept Rune" "Greater Resolve Rune" "Greater Tempered Rune" "Greater Ward Rune" "Greater Charging Rune" "Greater Rune of Leadership" "Greater Rune of Tithing" "Greater Rune of Alacrity" "Greater Rune of Nobility"
 	SetFontSize 42
 	SetTextColor 150 255 150 255
 	SetBorderColor 150 255 150 255
@@ -361,7 +362,7 @@ Show
 	PlayEffect Pink
 	MinimapIcon 0 Pink Hexagon
 
-#-- 13b. Релики Sekhema
+#-- 13c. Релики Sekhema
 Show
 	BaseType == "Amphora Relic" "Coffer Relic" "Incense Relic" "Seal Relic" "Tapestry Relic" "Urn Relic" "Vase Relic"
 	SetFontSize 40
