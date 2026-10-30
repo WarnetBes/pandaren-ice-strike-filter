@@ -1,7 +1,20 @@
 #===============================================================================================================
 # Ice Strike Invoker + Sorceress Co-op — SSF Filter v9 (L18→100 LEV->ЭНДГЕЙМ, фликер-CI + мана-кастер, патч 0.5.5)
 # Для PandarenDeepRover (L92) + соратницы Чародейки (L18 → 100, Ткач бурь «Плетение Молний»),
-# актуализация от 30.10.2026 (v9.0)
+# актуализация от 30.10.2026 (v9.1 ДУЭТ-ПАЛИТРЫ)
+#
+# Отличия v9.1 от v9.0 (30.10, ДВЕ ПАЛИТРЫ = кто берёт, видно по цвету):
+#   + ПАЛИТРА «ЖЕНСКАЯ» (Чародейка: роза/магента/лаванда, иконки Pink/Purple) с тирами и звуками:
+#     ТИР-1 звук 5/200: жезлы топ-баз (15c), Absent Amulet (21s), Perfect Mind/Iron Rune (7s);
+#     ТИР-2 звук 3/250: кастер-стафы/фокусы (15d-15e), мана-кольца Mnemonic+ES (20s),
+#       Greater Mind/Iron (7s-b);
+#     ТИР-3 без звука: rare кастер-оружие всех баз (15f, 15f-иконка Pink), её базы тела/сапог
+#       (16s/19s Feathered Raiment/Lizardscale/Serpentscale/Cryptic/Warlock), мана-флаконы (лаванда).
+#   + ПАЛИТРА «МУЖСКАЯ» (Invoker: зелёный/циан/сталь, Green/Blue иконки): его руны (7/7b резисты),
+#     его кольца/амулеты (20/21), его базы тела/сапог (16/19), стафы 15a/b — БЕЗ ИЗМЕНЕНИЙ v8/v7.
+#   + Расщеплены общие блоки: 20/21/16/19/7/7b разделены на владельческие (м) и соратницы (s) —
+#     цвет на полу = принадлежность лута.
+#   Звуки разнесены: её топ = 5 c volume 200 (мягче), мужской топ резист-рун = 4/300 — не путаются.
 #
 # Отличия v9 от v8 (30.10, ЛЕВЕЛИНГ-СЛОЙ для чародейки L18→100; самогаснущийся по ItemLevel):
 #   + 15f: RARE жезлы/кастер-стафы/фокусы ЛЮБЫХ баз — 40pt+icon (раньше падали в блок 24 на 34pt
@@ -213,10 +226,9 @@ Show
 	SetBackgroundColor 0 35 55 255
 	MinimapIcon 1 Blue Diamond
 
-#--- 7. АУГМЕНТЫ: Perfect Glacial/Desert Rune — РУНЫ РЕЗИСТОВ БИЛДА (остаток холода −17)
-#    v8: + Perfect Mind Rune (×5 в гире соратницы) + Perfect Iron Rune (её сапоги ×2)
+#--- 7. АУГМЕНТЫ, ПАЛИТРА «МУЖСКАЯ» (Invoker, зелёный/сталь): Perfect Glacial/Desert — РУНЫ РЕЗИСТОВ БИЛДА
 Show
-	BaseType == "Perfect Glacial Rune" "Perfect Desert Rune" "Perfect Mind Rune" "Perfect Iron Rune"
+	BaseType == "Perfect Glacial Rune" "Perfect Desert Rune"
 	SetFontSize 45
 	SetTextColor 150 255 150 255
 	SetBorderColor 150 255 150 255
@@ -225,16 +237,36 @@ Show
 	PlayEffect Green
 	MinimapIcon 0 Green Star
 
-#-- 7b. ГРЕЙТЕР-РУНЫ РЕЗИСТОВ БИЛДА (кап-этап: Greater Glacial в шлем/тело; Greater Desert на Light)
-#    v8: + Greater Mind/Iron Rune — мана/ES-руны соратницы наравне с билдовыми
+#-- 7s. АУГМЕНТЫ, ПАЛИТРА «ЖЕНСКАЯ» (Чародейка, роза/магента): Perfect Mind Rune (×5 её гир) + Perfect Iron
 Show
-	BaseType == "Greater Glacial Rune" "Greater Desert Rune" "Greater Mind Rune" "Greater Iron Rune"
+	BaseType == "Perfect Mind Rune" "Perfect Iron Rune"
+	SetFontSize 45
+	SetTextColor 255 190 220 255
+	SetBorderColor 255 120 200 255
+	SetBackgroundColor 90 0 70 255
+	PlayAlertSound 5 200
+	PlayEffect Pink
+	MinimapIcon 0 Pink Star
+
+#-- 7b. ГРЕЙТЕР-РУНЫ БИЛДА, ПАЛИТРА «МУЖСКАЯ» (Invoker): Greater Glacial (шлем/тело) / Greater Desert (Light)
+Show
+	BaseType == "Greater Glacial Rune" "Greater Desert Rune"
 	SetFontSize 44
 	SetTextColor 150 255 150 255
 	SetBorderColor 150 255 150 255
 	SetBackgroundColor 10 50 10 255
 	PlayAlertSound 4 250
 	MinimapIcon 0 Green Diamond
+
+#-- 7s-b. ГРЕЙТЕР-РУНЫ ЧАРОДЕЙКИ, ПАЛИТРА «ЖЕНСКАЯ»: Greater Mind/Iron (мана/ES её гира)
+Show
+	BaseType == "Greater Mind Rune" "Greater Iron Rune"
+	SetFontSize 44
+	SetTextColor 255 190 220 255
+	SetBorderColor 255 120 200 255
+	SetBackgroundColor 70 0 55 255
+	PlayAlertSound 5 180
+	MinimapIcon 0 Pink Diamond
 
 
 #-- 7b2. GREATER-РУНЫ остальные (NS tier D): средне-громко, до тихого 7c
@@ -467,66 +499,70 @@ Show
 
 #===============================================================================================================
 # >>>>> СОРАТНИЦА: Чародейка Ткач бурь («Плетение Молний»: мана/молния/CoC-криты) <<<<<
+# ПАЛИТРА «ЖЕНСКАЯ»: роза/магента/лаванда, звуки 5 (громче) / 3 (средний) — тиры приоритета.
 # Базы билда: Dueling Wand (Damnation Cry), Chiming Staff (Rapture Bane), Sacred Focus (Sphere of the Dead).
 # Все имена сверены с base_items 0.5.5. Уники ловит блок 14 выше.
 #===============================================================================================================
 
-#-- 15c. ЖЕЗЛЫ (Wands): топ-базы под N/M-крафт + все Rare
+#-- 15c. ЖЕЗЛЫ (Wands): топ-базы под N/M-крафт + все Rare — ТИР-1 (звук)
 Show
 	Class == "Wands"
 	BaseType == "Dueling Wand" "Critical Wand" "Galvanic Wand" "Siphoning Wand" "Attuned Wand" "Primordial Wand" "Twisted Wand"
 	Rarity Normal Magic Rare
-	SetFontSize 42
-	SetTextColor 255 150 150 255
-	SetBorderColor 255 100 100 255
-	SetBackgroundColor 60 20 20 255
-	PlayEffect Red
-	MinimapIcon 1 Red Diamond
+	SetFontSize 45
+	SetTextColor 255 190 220 255
+	SetBorderColor 255 120 200 255
+	SetBackgroundColor 100 0 75 255
+	PlayAlertSound 5 200
+	PlayEffect Pink
+	MinimapIcon 0 Pink Star
 
-#-- 15d. КАСТЕР-СТАФЫ (Int-пруты): Chiming = база Rapture Bane билда
+#-- 15d. КАСТЕР-СТАФЫ (Int-пруты): Chiming = база Rapture Bane билда — ТИР-2
 Show
 	Class == "Staves"
 	BaseType == "Chiming Staff" "Voltaic Staff" "Sanctified Staff" "Dark Staff" "Reflecting Staff"
 	Rarity Normal Magic Rare
-	SetFontSize 42
-	SetTextColor 255 150 150 255
-	SetBorderColor 255 100 100 255
-	SetBackgroundColor 60 20 20 255
-	PlayEffect Red
-	MinimapIcon 1 Red Diamond
+	SetFontSize 44
+	SetTextColor 255 185 215 255
+	SetBorderColor 230 110 190 255
+	SetBackgroundColor 85 0 65 255
+	PlayAlertSound 3 250
+	PlayEffect Pink
+	MinimapIcon 0 Pink Diamond
 
-#-- 15e. ФОКУСЫ (off-hand соратницы): Sacred = база Sphere of the Dead билда
+#-- 15e. ФОКУСЫ (off-hand соратницы): Sacred = база Sphere of the Dead билда — ТИР-2
 Show
 	Class == "Foci"
 	BaseType == "Sacred Focus" "Leyline Focus" "Magus Focus" "Attuned Focus" "Jingling Focus" "Arrayed Focus" "Tasalian Focus" "Elegant Focus"
 	Rarity Normal Magic Rare
-	SetFontSize 42
-	SetTextColor 255 150 150 255
-	SetBorderColor 255 100 100 255
-	SetBackgroundColor 60 20 20 255
-	PlayEffect Red
-	MinimapIcon 1 Red Diamond
+	SetFontSize 44
+	SetTextColor 255 185 215 255
+	SetBorderColor 230 110 190 255
+	SetBackgroundColor 85 0 65 255
+	PlayAlertSound 3 250
+	PlayEffect Pink
+	MinimapIcon 0 Pink Diamond
 
-#-- 15f. RARE жезлы/кастер-стафы/фокусы — ВСЕ базы (левелинг соратницы: редкий жезл лучше магика)
+#-- 15f. RARE жезлы/кастер-стафы/фокусы — ВСЕ базы (левелинг соратницы) — ТИР-3 (без звука)
 Show
 	Class == "Wands" "Staves" "Foci"
 	Rarity Rare
 	SetFontSize 40
-	SetTextColor 255 170 170 255
-	SetBorderColor 200 90 90 255
-	SetBackgroundColor 45 15 15 255
-	MinimapIcon 1 Red Diamond
+	SetTextColor 255 170 210 255
+	SetBorderColor 200 90 170 255
+	SetBackgroundColor 60 0 50 255
+	MinimapIcon 1 Pink Diamond
 
 #-- 15g. ЛЕВЕЛИНГ-ОРУЖИЕ КАСТЕРА (N/M любые базы) — AreaLevel <= 64 (канон NS-PoE2: AL65 = граница).
-#   В эндгейм-картах владельца блок сам молчит — один фильтр на двоих.
+#   В эндгейм-картах владельца блок сам молчит — один фильтр на двоих. Лаванда, тихий тир.
 Show
 	Class == "Wands" "Foci" "Staves"
 	AreaLevel <= 64
 	Rarity Normal Magic
 	SetFontSize 38
-	SetTextColor 255 150 150 255
-	SetBorderColor 160 60 60 255
-	MinimapIcon 2 Red Circle
+	SetTextColor 230 190 240 255
+	SetBorderColor 180 140 210 255
+	MinimapIcon 2 Purple Circle
 
 #-- 15h. ЛЕВЕЛИНГ-ЭКИПИРОВКА (N/M любые базы) — AreaLevel <= 64 (кампания соратницы).
 #   Магики с хорошими модами + заготовки под regal; в картах владельца не срабатывает.
@@ -542,11 +578,10 @@ Show
 # >>>>> ТОП-БАЗЫ ПОД ПЛАН №251 (Normal/Magic = заготовки под крафт, ES/EV цели) <<<<<
 #===============================================================================================================
 
-#--- 16. ТЕЛО EV/ES (DexInt) — дух + EV + ES (Grim Coat/Doom Suit = Sleek Jacket — база эталона и владельца)
-#    v8: + Feathered Raiment (база Viper Wrap соратницы — EV/ES, slot мана-модов)
+#--- 16. ТЕЛО EV/ES (DexInt) — ПАЛИТРА «МУЖСКАЯ» (Invoker): дух + EV + ES (Grim Coat/Doom Suit = Sleek Jacket)
 Show
 	Class == "Body Armours"
-	BaseType == "Assassin Garb" "Devout Garb" "Torment Jacket" "Ascetic Garb" "Clandestine Jacket" "Monastic Garb" "Sleek Jacket" "Feathered Raiment"
+	BaseType == "Assassin Garb" "Devout Garb" "Torment Jacket" "Ascetic Garb" "Clandestine Jacket" "Monastic Garb" "Sleek Jacket"
 	Rarity Normal Magic
 	SetFontSize 44
 	SetTextColor 120 255 150 255
@@ -554,6 +589,17 @@ Show
 	SetBackgroundColor 0 50 20 255
 	PlayEffect Green
 	MinimapIcon 0 Green Diamond
+
+#-- 16s. ТЕЛО СОРАТНИЦЫ — ПАЛИТРА «ЖЕНСКАЯ»: Feathered Raiment ( база Viper Wrap её билда, EV/ES мана-моды)
+Show
+	Class == "Body Armours"
+	BaseType == "Feathered Raiment"
+	Rarity Normal Magic
+	SetFontSize 42
+	SetTextColor 255 175 215 255
+	SetBorderColor 255 110 190 255
+	SetBackgroundColor 80 0 60 255
+	MinimapIcon 0 Pink Diamond
 
 #--- 17. ШЛЕМ ES (Int-тиары — CI-путь) + гибрид-маски DexInt
 Show
@@ -577,11 +623,10 @@ Show
 	SetBackgroundColor 20 20 60 255
 	MinimapIcon 1 Blue Diamond
 
-#--- 19. САПОГИ (Sekhema из PoB + топ DexInt Shoes; Quickslip/Daggerfoot = 30% MS базы; Charmed Shoes = Armageddon Slippers эталона, Deflection)
-#    v8: + Int-базы соратницы: Lizardscale (Oblivion Slippers её билда), Serpentscale, Cryptic/Warlock Leggings (ES)
+#--- 19. САПОГИ — ПАЛИТРА «МУЖСКАЯ» (Invoker: Sekhema из PoB + топ DexInt Shoes; Quickslip/Daggerfoot = 30% MS; Charmed Shoes = Armageddon Slippers эталона)
 Show
 	Class == "Boots"
-	BaseType == "Sekhema Sandals" "Quickslip Shoes" "Daggerfoot Shoes" "Charmed Shoes" "Wanderer Shoes" "Lizardscale Boots" "Serpentscale Boots" "Cryptic Leggings" "Warlock Leggings"
+	BaseType == "Sekhema Sandals" "Quickslip Shoes" "Daggerfoot Shoes" "Charmed Shoes" "Wanderer Shoes"
 	Rarity Normal Magic
 	SetFontSize 40
 	SetTextColor 200 200 255 255
@@ -589,17 +634,39 @@ Show
 	SetBackgroundColor 20 20 60 255
 	MinimapIcon 1 Blue Diamond
 
-#--- 20. КОЛЬЦА — даже Normal/Magic: Two-Stone (Fire+Cold) = резисты; Unset Ring = +1 слот скилла (эталон и владелец ×2!)
-#    v8: + Mnemonic Ring (база Rift Grasp/Beast Knuckle билда соратницы: max mana) + мана/ES-кольца 0.5.5
+#-- 19s. САПОГИ СОРАТНИЦЫ — ПАЛИТРА «ЖЕНСКАЯ»: Lizardscale (Oblivion Slippers её билда), Serpentscale, Cryptic/Warlock Leggings (Int ES)
+Show
+	Class == "Boots"
+	BaseType == "Lizardscale Boots" "Serpentscale Boots" "Cryptic Leggings" "Warlock Leggings"
+	Rarity Normal Magic
+	SetFontSize 40
+	SetTextColor 255 175 215 255
+	SetBorderColor 255 110 190 255
+	SetBackgroundColor 80 0 60 255
+	MinimapIcon 1 Pink Diamond
+
+#--- 20. КОЛЬЦА, ПАЛИТРА «МУЖСКАЯ» (Invoker): Two-Stone = резисты; Unset Ring = +1 слот скилла (эталон и владелец ×2!)
 Show
 	Class == "Rings"
-	BaseType == "Two-Stone Ring" "Ruby Ring" "Sapphire Ring" "Topaz Ring" "Amethyst Ring" "Prismatic Ring" "Unset Ring" "Mnemonic Ring" "Biostatic Ring" "Vitalic Ring" "Oneiric Ring" "Grasping Ring"
+	BaseType == "Two-Stone Ring" "Ruby Ring" "Sapphire Ring" "Topaz Ring" "Amethyst Ring" "Prismatic Ring" "Unset Ring"
 	Rarity Normal Magic
 	SetFontSize 42
 	SetTextColor 255 220 120 255
 	SetBorderColor 255 200 80 255
 	SetBackgroundColor 50 40 0 255
 	MinimapIcon 0 Yellow Diamond
+
+#-- 20s. КОЛЬЦА СОРАТНИЦЫ, ПАЛИТРА «ЖЕНСКАЯ»: Mnemonic Ring (базы Rift Grasp/Beast Knuckle её билда: max mana) + мана/ES-кольца
+Show
+	Class == "Rings"
+	BaseType == "Mnemonic Ring" "Biostatic Ring" "Vitalic Ring" "Oneiric Ring" "Grasping Ring"
+	Rarity Normal Magic
+	SetFontSize 42
+	SetTextColor 255 190 220 255
+	SetBorderColor 255 120 200 255
+	SetBackgroundColor 90 0 70 255
+	PlayAlertSound 3 250
+	MinimapIcon 0 Pink Diamond
 
 #--- 21. ПОЯСА + АМУЛЕТЫ — топ-базы под N/M-крафт (чарм-слоты роаллятся отдельно на любой базе)
 Show
@@ -614,13 +681,25 @@ Show
 
 Show
 	Class == "Amulets"
-	BaseType == "Lunar Amulet" "Lapis Amulet" "Stellar Amulet" "Veridical Chain" "Gold Amulet" "Pearlescent Amulet" "Solar Amulet" "Absent Amulet"
+	BaseType == "Lunar Amulet" "Lapis Amulet" "Stellar Amulet" "Veridical Chain" "Gold Amulet" "Pearlescent Amulet" "Solar Amulet"
 	Rarity Normal Magic
 	SetFontSize 40
 	SetTextColor 255 220 120 255
 	SetBorderColor 255 200 80 255
 	SetBackgroundColor 50 40 0 255
 	MinimapIcon 1 Yellow Diamond
+
+#-- 21s. АМУЛЕТ СОРАТНИЦЫ, ПАЛИТРА «ЖЕНСКАЯ»: Absent Amulet (база Empyrean Torc её билда, грантит Cast on Crit) — ТИР-1, звук
+Show
+	Class == "Amulets"
+	BaseType == "Absent Amulet"
+	Rarity Normal Magic
+	SetFontSize 44
+	SetTextColor 255 190 220 255
+	SetBorderColor 255 120 200 255
+	SetBackgroundColor 100 0 75 255
+	PlayAlertSound 5 200
+	MinimapIcon 0 Pink Star
 
 #--- 22. RARE-ЦЕЛО (универсальная сетка) -----------------------------------------------------------------------------
 #-- 22a. Кольца/Амулеты/Пояса Rare (резисты/ES/дух)
@@ -656,9 +735,9 @@ Show
 Show
 	Class == "Mana Flasks"
 	SetFontSize 40
-	SetTextColor 150 200 255 255
-	SetBorderColor 90 140 220 255
-	MinimapIcon 2 Blue Circle
+	SetTextColor 230 170 240 255
+	SetBorderColor 200 120 220 255
+	MinimapIcon 2 Purple Circle
 
 Show
 	Class == "Life Flasks"
