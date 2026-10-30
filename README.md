@@ -1,16 +1,16 @@
 # pandaren-ice-strike-filter
 
-SSF Loot Filter для **PandarenDeepRover** (Monk, Ice Strike Invoker, PoE2 — лига Forbidden Rites).
+SSF Loot Filter для **PandarenDeepRover** (Monk, Ice Strike Invoker, PoE2 — лига Forbidden Rites) и его соратницы **Чародейки Ткачи бурь** (кооп, билд «Плетение Молний»: мана/молния/CoC-криты).
 
-Кастомный **v5** (эндгейм, L80+, актуален под патч 0.5.5 Forbidden Rites) + левелинг **v2** (этапы 1+2: 27–60) + запасной **NeverSink 0.10.4** (Regular).
+Кастомный **v8** (эндгейм, L80+, кооп-дуэт, патч 0.5.5 Forbidden Rites) + левелинг **v2** (этапы 1+2: 27–60) + запасной **NeverSink 0.10.4** (Regular).
 
 ## Состав репозитория
 
 | Файл | Что это |
 |---|---|
-| `ice_strike_filter_v5.filter` | **ЭНДГЕЙМ-фильтр v5 (L80+, РЕКОМЕНДОВАН, патч 0.5.5).** Новое против v4: в N/M-подсветку под крафт добавлены базы эталона hVyJaA3I26cF (L93 CI): посох **Sinister Quarterstaff** (Brood Call +5 attack) + Bolting/Razor/Skullcrusher/Warding, тело **Sleek Jacket** (Grim Coat — база текущего Doom Suit владельца), сапоги **Charmed Shoes** (Armageddon Slippers, Deflection) + Wanderer Shoes, кольцо **Unset Ring** (+1 слот скилла — у эталона и владельца ×2), амулеты **Gold Amulet** (Rapture Collar) + Pearlescent/Solar; убран дубль `Omen of Greater Exaltation`. Унаследовано из v4: Wombgifts громко, валюта T0–T3, Breachstones по тирам, Perfect Glacial/Desert Rune звездой, вэйстоуны T15/T16, Omens топ-крафт со звуком. Все имена сверены с base_items 0.5.5 (build 4.5.5.2) и NeverSink-PoE2 0.10.4. |
-| `ice_strike_filter_v4.filter` | Эндгейм-фильтр **v4** (L80+, предыдущая версия). |
-| `ice_strike_filter_v3.filter` | Эндгейм-фильтр **v3** (L80+, предыдущая версия). |
+| `ice_strike_filter_v8.filter` | **ЭНДГЕЙМ-фильтр v8 (L80+, РЕКОМЕНДОВАН, кооп-дуэт, патч 0.5.5).** = v7 + секция соратницы: жезлы (Dueling Wand — база Damnation Cry: CoC+crit, Critical/Galvanic/Siphoning/Attuned/Primordial/Twisted), кастер-стафы (Chiming Staff — база Rapture Bane, Voltaic/Sanctified/Dark/Reflecting), фокусы (Sacred Focus — база Sphere of the Dead, Leyline/Magus/Attuned/Jingling/Arrayed/Tasalian/Elegant); кольца маны (Mnemonic Ring — база Rift Grasp/Beast Knuckle, Biostatic/Vitalic/Oneiric/Grasping); амулет **Absent Amulet** (база Empyrean Torc, грантит Cast on Crit 20); руны **Perfect Mind Rune** (×5 в гире соратницы) + Perfect Iron + Greater Mind/Iron — громко; Int-базы: тело Feathered Raiment (Viper Wrap), сапоги Lizardscale (Oblivion Slippers)/Serpentscale/Cryptic/Warlock Leggings. Все имена сверены с base_items 0.5.5 (build 4.5.5.2). |
+| `ice_strike_filter_v7.filter` | Эндгейм-фильтр **v7** (соло-Invoker; предъыдущая версия): чармы громко, Djinn Barya, Inscribed Ultimatum + Chronicle of Atzoatl + Audience with the King, Sanctified Relic, Transcendent Arm/Leg (12 баз), Perfect/Greater Jeweller's Orb в T1, точный перечень 20 Greater-рун, сплинтеры 15+ звонок, Uncut Skill Gem L18+, фикс SetFontSize clamp 45. |
+| `ice_strike_filter_v5.filter` | Эндгейм-фильтр **v5** (история: базы эталона hVyJaA3I26cF под N/M-крафт). |
 | `ice_strike_filter_v2.filter` | Кастомный левелинг-фильтр **v2**. Приоритеты: стафы (топ-базы крит/урон даже Magic — под крафт), Rare-шмот, Uncut Spirit Gem (отсюда Herald of Thunder), ES/EV-базы к билду этапа 2, резисты на кольцах/амулетах/поясах, джувелы, валюта. |
 | `ice_strike_filter.filter` | Левелинг-фильтр **v1** (27+). Базовая версия без приоритизации стафов и секции этапа 2. |
 | `neversink_regular.filter` | NeverSink 0.10.4 **REGULAR** — оригинальный файл с GitHub (SHA-256 сверен). Запасной/расширенный фильтр. |
