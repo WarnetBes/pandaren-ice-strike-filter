@@ -27,7 +27,7 @@
 #--- 1. Голд ----------------------------------------------------------------------------------------------------
 Show
 	BaseType == "Gold"
-	SetFontSize 30
+	SetFontSize 18
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 255 255 255
 	MinimapIcon 0 Yellow Circle
@@ -35,7 +35,7 @@ Show
 #--- 2. Валюта (орбы и всё стекуемое) --------------------------------------------------------------------------
 Show
 	Class == "Stackable Currency"
-	SetFontSize 42
+	SetFontSize 25
 	SetTextColor 255 200 0 255
 	SetBorderColor 255 200 0 255
 	SetBackgroundColor 40 30 0 255
@@ -46,7 +46,7 @@ Show
 #--- 3. Uncut гемы (все — всегда) ------------------------------------------------------------------------------
 Show
 	BaseType "Uncut Skill Gem" "Uncut Support Gem" "Uncut Spirit Gem"
-	SetFontSize 45
+	SetFontSize 28
 	SetTextColor 0 240 240 255
 	SetBorderColor 0 240 240 255
 	SetBackgroundColor 0 40 40 255
@@ -57,14 +57,14 @@ Show
 #--- 4. Готовые гемы (Skill/Support) ---------------------------------------------------------------------------
 Show
 	Class == "Skill Gems" "Support Gems"
-	SetFontSize 42
+	SetFontSize 25
 	SetTextColor 0 240 240 255
 	SetBorderColor 0 240 240 255
 
 #--- 5. Джувелы и Релики (для Darkness Enthroned / сокетов позже) ----------------------------------------------
 Show
 	Class == "Jewels" "Relics"
-	SetFontSize 44
+	SetFontSize 27
 	SetTextColor 220 120 255 255
 	SetBorderColor 220 120 255 255
 	SetBackgroundColor 40 0 60 255
@@ -75,7 +75,7 @@ Show
 #--- 6. Уники (всегда, все) ------------------------------------------------------------------------------------
 Show
 	Rarity Unique
-	SetFontSize 46
+	SetFontSize 28
 	SetTextColor 255 180 0 255
 	SetBorderColor 255 180 0 255
 	SetBackgroundColor 60 30 0 255
@@ -87,7 +87,7 @@ Show
 Show
 	Class == "Quarterstaves"
 	Rarity Rare
-	SetFontSize 42
+	SetFontSize 25
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 150 0 255
 	SetBackgroundColor 60 25 0 255
@@ -97,7 +97,7 @@ Show
 Show
 	Class == "Body Armours" "Helmets"
 	Rarity Rare
-	SetFontSize 40
+	SetFontSize 24
 	SetTextColor 255 255 255 255
 	SetBorderColor 200 200 200 255
 	SetBackgroundColor 30 30 40 255
@@ -106,7 +106,7 @@ Show
 Show
 	Class == "Rings" "Amulets" "Belts"
 	Rarity Rare
-	SetFontSize 42
+	SetFontSize 25
 	SetTextColor 255 220 120 255
 	SetBorderColor 255 200 80 255
 	SetBackgroundColor 50 40 0 255
@@ -116,7 +116,7 @@ Show
 Show
 	Class == "Gloves" "Boots"
 	Rarity Rare
-	SetFontSize 40
+	SetFontSize 24
 	SetTextColor 255 255 255 255
 	SetBorderColor 150 150 150 255
 	SetBackgroundColor 25 25 25 255
@@ -124,14 +124,14 @@ Show
 #--- 11. Сокетируемые (Runes / Soul Cores) — крафт, по желанию ----------------------------------------------
 Show
 	Class == "Socketable"
-	SetFontSize 40
+	SetFontSize 24
 	SetTextColor 150 255 150 255
 	SetBorderColor 150 255 150 255
 
 #--- 12. Фляги/Чармы — нужных уровней --------------------------------------------------------------------------
 Show
 	Class == "Life Flasks" "Mana Flasks" "Charms"
-	SetFontSize 36
+	SetFontSize 21
 	SetTextColor 200 255 200 255
 	SetBorderColor 100 160 100 255
 
@@ -139,7 +139,7 @@ Show
 Show
 	Class == "Bows" "Crossbows" "Sceptres" "Wands" "Staves" "Spears" "Bucklers" "Shields" "Foci"
 	Rarity Rare
-	SetFontSize 36
+	SetFontSize 21
 	SetTextColor 220 220 220 255
 	SetBorderColor 100 100 100 255
 
