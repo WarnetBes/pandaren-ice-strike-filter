@@ -277,6 +277,15 @@ Show
 	SetTextColor 0 240 240 255
 	SetBorderColor 0 200 200 255
 
+#--- V4. RARE/MAGIC JEWELS visible (Sinister-class rolled jewels reach 40-100
+#     div; unique jewels caught by V1/V2 above) - medium, no sound ---------------
+Show
+	Class == "Jewels"
+	SetFontSize 24
+	SetTextColor 220 120 255 255
+	SetBorderColor 220 120 255 255
+	MinimapIcon 2 Purple Circle
+
 #--- FINAL. EVERYTHING ELSE IS HIDDEN (currency/craft/consumables view) ----------
 Hide
 	SetFontSize 10
