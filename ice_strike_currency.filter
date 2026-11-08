@@ -1,0 +1,135 @@
+#===============================================================================
+# CURRENCY-ONLY LODOT FILTER v1.0 (pandaren-ice-strike-filter, 08.11.2026)
+# Companion to ice_strike_filter_v9 (duet). This filter shows ONLY game
+# currency. Everything else (gear, gems, uniques, maps, tablets) is HIDDEN.
+#
+# USE CASE: currency-farming runs / dump tab sorting / clean loot view.
+# Switch back to ice_strike_filter_v9 in-game anytime (Options -> UI).
+#
+# TIERS (priority raised vs v9 blocks 0/1/10):
+#   T0  Mirror-tier      - 45pt, sound 5/300, star + beam + map icon
+#   T1  Top orbs         - 45pt, sound 5/300 (was  2/250 in v9! ), star + beam
+#   T2  Mechanic forms   - 42pt, sound 3/250 (was silent/icon in v9), beam
+#   T3  Gold             - 32pt, quiet by design (mass trash)
+#   T4  Rest of currency - 38pt, visible, no sound
+#
+# INSTALL: copy to Documents\My Games\Path of Exile 2\ice_strike_currency.filter
+# In game: Options -> UI -> Loot Filter -> ice_strike_currency -> Reload
+#
+# SAFETY NOTE: uniques are HIDDEN by this filter by design (currency-only).
+#   If you want a safety net, uncomment block A1 below.
+# OPTIONAL: essences / omens / runes / breach tradeables - uncomment section B.
+#
+# Syntax verified against official /item-filter/about + NeverSink-PoE2 0.10.4.
+#===============================================================================
+
+#--- T0. MIRROR TIER ----------------------------------------------------------
+Show
+	BaseType == "Mirror of Kalandra" "Hinekora's Lock" "Perfect Exalted Orb" "Divine Orb"
+	SetFontSize 45
+	SetTextColor 255 255 255 255
+	SetBorderColor 255 255 0 255
+	SetBackgroundColor 130 30 0 255
+	PlayAlertSound 5 300
+	PlayEffect Yellow
+	MinimapIcon 0 Yellow Star
+
+#--- T1. TOP ORBS + FORBIDDEN RITES MECHANIC CURRENCY --------------------------
+Show
+	BaseType == "Exalted Orb" "Greater Exalted Orb" "Orb of Annulment" "Fracturing Orb" "Eternal Orb" "Vaal Orb" "Perfect Chaos Orb" "Cryptic Key" "Shattered Triskelion" "Liquid Verisium" "Exceptional Verisium" "Perfect Jeweller's Orb" "Greater Jeweller's Orb"
+	SetFontSize 45
+	SetTextColor 255 200 0 255
+	SetBorderColor 255 200 0 255
+	SetBackgroundColor 60 40 0 255
+	PlayAlertSound 5 300
+	PlayEffect Yellow
+	MinimapIcon 0 Yellow Star
+
+#--- T2. MECHANIC CURRENCY (Runes of Aldur / Kalguur / breach catalyzers) ------
+Show
+	BaseType "Thaumaturgic Flux" "Starlit Ore" "Alloy" "Catalyst" "Breachstone" "Breachlord"
+	SetFontSize 42
+	SetTextColor 255 200 0 255
+	SetBorderColor 255 160 0 255
+	SetBackgroundColor 45 35 0 255
+	PlayAlertSound 3 250
+	PlayEffect Yellow
+	MinimapIcon 1 Yellow Diamond
+
+#--- T2b. BREACH SPLINTERS full stacks (StackSize >= 15) ------------------------
+Show
+	BaseType "Splinter"
+	StackSize >= 15
+	SetFontSize 42
+	SetTextColor 255 120 255 255
+	SetBorderColor 200 80 255 255
+	SetBackgroundColor 50 0 60 255
+	PlayAlertSound 3 250
+	MinimapIcon 1 Purple Diamond
+
+#--- T2c. BREACH SPLINTERS small stacks ----------------------------------------
+Show
+	BaseType "Splinter"
+	SetFontSize 38
+	SetTextColor 255 120 255 255
+	SetBorderColor 200 80 255 255
+	MinimapIcon 1 Purple Diamond
+
+#--- T3. GOLD (always visible, quiet - mass trash) ------------------------------
+Show
+	BaseType == "Gold"
+	SetFontSize 32
+	SetTextColor 170 158 126 255
+	MinimapIcon 1 Yellow Circle
+
+#--- T4. ALL REST CURRENCY (scrolls, transmutes, augments-of-chaos etc.) --------
+Show
+	Class == "Stackable Currency"
+	SetFontSize 38
+	SetTextColor 255 200 0 255
+	SetBorderColor 180 140 40 255
+
+#===============================================================================
+# >> OPTIONAL SECTION B: tradeable mechanics (commented out - currency ONLY <<
+# >> is shown by default; uncomment a block to add it to the view)             <<
+#===============================================================================
+# B1. ESSENCES (Greater/Perfect loud, rest visible)
+#Show
+#	BaseType "Essence"
+#	SetFontSize 42
+#	SetTextColor 160 220 120 255
+#	SetBorderColor 120 180 100 255
+#
+# B2. OMENS (all visible, topcraft loud)
+#Show
+#	Class == "Omen"
+#	SetFontSize 41
+#	SetTextColor 90 200 255 255
+#	SetBorderColor 90 200 255 255
+#	SetBackgroundColor 0 35 55 255
+#	MinimapIcon 1 Blue Diamond
+#
+# B3. RUNES / SOUL CORES (class Augment)
+#Show
+#	Class == "Augment"
+#	SetFontSize 40
+#	SetTextColor 150 255 150 255
+#	SetBorderColor 150 255 150 255
+#	MinimapIcon 1 Green Diamond
+
+#===============================================================================
+# >> OPTIONAL BLOCK A1: UNIQUE SAFETY NET (uncomment to never miss uniques) <<
+#Show
+#	Rarity Unique
+#	SetFontSize 45
+#	SetTextColor 255 180 0 255
+#	SetBorderColor 255 180 0 255
+#	SetBackgroundColor 60 30 0 255
+#	PlayAlertSound 5 300
+#	PlayEffect Orange
+#	MinimapIcon 0 Orange Star
+
+#--- FINAL. EVERYTHING ELSE IS HIDDEN (currency-only view) ----------------------
+Hide
+	SetFontSize 10
+	SetTextColor 100 100 100 255
