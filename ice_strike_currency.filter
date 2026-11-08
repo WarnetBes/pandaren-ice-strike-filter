@@ -1,8 +1,12 @@
 #===============================================================================
-# CURRENCY + CRAFT + CONSUMABLES + MAPS LODOT FILTER v1.2 (pandaren-ice-strike-filter, 08.11.2026)
+# CURRENCY + CRAFT + CONSUMABLES + MAPS LODOT FILTER v1.2 (pandaren-ice-strike-filter, 09.11.2026)
 # Companion to ice_strike_filter_v9 (duet). This filter shows currency, crafting
 # materials, consumables, waystones and tablets. Everything else (gear, gems,
-# uniques, keys, flasks, charms, breach splinter maps) is HIDDEN.
+# uniques, runes, keys, flasks, charms, breach splinter maps) is HIDDEN.
+#
+# CHANGES v1.2 (09.11): + waystones (tiered D1-D4, canon v9) and tablets (D5);
+#   RUNES REMOVED per owner decision (C3 deleted, C6 now soul cores only -
+#   lesser/normal/greater/perfect runes are hidden by the final Hide).
 #
 # AUDITED against base_items 0.5.5 (build 4.5.5.2, 5496 records):
 #   - all T0/T1 orb names verified (20/20 OK)
@@ -19,14 +23,12 @@
 #   C1  Greater/Perfect Essence - 45pt, sound 4/300, green star
 #   C2  Top omens (Greater Exaltation/Annulment/Sinistral+Dextral Coronation)
 #                          - 44pt, sound 3/250, blue star
-#   C3  Perfect runes    - 44pt, sound 3/200, green diamond
 #   C4  Wombgifts (5 kinds, genesis mechanic) - 45pt, sound 5/250, yellow star
 #   T3  Gold             - 32pt, quiet by design
 #   T4  Rest of Stackable Currency (incl. Lesser/normal essences, splinters
 #       small stacks, all other orbs) - 38pt, visible, no sound
 #   C5  Other omens      - 40pt, visible, no sound
-#   C6  Other augments (runes lesser/normal/greater + soul cores) - 38pt,
-#       visible, no sound
+#   C6  Soul cores (58 kinds) - 38pt, visible, no sound (RUNES HIDDEN per owner)
 #   C7  Trial Coins / Barya (5 kinds, trial entry) - 40pt, visible, no sound
 #   D1  Waystones T15/T16 - 45pt, sound 6/300, orange star (canon v9)
 #   D2  Waystones T13-T14 - 44pt, icon, no ding
@@ -76,8 +78,10 @@ Show
 	PlayEffect Yellow
 	MinimapIcon 1 Yellow Diamond
 
-#--- T2b. BREACH SPLINTERS full stacks (StackSize >= 15) ------------------------
+#--- T2b. BREACH SPLINTERS full stacks (StackSize >= 15; Class-gated: Augment
+#     "Ancient Rune of Splinters" is NOT a splinter) --------------------------------
 Show
+	Class == "Stackable Currency"
 	BaseType "Splinter"
 	StackSize >= 15
 	SetFontSize 42
@@ -107,17 +111,6 @@ Show
 	SetBackgroundColor 0 45 70 255
 	PlayAlertSound 3 250
 	MinimapIcon 0 Blue Star
-
-#--- C3. PERFECT RUNES (all 10 kinds, Class-gated so no false hits) -------------
-Show
-	Class == "Augment"
-	BaseType "Perfect "
-	SetFontSize 44
-	SetTextColor 150 255 150 255
-	SetBorderColor 150 255 150 255
-	SetBackgroundColor 10 50 10 255
-	PlayAlertSound 3 200
-	MinimapIcon 1 Green Diamond
 
 #--- C4. WOMBGIFTS (genesis mechanic, 5 kinds: Lavish/Ornate/Banded/Signet/Revelatory)
 Show
@@ -155,8 +148,11 @@ Show
 	MinimapIcon 1 Blue Diamond
 
 #--- C6. OTHER AUGMENTS (runes lesser/normal/greater + 58 soul cores) -----------
+#--- C6. SOUL CORES ONLY (58 kinds; RUNES REMOVED per owner 09.11 - all runes
+#     fall to the final Hide; soul cores stay visible as tradeable craft material)
 Show
 	Class == "Augment"
+	BaseType "Soul Core"
 	SetFontSize 38
 	SetTextColor 150 255 150 255
 	SetBorderColor 120 200 120 255
