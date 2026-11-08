@@ -4,6 +4,10 @@
 # materials, consumables, waystones and tablets. Everything else (gear, gems,
 # uniques, runes, keys, flasks, charms, breach splinter maps) is HIDDEN.
 #
+# CHANGES v1.5 (09.11): VALUABLES - top-value items guaranteed visible per owner:
+#   V1 Time-Lost jewels (4, explicit list) mega-loud; V2 ALL UNIQUES ENABLED
+#   (Mageblood ~220div / Headhunter ~33div / Morior Invictus ~30div live market);
+#   V3 Uncut Spirit Gem + Uncut Skill Gem 18+ loud, lesser uncut visible.
 # CHANGES v1.4 (09.11): XCOMPACT - top tier capped at 28 per owner (small monitor);
 #   ladder: 34->28, 33->27, 31->25, 29->24, 27->22, 26->21, Gold->18; hierarchy kept.
 # CHANGES v1.3 (09.11): COMPACT - all label fonts reduced ~25% for small monitors
@@ -170,16 +174,7 @@ Show
 	MinimapIcon 1 Yellow Diamond
 
 #===============================================================================
-# >> OPTIONAL BLOCK A1: UNIQUE SAFETY NET (uncomment to never miss uniques) <<
-#Show
-#	Rarity Unique
-#	SetFontSize 45
-#	SetTextColor 255 180 0 255
-#	SetBorderColor 255 180 0 255
-#	SetBackgroundColor 60 30 0 255
-#	PlayAlertSound 5 300
-#	PlayEffect Orange
-#	MinimapIcon 0 Orange Star
+# (old optional A1 unique safety net superseded by active block V2 - see VALUABLES)
 
 #--- D1. WAYSTONES T15/T16 (top endgame) ---------------------------------------
 Show
@@ -227,6 +222,60 @@ Show
 	SetBackgroundColor 60 40 0 255
 	PlayAlertSound 2 250
 	MinimapIcon 0 Yellow Star
+
+#--- V1. TIME-LOST JEWELS (top value, explicit == list; unique rarity is also
+#     caught by V2 below, this block guarantees mega-loud regardless) ------------
+Show
+	BaseType == "Time-Lost Ruby" "Time-Lost Emerald" "Time-Lost Sapphire" "Time-Lost Diamond"
+	SetFontSize 28
+	SetTextColor 255 150 255 255
+	SetBorderColor 255 80 255 255
+	SetBackgroundColor 70 0 100 255
+	PlayAlertSound 5 300
+	PlayEffect Pink
+	MinimapIcon 0 Pink Star
+
+#--- V2. ALL UNIQUES (VALUABLES SAFETY NET - enabled per owner 09.11:
+#     Mageblood ~220 div, Headhunter ~33 div, Morior Invictus ~30 div, Heart of
+#     the Well, Doom Span etc are uniques) - loud -------------------------------
+Show
+	Rarity Unique
+	SetFontSize 28
+	SetTextColor 255 180 0 255
+	SetBorderColor 255 180 0 255
+	SetBackgroundColor 60 30 0 255
+	PlayAlertSound 5 300
+	PlayEffect Orange
+	MinimapIcon 0 Orange Star
+
+#--- V3. UNCUT GEMS (top-value trade currency: Spirit Gem always, Skill Gem 18+)
+Show
+	BaseType == "Uncut Spirit Gem"
+	SetFontSize 28
+	SetTextColor 255 80 220 255
+	SetBorderColor 255 80 220 255
+	SetBackgroundColor 60 0 45 255
+	PlayAlertSound 5 300
+	PlayEffect Pink
+	MinimapIcon 0 Pink Star
+
+Show
+	BaseType == "Uncut Skill Gem"
+	GemLevel >= 18
+	SetFontSize 28
+	SetTextColor 0 240 240 255
+	SetBorderColor 0 240 240 255
+	SetBackgroundColor 0 40 40 255
+	PlayAlertSound 5 250
+	PlayEffect Cyan
+	MinimapIcon 0 Cyan Star
+
+#--- V3b. Lesser uncut gems - visible, no sound -----------------------------------
+Show
+	BaseType "Uncut Skill Gem" "Uncut Support Gem"
+	SetFontSize 22
+	SetTextColor 0 240 240 255
+	SetBorderColor 0 200 200 255
 
 #--- FINAL. EVERYTHING ELSE IS HIDDEN (currency/craft/consumables view) ----------
 Hide
