@@ -1,9 +1,11 @@
 #===============================================================================
-# CURRENCY + CRAFT + CONSUMABLES + MAPS LODOT FILTER v1.2 (pandaren-ice-strike-filter, 09.11.2026)
+# CURRENCY + CRAFT + CONSUMABLES + MAPS LODOT FILTER v1.3 COMPACT (pandaren-ice-strike-filter, 09.11.2026)
 # Companion to ice_strike_filter_v9 (duet). This filter shows currency, crafting
 # materials, consumables, waystones and tablets. Everything else (gear, gems,
 # uniques, runes, keys, flasks, charms, breach splinter maps) is HIDDEN.
 #
+# CHANGES v1.3 (09.11): COMPACT - all label fonts reduced ~25% for small monitors
+#   (45->34, 44->33, 42->31, 40->29, 38->27, 36->26, Gold 32->21); tier hierarchy kept.
 # CHANGES v1.2 (09.11): + waystones (tiered D1-D4, canon v9) and tablets (D5);
 #   RUNES REMOVED per owner decision (C3 deleted, C6 now soul cores only -
 #   lesser/normal/greater/perfect runes are hidden by the final Hide).
@@ -48,7 +50,7 @@
 #--- T0. MIRROR TIER ----------------------------------------------------------
 Show
 	BaseType == "Mirror of Kalandra" "Hinekora's Lock" "Perfect Exalted Orb" "Divine Orb"
-	SetFontSize 45
+	SetFontSize 34
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 255 0 255
 	SetBackgroundColor 130 30 0 255
@@ -59,7 +61,7 @@ Show
 #--- T1. TOP ORBS + FORBIDDEN RITES MECHANIC CURRENCY --------------------------
 Show
 	BaseType == "Exalted Orb" "Greater Exalted Orb" "Orb of Annulment" "Fracturing Orb" "Eternal Orb" "Vaal Orb" "Perfect Chaos Orb" "Cryptic Key" "Shattered Triskelion" "Liquid Verisium" "Exceptional Verisium" "Perfect Jeweller's Orb" "Greater Jeweller's Orb"
-	SetFontSize 45
+	SetFontSize 34
 	SetTextColor 255 200 0 255
 	SetBorderColor 255 200 0 255
 	SetBackgroundColor 60 40 0 255
@@ -70,7 +72,7 @@ Show
 #--- T2. MECHANIC CURRENCY (Aldur/Kalguur forms, catalyzers, breachstones) ------
 Show
 	BaseType "Thaumaturgic Flux" "Starlit Ore" "Alloy" "Catalyst" "Breachstone" "Breachlord"
-	SetFontSize 42
+	SetFontSize 31
 	SetTextColor 255 200 0 255
 	SetBorderColor 255 160 0 255
 	SetBackgroundColor 45 35 0 255
@@ -84,7 +86,7 @@ Show
 	Class == "Stackable Currency"
 	BaseType "Splinter"
 	StackSize >= 15
-	SetFontSize 42
+	SetFontSize 31
 	SetTextColor 255 120 255 255
 	SetBorderColor 200 80 255 255
 	SetBackgroundColor 50 0 60 255
@@ -94,7 +96,7 @@ Show
 #--- C1. GREATER/PERFECT ESSENCE (top craft mods, x26 family) -------------------
 Show
 	BaseType "Greater Essence" "Perfect Essence"
-	SetFontSize 45
+	SetFontSize 34
 	SetTextColor 200 240 120 255
 	SetBorderColor 200 240 120 255
 	SetBackgroundColor 0 60 0 255
@@ -105,7 +107,7 @@ Show
 #--- C2. TOP CRAFT OMENS (regal/exalt/annul helpers) ----------------------------
 Show
 	BaseType == "Omen of Greater Exaltation" "Omen of Greater Annulment" "Omen of Sinistral Coronation" "Omen of Dextral Coronation"
-	SetFontSize 44
+	SetFontSize 33
 	SetTextColor 90 200 255 255
 	SetBorderColor 90 200 255 255
 	SetBackgroundColor 0 45 70 255
@@ -115,7 +117,7 @@ Show
 #--- C4. WOMBGIFTS (genesis mechanic, 5 kinds: Lavish/Ornate/Banded/Signet/Revelatory)
 Show
 	Class == "Wombgifts"
-	SetFontSize 45
+	SetFontSize 34
 	SetTextColor 255 200 120 255
 	SetBorderColor 255 160 60 255
 	SetBackgroundColor 70 40 0 255
@@ -126,7 +128,7 @@ Show
 #--- T3. GOLD (always visible, quiet - mass trash) ------------------------------
 Show
 	BaseType == "Gold"
-	SetFontSize 32
+	SetFontSize 21
 	SetTextColor 170 158 126 255
 	MinimapIcon 1 Yellow Circle
 
@@ -134,14 +136,14 @@ Show
 #        splinters small stacks, coins, feathers - visible, no sound) -----------
 Show
 	Class == "Stackable Currency"
-	SetFontSize 38
+	SetFontSize 27
 	SetTextColor 255 200 0 255
 	SetBorderColor 180 140 40 255
 
 #--- C5. OTHER OMENS (46 kinds - visible, no sound) -----------------------------
 Show
 	Class == "Omen"
-	SetFontSize 40
+	SetFontSize 29
 	SetTextColor 90 200 255 255
 	SetBorderColor 90 200 255 255
 	SetBackgroundColor 0 35 55 255
@@ -153,14 +155,14 @@ Show
 Show
 	Class == "Augment"
 	BaseType "Soul Core"
-	SetFontSize 38
+	SetFontSize 27
 	SetTextColor 150 255 150 255
 	SetBorderColor 120 200 120 255
 
 #--- C7. TRIAL COINS / BARYA (Djinn + Test of Strength/Will/Cunning/Time) --------
 Show
 	Class == "Trial Coins"
-	SetFontSize 40
+	SetFontSize 29
 	SetTextColor 255 200 0 255
 	SetBorderColor 200 160 60 255
 	MinimapIcon 1 Yellow Diamond
@@ -181,7 +183,7 @@ Show
 Show
 	WaystoneTier >= 15
 	Class == "Waystones"
-	SetFontSize 45
+	SetFontSize 34
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 120 0 255
 	SetBackgroundColor 110 50 0 255
@@ -193,7 +195,7 @@ Show
 	WaystoneTier >= 13
 	WaystoneTier <= 14
 	Class == "Waystones"
-	SetFontSize 44
+	SetFontSize 33
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 120 0 255
 	SetBackgroundColor 90 40 0 255
@@ -204,20 +206,20 @@ Show
 	WaystoneTier >= 6
 	WaystoneTier <= 12
 	Class == "Waystones"
-	SetFontSize 41
+	SetFontSize 30
 	SetTextColor 220 220 200 255
 	SetBorderColor 200 190 100 255
 
 #--- D4. WAYSTONES T1-T5 ---------------------------------------------------------
 Show
 	Class == "Waystones"
-	SetFontSize 36
+	SetFontSize 26
 	SetTextColor 200 200 200 255
 
 #--- D5. TABLETS (Ritual/Temple/Breach/Abyss/Expedition/Overseer/Irradiated/Delirium, 8 kinds)
 Show
 	Class == "Tablet"
-	SetFontSize 44
+	SetFontSize 33
 	SetTextColor 255 200 0 255
 	SetBorderColor 255 200 0 255
 	SetBackgroundColor 60 40 0 255
