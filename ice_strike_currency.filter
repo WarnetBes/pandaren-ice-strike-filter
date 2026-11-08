@@ -1,8 +1,8 @@
 #===============================================================================
-# CURRENCY + CRAFT + CONSUMABLES LODOT FILTER v1.1 (pandaren-ice-strike-filter, 08.11.2026)
-# Companion to ice_strike_filter_v9 (duet). This filter shows ONLY currency,
-# crafting materials and consumables. Everything else (gear, gems, uniques,
-# maps, waystones, tablets, keys, flasks, charms) is HIDDEN.
+# CURRENCY + CRAFT + CONSUMABLES + MAPS LODOT FILTER v1.2 (pandaren-ice-strike-filter, 08.11.2026)
+# Companion to ice_strike_filter_v9 (duet). This filter shows currency, crafting
+# materials, consumables, waystones and tablets. Everything else (gear, gems,
+# uniques, keys, flasks, charms, breach splinter maps) is HIDDEN.
 #
 # AUDITED against base_items 0.5.5 (build 4.5.5.2, 5496 records):
 #   - all T0/T1 orb names verified (20/20 OK)
@@ -28,6 +28,11 @@
 #   C6  Other augments (runes lesser/normal/greater + soul cores) - 38pt,
 #       visible, no sound
 #   C7  Trial Coins / Barya (5 kinds, trial entry) - 40pt, visible, no sound
+#   D1  Waystones T15/T16 - 45pt, sound 6/300, orange star (canon v9)
+#   D2  Waystones T13-T14 - 44pt, icon, no ding
+#   D3  Waystones T6-T12  - 41pt plain
+#   D4  Waystones T1-T5   - 36pt plain
+#   D5  Tablets (8 kinds)  - 44pt, sound 2/250, yellow star (canon v9)
 #
 # OPTIONAL: unique safety net - uncomment block A1 below (uniques are HIDDEN
 #   by default in this filter by design).
@@ -175,6 +180,53 @@ Show
 #	PlayAlertSound 5 300
 #	PlayEffect Orange
 #	MinimapIcon 0 Orange Star
+
+#--- D1. WAYSTONES T15/T16 (top endgame) ---------------------------------------
+Show
+	WaystoneTier >= 15
+	Class == "Waystones"
+	SetFontSize 45
+	SetTextColor 255 255 255 255
+	SetBorderColor 255 120 0 255
+	SetBackgroundColor 110 50 0 255
+	PlayAlertSound 6 300
+	MinimapIcon 0 Orange Star
+
+#--- D2. WAYSTONES T13-T14 (loud, no ding - canon v9) ---------------------------
+Show
+	WaystoneTier >= 13
+	WaystoneTier <= 14
+	Class == "Waystones"
+	SetFontSize 44
+	SetTextColor 255 255 255 255
+	SetBorderColor 255 120 0 255
+	SetBackgroundColor 90 40 0 255
+	MinimapIcon 0 Orange Circle
+
+#--- D3. WAYSTONES T6-T12 --------------------------------------------------------
+Show
+	WaystoneTier >= 6
+	WaystoneTier <= 12
+	Class == "Waystones"
+	SetFontSize 41
+	SetTextColor 220 220 200 255
+	SetBorderColor 200 190 100 255
+
+#--- D4. WAYSTONES T1-T5 ---------------------------------------------------------
+Show
+	Class == "Waystones"
+	SetFontSize 36
+	SetTextColor 200 200 200 255
+
+#--- D5. TABLETS (Ritual/Temple/Breach/Abyss/Expedition/Overseer/Irradiated/Delirium, 8 kinds)
+Show
+	Class == "Tablet"
+	SetFontSize 44
+	SetTextColor 255 200 0 255
+	SetBorderColor 255 200 0 255
+	SetBackgroundColor 60 40 0 255
+	PlayAlertSound 2 250
+	MinimapIcon 0 Yellow Star
 
 #--- FINAL. EVERYTHING ELSE IS HIDDEN (currency/craft/consumables view) ----------
 Hide
