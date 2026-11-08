@@ -1,25 +1,22 @@
 # pandaren-ice-strike-filter
 
-SSF Loot Filter для **PandarenDeepRover** (Monk, Ice Strike Invoker, PoE2 — лига Forbidden Rites) и его соратницы **Чародейки Ткачи бурь** (кооп, билд «Плетение Молний»: мана/молния/CoC-криты).
+Loot-фильтры PoE2 (патч 0.5.5 Forbidden Rites) для владельца **PandarenDeepRover** (Monk, Ice Strike / Flicker-CI Invoker) + его соратницы **Чародейки Ткачи бурь** (билд «Плетение Молний»: мана/молния/CoC-криты).
 
-Кастомный **v9** (эндгейм+левелинг-дуэт L18→100, патч 0.5.5 Forbidden Rites) + левелинг **v2** (этапы 1+2: 27–60) + запасной **NeverSink 0.10.4** (Regular).
+**Три фильтра, все XCOMPACT** (надписи лута макс 28pt — под малый монитор, решение владельца 09.11.2026). Устаревшие версии v1/v2/v3/v5/v8 и NeverSink-зеркало удалены из репо (история — в git и в релизах до v1.9.0 включительно).
 
 ## Состав репозитория
 
-| Файл | Что это |
+| Файл | Роль |
 |---|---|
-| `ice_strike_filter_v9.filter` | **ФИЛЬТР v9.1 (L18→100 ДУЭТ + ДВЕ ПАЛИТРЫ, РЕКОМЕНДОВАН, патч 0.5.5).** = v8 + левелинг-слой для кооп-соратницы Чародейки (самогаснущийся по **AreaLevel**, канон NeverSink-PoE2: граница левелинг/эндгейм = AL65): **15f** RARE жезлы/кастер-стафы/фокусы всех баз 40pt; **15g** N/M кастер-оружие при `AreaLevel <= 64`; **15h** N/M экипировка при `AreaLevel <= 64`; фляки все (мана-флаконы приоритет — Archmage-ядро, лаванда), life-флаконы гейт AL65. **ДУЭТ-ПАЛИТРЫ (v9.1): женская (роза/магента/лаванда, Pink-иконки) — весь лут Чародейки с тирами: ТИР-1 звук (жезлы/Absent Amulet/Perfect Mind-Iron Rune), ТИР-2 звук (стафы/фокусы/мана-кольца/Greater Mind-Iron), ТИР-3 тихо (rare кастер-оружие, её базы тела/сапог, мана-флаконы); мужская (зелёный/циан/сталь) — Invoker без изменений.** Spellslinger/Sigil of Power = встроенные скиллы баз (Dueling Wand L65 / Chiming Staff L25), ловятся блоками 15c/15d. |
-| `ice_strike_currency.filter` | **CURRENCY+CRAFT+MAPS v1.2 (09.11.2026, отдельный фильтр, аудит по base_items 0.5.5).** Видны валюта, крафт-материалы, расходники, вэйстоуны и таблетки (гир/гемы/уники/РУНЫ/ключи/фляги — скрыты финальным Hide). Покрытие: 0 видимых рун, 48/48 соул-корков, все вэйстоуны/таблетки покрыты, автотест (порядок first-match-wins воспроизведён скриптом). Кейсы: валют-фарм-раны, разбор дамп-таба, чистый вид лута. Тиры с поднятым приоритетом против v9: T0 зеркальные (Mirror/Hinekora's/Perfect Exalted/Divine) — звук 5/300 + звезда; T1 топ-орбы (Exalted/Annulment/Vaal/Fracturing/Triskelion/Verisium/Perfect-Greater Jeweller's и др.) — 45pt, звук 5/300 + звезда + луч (в v9 было 2/250 без луча); T2 механо-валюта (Starlit Ore/Catalyst/Breachstone) + сплинтеры 15+ — звук 3/250 (в v9 тишина); C1 Greater/Perfect эссенции — 4/300 + зелёная звезда (в v1.0 тихо); C2 топ-омены (Greater Exaltation/Annulment/Coronation ×2) — 3/250; C4 Wombgifts — 5/250; C7 Trial Coins/Barya видны; D-секция: вэйстоуны T15/16 — 6/300 + оранжевая звезда, T13–14 — иконка без звонка, T6–12/T1–5 — тише; таблетки (8 видов) — 2/250 + звезда (канон v9, тиры 9a–9d/8 перенесены). Прочие омены и соул-корки — видимы без звука; РУНЫ УБРАНЫ ПО РЕШЕНИЮ ВЛАДЕЛЬЦА (C3 удалён, C6 = только соул-корки; все руны скрывает финальный Hide); Gold тихо. ⚠️ «Thaumaturgic Flux»/«Alloy» — мёртвые имена в 0.5.5 (оставлены как безвредный substring на будущие патчи). Опционально закомментирован блок A1 (unique-страховка — уники скрыты НАМЕРЕННО). Валидатор пройден (LF/no BOM/ASCII/кавычки/шрифт ≤45) + автотест покрытия. ⚠️ В игре НЕ подтверждён. |
-| `ice_strike_filter_v8.filter` | Эндгейм-фильтр **v8** (первая кооп-версия, без левелинг-слоя; история). |
-| `ice_strike_filter_v7.filter` | Эндгейм-фильтр **v7** (соло-Invoker; предъыдущая версия): чармы громко, Djinn Barya, Inscribed Ultimatum + Chronicle of Atzoatl + Audience with the King, Sanctified Relic, Transcendent Arm/Leg (12 баз), Perfect/Greater Jeweller's Orb в T1, точный перечень 20 Greater-рун, сплинтеры 15+ звонок, Uncut Skill Gem L18+, фикс SetFontSize clamp 45. |
-| `ice_strike_filter_v5.filter` | Эндгейм-фильтр **v5** (история: базы эталона hVyJaA3I26cF под N/M-крафт). |
-| `ice_strike_filter_v2.filter` | Кастомный левелинг-фильтр **v2**. Приоритеты: стафы (топ-базы крит/урон даже Magic — под крафт), Rare-шмот, Uncut Spirit Gem (отсюда Herald of Thunder), ES/EV-базы к билду этапа 2, резисты на кольцах/амулетах/поясах, джувелы, валюта. |
-| `ice_strike_filter.filter` | Левелинг-фильтр **v1** (27+). Базовая версия без приоритизации стафов и секции этапа 2. |
-| `neversink_regular.filter` | NeverSink 0.10.4 **REGULAR** — оригинальный файл с GitHub (SHA-256 сверен). Запасной/расширенный фильтр. |
+| `ice_strike_filter_v7.filter` | **СОЛО-МОНАХ ФЛИКЕР (одиночная игра).** Эндгейм Invoker: чармы громко, Djinn Barya, Inscribed Ultimatum + Chronicle of Atzoatl + Audience with the King, Sanctified Relic, Transcendent Arm/Leg (12 баз), Perfect/Greater Jeweller's Orb в T1, точный перечень 20 Greater-рун, сплинтеры StackSize 15+ звонок, Uncut Skill Gem GemLevel 18+, уники громко. Синтаксис сверен с официальным /item-filter/about. |
+| `ice_strike_filter_v9.filter` | **ПАРНЫЙ ДУЭТ (монах + чародейка на одном экране). РЕКОМЕНДОВАН для кооп-игры.** = v7 + соратница Чародейка + левелинг-слой: самогаснущиеся по **AreaLevel** блоки (канон NeverSink-PoE2: граница левелинг/эндгейм = AL65) — N/M кастер-оружие и экипировка при `AreaLevel <= 64`, фляки всех уровней (мана-приоритет — Archmage-ядро). **ДУЭТ-ПАЛИТРЫ v9.1:** женская (роза/магента/лаванда, Pink-иконки, тиры со звуком) — весь лут Чародейки (жезлы/кастер-стафы/фокусы — базы её билда Damnation Cry / Rapture Bane / Sphere of the Dead, мана-кольца Mnemonic, Absent Amulet, Mind-Iron руны); мужская (зелёный/циан/сталь) — Invoker. Цвет на полу = чей лут. Spellslinger/Sigil of Power = встроенные скиллы баз (Dueling Wand L65 / Chiming Staff L25). |
+| `ice_strike_currency.filter` | **ВАЛЮТНЫЙ (currency/craft/maps).** Видны ТОЛЬКО валюта, крафт-материалы, расходники, вэйстоуны и таблетки; гир/гемы/уники/руны/ключи/фляги/чармы — скрыты финальным Hide. Аудит против base_items 0.5.5 (5496 записей), автотест first-match-wins: 0 видимых рун, 48/48 соул-корков, все вэйстоуны/таблетки покрыты. Тиры: T0 зеркальные и T1 топ-орбы — звук 5/300 + звезда + луч (в дуэте было 2/250); Greater/Perfect эссенции — 4/300; топ-омены — 3/250; Wombgifts — 5/250; вэйстоуны T15/16 — 6/300; таблетки — 2/250; Barya видимы; руны скрыты по решению владельца; Gold тихо. Уники скрыты НАМЕРЕННО (в файле закомментирован блок A1 «unique-страховка»). ✅ Подтверждён в игре. |
+
+Общее: валидация скриптами (кавычки/BOM/LF/шрифт); при патчах GGG — перегнать автотест по свежему base_items (poe2-kit датасет).
 
 ## Установка (PoE2)
 
-1. Скопируй файл фильтра в папку (НЕ в `onlinefilters`!):
+1. Скачай нужный `.filter` и скопируй в (НЕ в `onlinefilters`!):
    ```
    %userprofile%\Documents\My Games\Path of Exile 2\
    ```
@@ -30,5 +27,5 @@ SSF Loot Filter для **PandarenDeepRover** (Monk, Ice Strike Invoker, PoE2 —
 ## Ссылки
 
 - Целевой билд (PoB 28880): https://poe.ninja/poe2/pob/28880
-- NeverSink-оригинал: https://github.com/NeverSinkDev/NeverSink-Filter-for-PoE2
+- NeverSink-оригинал (внешний, репо больше не зеркалит): https://github.com/NeverSinkDev/NeverSink-Filter-for-PoE2
 - Кастомизация фильтров: https://filterblade.xyz
