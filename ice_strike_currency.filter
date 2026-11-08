@@ -1,24 +1,39 @@
 #===============================================================================
-# CURRENCY-ONLY LODOT FILTER v1.0 (pandaren-ice-strike-filter, 08.11.2026)
-# Companion to ice_strike_filter_v9 (duet). This filter shows ONLY game
-# currency. Everything else (gear, gems, uniques, maps, tablets) is HIDDEN.
+# CURRENCY + CRAFT + CONSUMABLES LODOT FILTER v1.1 (pandaren-ice-strike-filter, 08.11.2026)
+# Companion to ice_strike_filter_v9 (duet). This filter shows ONLY currency,
+# crafting materials and consumables. Everything else (gear, gems, uniques,
+# maps, waystones, tablets, keys, flasks, charms) is HIDDEN.
 #
-# USE CASE: currency-farming runs / dump tab sorting / clean loot view.
-# Switch back to ice_strike_filter_v9 in-game anytime (Options -> UI).
+# AUDITED against base_items 0.5.5 (build 4.5.5.2, 5496 records):
+#   - all T0/T1 orb names verified (20/20 OK)
+#   - Splinter x14 / Catalyst x26 / Breachstone x27 - caught by substring
+#   - Essence x26 class Stackable Currency -> tiered below
+#   - Omen class x50, Augment class x313 (runes + soul cores), Wombgifts x5
+#   - "Thaumaturgic Flux" and "Alloy" are DEAD names in 0.5.5 (kept as
+#     harmless substring coverage for future patches)
 #
-# TIERS (priority raised vs v9 blocks 0/1/10):
-#   T0  Mirror-tier      - 45pt, sound 5/300, star + beam + map icon
-#   T1  Top orbs         - 45pt, sound 5/300 (was  2/250 in v9! ), star + beam
-#   T2  Mechanic forms   - 42pt, sound 3/250 (was silent/icon in v9), beam
-#   T3  Gold             - 32pt, quiet by design (mass trash)
-#   T4  Rest of currency - 38pt, visible, no sound
+# TIERS:
+#   T0  Mirror-tier      - 45pt, sound 5/300, star + beam
+#   T1  Top orbs         - 45pt, sound 5/300, star + beam (raised vs v9)
+#   T2  Mechanic forms   - 42pt, sound 3/250, beam
+#   C1  Greater/Perfect Essence - 45pt, sound 4/300, green star
+#   C2  Top omens (Greater Exaltation/Annulment/Sinistral+Dextral Coronation)
+#                          - 44pt, sound 3/250, blue star
+#   C3  Perfect runes    - 44pt, sound 3/200, green diamond
+#   C4  Wombgifts (5 kinds, genesis mechanic) - 45pt, sound 5/250, yellow star
+#   T3  Gold             - 32pt, quiet by design
+#   T4  Rest of Stackable Currency (incl. Lesser/normal essences, splinters
+#       small stacks, all other orbs) - 38pt, visible, no sound
+#   C5  Other omens      - 40pt, visible, no sound
+#   C6  Other augments (runes lesser/normal/greater + soul cores) - 38pt,
+#       visible, no sound
+#   C7  Trial Coins / Barya (5 kinds, trial entry) - 40pt, visible, no sound
+#
+# OPTIONAL: unique safety net - uncomment block A1 below (uniques are HIDDEN
+#   by default in this filter by design).
 #
 # INSTALL: copy to Documents\My Games\Path of Exile 2\ice_strike_currency.filter
 # In game: Options -> UI -> Loot Filter -> ice_strike_currency -> Reload
-#
-# SAFETY NOTE: uniques are HIDDEN by this filter by design (currency-only).
-#   If you want a safety net, uncomment block A1 below.
-# OPTIONAL: essences / omens / runes / breach tradeables - uncomment section B.
 #
 # Syntax verified against official /item-filter/about + NeverSink-PoE2 0.10.4.
 #===============================================================================
@@ -45,7 +60,7 @@ Show
 	PlayEffect Yellow
 	MinimapIcon 0 Yellow Star
 
-#--- T2. MECHANIC CURRENCY (Runes of Aldur / Kalguur / breach catalyzers) ------
+#--- T2. MECHANIC CURRENCY (Aldur/Kalguur forms, catalyzers, breachstones) ------
 Show
 	BaseType "Thaumaturgic Flux" "Starlit Ore" "Alloy" "Catalyst" "Breachstone" "Breachlord"
 	SetFontSize 42
@@ -67,13 +82,48 @@ Show
 	PlayAlertSound 3 250
 	MinimapIcon 1 Purple Diamond
 
-#--- T2c. BREACH SPLINTERS small stacks ----------------------------------------
+#--- C1. GREATER/PERFECT ESSENCE (top craft mods, x26 family) -------------------
 Show
-	BaseType "Splinter"
-	SetFontSize 38
-	SetTextColor 255 120 255 255
-	SetBorderColor 200 80 255 255
-	MinimapIcon 1 Purple Diamond
+	BaseType "Greater Essence" "Perfect Essence"
+	SetFontSize 45
+	SetTextColor 200 240 120 255
+	SetBorderColor 200 240 120 255
+	SetBackgroundColor 0 60 0 255
+	PlayAlertSound 4 300
+	PlayEffect Green
+	MinimapIcon 0 Green Star
+
+#--- C2. TOP CRAFT OMENS (regal/exalt/annul helpers) ----------------------------
+Show
+	BaseType == "Omen of Greater Exaltation" "Omen of Greater Annulment" "Omen of Sinistral Coronation" "Omen of Dextral Coronation"
+	SetFontSize 44
+	SetTextColor 90 200 255 255
+	SetBorderColor 90 200 255 255
+	SetBackgroundColor 0 45 70 255
+	PlayAlertSound 3 250
+	MinimapIcon 0 Blue Star
+
+#--- C3. PERFECT RUNES (all 10 kinds, Class-gated so no false hits) -------------
+Show
+	Class == "Augment"
+	BaseType "Perfect "
+	SetFontSize 44
+	SetTextColor 150 255 150 255
+	SetBorderColor 150 255 150 255
+	SetBackgroundColor 10 50 10 255
+	PlayAlertSound 3 200
+	MinimapIcon 1 Green Diamond
+
+#--- C4. WOMBGIFTS (genesis mechanic, 5 kinds: Lavish/Ornate/Banded/Signet/Revelatory)
+Show
+	Class == "Wombgifts"
+	SetFontSize 45
+	SetTextColor 255 200 120 255
+	SetBorderColor 255 160 60 255
+	SetBackgroundColor 70 40 0 255
+	PlayAlertSound 5 250
+	PlayEffect Yellow
+	MinimapIcon 0 Yellow Star
 
 #--- T3. GOLD (always visible, quiet - mass trash) ------------------------------
 Show
@@ -82,40 +132,37 @@ Show
 	SetTextColor 170 158 126 255
 	MinimapIcon 1 Yellow Circle
 
-#--- T4. ALL REST CURRENCY (scrolls, transmutes, augments-of-chaos etc.) --------
+#--- T4. ALL REST CURRENCY (scrolls, shards, orbs, lesser essences,
+#        splinters small stacks, coins, feathers - visible, no sound) -----------
 Show
 	Class == "Stackable Currency"
 	SetFontSize 38
 	SetTextColor 255 200 0 255
 	SetBorderColor 180 140 40 255
 
-#===============================================================================
-# >> OPTIONAL SECTION B: tradeable mechanics (commented out - currency ONLY <<
-# >> is shown by default; uncomment a block to add it to the view)             <<
-#===============================================================================
-# B1. ESSENCES (Greater/Perfect loud, rest visible)
-#Show
-#	BaseType "Essence"
-#	SetFontSize 42
-#	SetTextColor 160 220 120 255
-#	SetBorderColor 120 180 100 255
-#
-# B2. OMENS (all visible, topcraft loud)
-#Show
-#	Class == "Omen"
-#	SetFontSize 41
-#	SetTextColor 90 200 255 255
-#	SetBorderColor 90 200 255 255
-#	SetBackgroundColor 0 35 55 255
-#	MinimapIcon 1 Blue Diamond
-#
-# B3. RUNES / SOUL CORES (class Augment)
-#Show
-#	Class == "Augment"
-#	SetFontSize 40
-#	SetTextColor 150 255 150 255
-#	SetBorderColor 150 255 150 255
-#	MinimapIcon 1 Green Diamond
+#--- C5. OTHER OMENS (46 kinds - visible, no sound) -----------------------------
+Show
+	Class == "Omen"
+	SetFontSize 40
+	SetTextColor 90 200 255 255
+	SetBorderColor 90 200 255 255
+	SetBackgroundColor 0 35 55 255
+	MinimapIcon 1 Blue Diamond
+
+#--- C6. OTHER AUGMENTS (runes lesser/normal/greater + 58 soul cores) -----------
+Show
+	Class == "Augment"
+	SetFontSize 38
+	SetTextColor 150 255 150 255
+	SetBorderColor 120 200 120 255
+
+#--- C7. TRIAL COINS / BARYA (Djinn + Test of Strength/Will/Cunning/Time) --------
+Show
+	Class == "Trial Coins"
+	SetFontSize 40
+	SetTextColor 255 200 0 255
+	SetBorderColor 200 160 60 255
+	MinimapIcon 1 Yellow Diamond
 
 #===============================================================================
 # >> OPTIONAL BLOCK A1: UNIQUE SAFETY NET (uncomment to never miss uniques) <<
@@ -129,7 +176,7 @@ Show
 #	PlayEffect Orange
 #	MinimapIcon 0 Orange Star
 
-#--- FINAL. EVERYTHING ELSE IS HIDDEN (currency-only view) ----------------------
+#--- FINAL. EVERYTHING ELSE IS HIDDEN (currency/craft/consumables view) ----------
 Hide
 	SetFontSize 10
 	SetTextColor 100 100 100 255
