@@ -309,6 +309,17 @@ Show
 	PlayEffect Orange
 	MinimapIcon 0 Orange Star
 
+Show
+	Rarity Unique
+	BaseType == "Ring"
+	SetFontSize 26
+	SetTextColor 255 200 0 255
+	SetBorderColor 255 180 0 255
+	SetBackgroundColor 70 45 0 255
+	PlayAlertSound 4 300
+	PlayEffect Orange
+	MinimapIcon 0 Orange Star
+
 #--- FINAL. EVERYTHING ELSE IS HIDDEN --------------------------------------------
 Hide
 	SetFontSize 10
