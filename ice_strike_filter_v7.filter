@@ -396,6 +396,53 @@ Show
 	MinimapIcon 0 Cyan Hexagon
 
 #--- 14. УНИКИ (всегда; SSF — каждый потенциальный сайдгард) ---------------------------------------------------------
+#--- 14а. TOP-BESTSELLER UNIQUES (crutch: only div-money uniques highlighted.
+#   Bases by poe2db + poeshop: Temporalis(Silk Robe) ~8-10.5k div | Mageblood(Utility Belt) ~220 div |
+#   Headhunter(Heavy Belt) ~33 div | Morior Invictus(Grand Regalia) ~30 div. Runemastered = same base.
+Show
+	Rarity Unique
+	BaseType == "Silk Robe"
+	SetFontSize 28
+	SetTextColor 255 255 255 255
+	SetBorderColor 255 0 0 255
+	SetBackgroundColor 120 0 0 255
+	PlayAlertSound 5 300
+	PlayEffect Red
+	MinimapIcon 0 Red Star
+
+Show
+	Rarity Unique
+	BaseType == "Utility Belt"
+	SetFontSize 27
+	SetTextColor 255 200 0 255
+	SetBorderColor 255 200 0 255
+	SetBackgroundColor 70 40 0 255
+	PlayAlertSound 5 300
+	PlayEffect Yellow
+	MinimapIcon 0 Yellow Star
+
+Show
+	Rarity Unique
+	BaseType == "Heavy Belt"
+	SetFontSize 26
+	SetTextColor 255 180 0 255
+	SetBorderColor 220 150 0 255
+	SetBackgroundColor 60 35 0 255
+	PlayAlertSound 4 300
+	PlayEffect Orange
+	MinimapIcon 0 Orange Star
+
+Show
+	Rarity Unique
+	BaseType == "Grand Regalia"
+	SetFontSize 26
+	SetTextColor 255 160 80 255
+	SetBorderColor 255 120 40 255
+	SetBackgroundColor 60 25 0 255
+	PlayAlertSound 4 300
+	PlayEffect Orange
+	MinimapIcon 0 Orange Star
+
 Show
 	Rarity Unique
 	SetFontSize 28

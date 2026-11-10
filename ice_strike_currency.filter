@@ -1,61 +1,41 @@
 #===============================================================================
-# CURRENCY + CRAFT + CONSUMABLES + MAPS LODOT FILTER v1.4 XCOMPACT (pandaren-ice-strike-filter, 09.11.2026)
-# Companion to ice_strike_filter_v9 (duet). This filter shows currency, crafting
-# materials, consumables, waystones and tablets. Everything else (gear, gems,
-# uniques, runes, keys, flasks, charms, breach splinter maps) is HIDDEN.
-#
-# CHANGES v1.5 (09.11): VALUABLES - top-value items guaranteed visible per owner:
-#   V1 Time-Lost jewels (4, explicit list) mega-loud; V2 ALL UNIQUES ENABLED
-#   (Mageblood ~220div / Headhunter ~33div / Morior Invictus ~30div live market);
-#   V3 Uncut Spirit Gem + Uncut Skill Gem 18+ loud, lesser uncut visible.
-# CHANGES v1.4 (09.11): XCOMPACT - top tier capped at 28 per owner (small monitor);
-#   ladder: 34->28, 33->27, 31->25, 29->24, 27->22, 26->21, Gold->18; hierarchy kept.
-# CHANGES v1.3 (09.11): COMPACT - all label fonts reduced ~25% for small monitors
-#   (45->34, 44->33, 42->31, 40->29, 38->27, 36->26, Gold 32->21); tier hierarchy kept.
-# CHANGES v1.2 (09.11): + waystones (tiered D1-D4, canon v9) and tablets (D5);
-#   RUNES REMOVED per owner decision (C3 deleted, C6 now soul cores only -
-#   lesser/normal/greater/perfect runes are hidden by the final Hide).
-#
-# AUDITED against base_items 0.5.5 (build 4.5.5.2, 5496 records):
-#   - all T0/T1 orb names verified (20/20 OK)
-#   - Splinter x14 / Catalyst x26 / Breachstone x27 - caught by substring
-#   - Essence x26 class Stackable Currency -> tiered below
-#   - Omen class x50, Augment class x313 (runes + soul cores), Wombgifts x5
-#   - "Thaumaturgic Flux" and "Alloy" are DEAD names in 0.5.5 (kept as
-#     harmless substring coverage for future patches)
+# CURRENCY + CRAFT + CONSUMABLES + MAPS LOOT FILTER v1.5-A (pandaren-ice-strike-filter, 10.11.2026)
+# Companion to ice_strike_filter_v9 (duet). Pure-currency view.
+# CHANGES v1.5-A: MIRROR gets its own SINGLE TOP block (T-0a) above everything:
+#   Divine Orb & Hinekora's Lock & Perfect Exalted follow in T-0b. Both tiers
+#   loudest (font 28, sound 5/300, yellow star + beam). First-match-wins ->
+#   Mirror is the #1 priority, Divine is #2.
 #
 # TIERS:
-#   T0  Mirror-tier      - 45pt, sound 5/300, star + beam
-#   T1  Top orbs         - 45pt, sound 5/300, star + beam (raised vs v9)
-#   T2  Mechanic forms   - 42pt, sound 3/250, beam
-#   C1  Greater/Perfect Essence - 45pt, sound 4/300, green star
-#   C2  Top omens (Greater Exaltation/Annulment/Sinistral+Dextral Coronation)
-#                          - 44pt, sound 3/250, blue star
-#   C4  Wombgifts (5 kinds, genesis mechanic) - 45pt, sound 5/250, yellow star
-#   T3  Gold             - 32pt, quiet by design
-#   T4  Rest of Stackable Currency (incl. Lesser/normal essences, splinters
-#       small stacks, all other orbs) - 38pt, visible, no sound
-#   C5  Other omens      - 40pt, visible, no sound
-#   C6  Soul cores (58 kinds) - 38pt, visible, no sound (RUNES HIDDEN per owner)
-#   C7  Trial Coins / Barya (5 kinds, trial entry) - 40pt, visible, no sound
-#   D1  Waystones T15/T16 - 45pt, sound 6/300, orange star (canon v9)
-#   D2  Waystones T13-T14 - 44pt, icon, no ding
-#   D3  Waystones T6-T12  - 41pt plain
-#   D4  Waystones T1-T5   - 36pt plain
-#   D5  Tablets (8 kinds)  - 44pt, sound 2/250, yellow star (canon v9)
-#
-# OPTIONAL: unique safety net - uncomment block A1 below (uniques are HIDDEN
-#   by default in this filter by design).
+#   T-0a  MIRROR OF KALANDRA   - sole top priority
+#   T-0b  Divine / Hinekora / Perfect Exalted
+#   T1    Top orbs             - loud
+#   T2    Mechanic forms       - medium
+#   T3    Gold                 - quiet
+#   T4    Rest Stackable Currency
+#   C1-C7 Craft/omens/cores/coins
+#   D1-D5 Waystones + Tablets
+#   V1-V4 Valuables safety
+#   FINAL hide everything else
 #
 # INSTALL: copy to Documents\My Games\Path of Exile 2\ice_strike_currency.filter
 # In game: Options -> UI -> Loot Filter -> ice_strike_currency -> Reload
-#
-# Syntax verified against official /item-filter/about + NeverSink-PoE2 0.10.4.
 #===============================================================================
 
-#--- T0. MIRROR TIER ----------------------------------------------------------
+#--- T-0a. MIRROR OF KALANDRA (THE single top loot -> loudest) -----------------
 Show
-	BaseType == "Mirror of Kalandra" "Hinekora's Lock" "Perfect Exalted Orb" "Divine Orb"
+	BaseType == "Mirror of Kalandra"
+	SetFontSize 28
+	SetTextColor 255 255 255 255
+	SetBorderColor 255 255 0 255
+	SetBackgroundColor 200 0 0 255
+	PlayAlertSound 5 300
+	PlayEffect Yellow
+	MinimapIcon 0 Yellow Star
+
+#--- T-0b. DIVINE + HINEKORA + PERFECT EXALTED (top value, right after Mirror) --
+Show
+	BaseType == "Divine Orb" "Hinekora's Lock" "Perfect Exalted Orb"
 	SetFontSize 28
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 255 0 255
@@ -86,8 +66,7 @@ Show
 	PlayEffect Yellow
 	MinimapIcon 1 Yellow Diamond
 
-#--- T2b. BREACH SPLINTERS full stacks (StackSize >= 15; Class-gated: Augment
-#     "Ancient Rune of Splinters" is NOT a splinter) --------------------------------
+#--- T2b. BREACH SPLINTERS full stacks (StackSize >= 15; Class-gated) ----------
 Show
 	Class == "Stackable Currency"
 	BaseType "Splinter"
@@ -99,7 +78,7 @@ Show
 	PlayAlertSound 3 250
 	MinimapIcon 1 Purple Diamond
 
-#--- C1. GREATER/PERFECT ESSENCE (top craft mods, x26 family) -------------------
+#--- C1. GREATER/PERFECT ESSENCE -------------------------------------------------
 Show
 	BaseType "Greater Essence" "Perfect Essence"
 	SetFontSize 28
@@ -110,7 +89,7 @@ Show
 	PlayEffect Green
 	MinimapIcon 0 Green Star
 
-#--- C2. TOP CRAFT OMENS (regal/exalt/annul helpers) ----------------------------
+#--- C2. TOP CRAFT OMENS --------------------------------------------------------
 Show
 	BaseType == "Omen of Greater Exaltation" "Omen of Greater Annulment" "Omen of Sinistral Coronation" "Omen of Dextral Coronation"
 	SetFontSize 27
@@ -120,7 +99,7 @@ Show
 	PlayAlertSound 3 250
 	MinimapIcon 0 Blue Star
 
-#--- C4. WOMBGIFTS (genesis mechanic, 5 kinds: Lavish/Ornate/Banded/Signet/Revelatory)
+#--- C4. WOMBGIFTS ---------------------------------------------------------------
 Show
 	Class == "Wombgifts"
 	SetFontSize 28
@@ -131,22 +110,21 @@ Show
 	PlayEffect Yellow
 	MinimapIcon 0 Yellow Star
 
-#--- T3. GOLD (always visible, quiet - mass trash) ------------------------------
+#--- T3. GOLD --------------------------------------------------------------------
 Show
 	BaseType == "Gold"
 	SetFontSize 18
 	SetTextColor 170 158 126 255
 	MinimapIcon 1 Yellow Circle
 
-#--- T4. ALL REST CURRENCY (scrolls, shards, orbs, lesser essences,
-#        splinters small stacks, coins, feathers - visible, no sound) -----------
+#--- T4. ALL REST CURRENCY -------------------------------------------------------
 Show
 	Class == "Stackable Currency"
 	SetFontSize 22
 	SetTextColor 255 200 0 255
 	SetBorderColor 180 140 40 255
 
-#--- C5. OTHER OMENS (46 kinds - visible, no sound) -----------------------------
+#--- C5. OTHER OMENS -------------------------------------------------------------
 Show
 	Class == "Omen"
 	SetFontSize 24
@@ -155,9 +133,7 @@ Show
 	SetBackgroundColor 0 35 55 255
 	MinimapIcon 1 Blue Diamond
 
-#--- C6. OTHER AUGMENTS (runes lesser/normal/greater + 58 soul cores) -----------
-#--- C6. SOUL CORES ONLY (58 kinds; RUNES REMOVED per owner 09.11 - all runes
-#     fall to the final Hide; soul cores stay visible as tradeable craft material)
+#--- C6. SOUL CORES ONLY ---------------------------------------------------------
 Show
 	Class == "Augment"
 	BaseType "Soul Core"
@@ -165,7 +141,7 @@ Show
 	SetTextColor 150 255 150 255
 	SetBorderColor 120 200 120 255
 
-#--- C7. TRIAL COINS / BARYA (Djinn + Test of Strength/Will/Cunning/Time) --------
+#--- C7. TRIAL COINS / BARYA -----------------------------------------------------
 Show
 	Class == "Trial Coins"
 	SetFontSize 24
@@ -173,10 +149,7 @@ Show
 	SetBorderColor 200 160 60 255
 	MinimapIcon 1 Yellow Diamond
 
-#===============================================================================
-# (old optional A1 unique safety net superseded by active block V2 - see VALUABLES)
-
-#--- D1. WAYSTONES T15/T16 (top endgame) ---------------------------------------
+#--- D1. WAYSTONES T15/T16 -------------------------------------------------------
 Show
 	WaystoneTier >= 15
 	Class == "Waystones"
@@ -187,7 +160,7 @@ Show
 	PlayAlertSound 6 300
 	MinimapIcon 0 Orange Star
 
-#--- D2. WAYSTONES T13-T14 (loud, no ding - canon v9) ---------------------------
+#--- D2. WAYSTONES T13-T14 -------------------------------------------------------
 Show
 	WaystoneTier >= 13
 	WaystoneTier <= 14
@@ -213,7 +186,7 @@ Show
 	SetFontSize 21
 	SetTextColor 200 200 200 255
 
-#--- D5. TABLETS (Ritual/Temple/Breach/Abyss/Expedition/Overseer/Irradiated/Delirium, 8 kinds)
+#--- D5. TABLETS -----------------------------------------------------------------
 Show
 	Class == "Tablet"
 	SetFontSize 27
@@ -223,8 +196,7 @@ Show
 	PlayAlertSound 2 250
 	MinimapIcon 0 Yellow Star
 
-#--- V1. TIME-LOST JEWELS (top value, explicit == list; unique rarity is also
-#     caught by V2 below, this block guarantees mega-loud regardless) ------------
+#--- V1. TIME-LOST JEWELS --------------------------------------------------------
 Show
 	BaseType == "Time-Lost Ruby" "Time-Lost Emerald" "Time-Lost Sapphire" "Time-Lost Diamond"
 	SetFontSize 28
@@ -235,20 +207,19 @@ Show
 	PlayEffect Pink
 	MinimapIcon 0 Pink Star
 
-#--- V2. ALL UNIQUES (VALUABLES SAFETY NET - enabled per owner 09.11:
-#     Mageblood ~220 div, Headhunter ~33 div, Morior Invictus ~30 div, Heart of
-#     the Well, Doom Span etc are uniques) - loud -------------------------------
-Show
-	Rarity Unique
-	SetFontSize 28
-	SetTextColor 255 180 0 255
-	SetBorderColor 255 180 0 255
-	SetBackgroundColor 60 30 0 255
-	PlayAlertSound 5 300
-	PlayEffect Orange
-	MinimapIcon 0 Orange Star
+#--- V2. ALL UNIQUES (valuables safety net) --- DISABLED per owner 10.11.2026 -
+#   Uniques now fall to the final Hide. Time-Lost jewels still show via V1.
+#Show
+#	Rarity Unique
+#	SetFontSize 28
+#	SetTextColor 255 180 0 255
+#	SetBorderColor 255 180 0 255
+#	SetBackgroundColor 60 30 0 255
+#	PlayAlertSound 5 300
+#	PlayEffect Orange
+#	MinimapIcon 0 Orange Star
 
-#--- V3. UNCUT GEMS (top-value trade currency: Spirit Gem always, Skill Gem 18+)
+#--- V3. UNCUT GEMS (top value) ---------------------------------------------------
 Show
 	BaseType == "Uncut Spirit Gem"
 	SetFontSize 28
@@ -270,23 +241,75 @@ Show
 	PlayEffect Cyan
 	MinimapIcon 0 Cyan Star
 
-#--- V3b. Lesser uncut gems - visible, no sound -----------------------------------
+#--- V3b. Lesser uncut gems --------------------------------------------------------
 Show
 	BaseType "Uncut Skill Gem" "Uncut Support Gem"
 	SetFontSize 22
 	SetTextColor 0 240 240 255
 	SetBorderColor 0 200 200 255
 
-#--- V4. RARE/MAGIC JEWELS visible (Sinister-class rolled jewels reach 40-100
-#     div; unique jewels caught by V1/V2 above) - medium, no sound ---------------
+#--- V4. RARE/MAGIC JEWELS (highlighted per owner 10.11 — rolled jewels reach
+#     40-100 div; Time-Lost are louder via V1) ------------------------------------
 Show
 	Class == "Jewels"
-	SetFontSize 24
+	SetFontSize 27
 	SetTextColor 220 120 255 255
 	SetBorderColor 220 120 255 255
-	MinimapIcon 2 Purple Circle
+	SetBackgroundColor 40 0 60 255
+	PlayAlertSound 4 250
+	PlayEffect Pink
+	MinimapIcon 0 Pink Hexagon
 
-#--- FINAL. EVERYTHING ELSE IS HIDDEN (currency/craft/consumables view) ----------
+#--- V5. TOP-BESTSELLER UNIQUES (crutch: only the div-money uniques show, the ------------------
+#   rest stay hidden. Base lookup by poe2db + poeshop live aggregate:
+#   Temporalis(Silk Robe) ~8-10.5k div | Mageblood(Utility Belt) ~220 div |
+#   Headhunter(Heavy Belt) ~33 div | Morior Invictus(Grand Regalia) ~30 div.
+#   Runemastered versions share the same base, so they match here too.
+Show
+	Rarity Unique
+	BaseType == "Silk Robe"
+	SetFontSize 28
+	SetTextColor 255 255 255 255
+	SetBorderColor 255 0 0 255
+	SetBackgroundColor 120 0 0 255
+	PlayAlertSound 5 300
+	PlayEffect Red
+	MinimapIcon 0 Red Star
+
+Show
+	Rarity Unique
+	BaseType == "Utility Belt"
+	SetFontSize 27
+	SetTextColor 255 200 0 255
+	SetBorderColor 255 200 0 255
+	SetBackgroundColor 70 40 0 255
+	PlayAlertSound 5 300
+	PlayEffect Yellow
+	MinimapIcon 0 Yellow Star
+
+Show
+	Rarity Unique
+	BaseType == "Heavy Belt"
+	SetFontSize 26
+	SetTextColor 255 180 0 255
+	SetBorderColor 220 150 0 255
+	SetBackgroundColor 60 35 0 255
+	PlayAlertSound 4 300
+	PlayEffect Orange
+	MinimapIcon 0 Orange Star
+
+Show
+	Rarity Unique
+	BaseType == "Grand Regalia"
+	SetFontSize 26
+	SetTextColor 255 160 80 255
+	SetBorderColor 255 120 40 255
+	SetBackgroundColor 60 25 0 255
+	PlayAlertSound 4 300
+	PlayEffect Orange
+	MinimapIcon 0 Orange Star
+
+#--- FINAL. EVERYTHING ELSE IS HIDDEN --------------------------------------------
 Hide
 	SetFontSize 10
 	SetTextColor 100 100 100 255
