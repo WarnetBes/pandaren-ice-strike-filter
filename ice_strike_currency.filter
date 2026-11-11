@@ -333,6 +333,29 @@ Show
 	PlayEffect Pink
 	MinimapIcon 0 Pink Star
 
+#--- V8. PINNACLE KEYS + TRIAL COINS (Origin Spark/-Cradle → Arbiter; Djinn Barya high-tier)
+#     Class per poe2db: Origin Spark = Pinnacle Keys; Baрия Джинна = Trial Coins. Louder than C7. ----
+Show
+	Class == "Pinnacle Keys" "Vault Keys" "Expedition Logbook" "Trial Coins"
+	SetFontSize 26
+	SetTextColor 255 255 0 255
+	SetBorderColor 255 200 0 255
+	SetBackgroundColor 90 60 0 255
+	PlayAlertSound 4 250
+	PlayEffect Yellow
+	MinimapIcon 0 Yellow Star
+
+#--- V9. INSCRIBED ULTIMATUM (Trial of Chaos, 10 trials) --- Class per poe2db --------
+Show
+	Class == "Inscribed Ultimatum"
+	SetFontSize 26
+	SetTextColor 255 220 120 255
+	SetBorderColor 255 170 40 255
+	SetBackgroundColor 90 50 0 255
+	PlayAlertSound 4 250
+	PlayEffect Orange
+	MinimapIcon 0 Orange Star
+
 #--- V7. QUEST ITEMS (per owner 11.11: always visible - quest-critical, untradeable,
 #     can drop on ground and be lost; class "Quest Items" per poe2db/poe2wiki) ------
 Show
