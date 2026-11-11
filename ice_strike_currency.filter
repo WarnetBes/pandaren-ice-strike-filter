@@ -22,7 +22,12 @@
 # In game: Options -> UI -> Loot Filter -> ice_strike_currency -> Reload
 #===============================================================================
 
-#--- T-0a. MIRROR OF KALANDRA (THE single top loot -> loudest) -----------------
+#=== ВАЛЮТА: раскраска по фактическим курсам FR (дороже = ярче) =================
+#   Курсы (chaos): Mirror 64987 | Hinekora 18755 | Fracturing 96.8 / P.Chaos 87.8
+#   Divine 10.06 / P.Exalted 29.1 | P.Aug 5.71/Annul 4.28/P.Jeweller 3.89/G.Chaos 3.33
+#   -- по данным poe2-kit (Forbidden Rites), 11.11
+
+#--- T-0a. MIRROR OF KALANDRA (~65 000c) — самый дорогой, самый яркий ----------
 Show
 	BaseType == "Mirror of Kalandra"
 	SetFontSize 28
@@ -33,27 +38,69 @@ Show
 	PlayEffect Yellow
 	MinimapIcon 0 Yellow Star
 
-#--- T-0b. DIVINE + HINEKORA + PERFECT EXALTED (top value, right after Mirror) --
+#--- T-0b. HINEKORA'S LOCK (~18 755c) — алый/тёмно-красный, 2-й по цене ---------
 Show
-	BaseType == "Divine Orb" "Hinekora's Lock" "Perfect Exalted Orb"
+	BaseType == "Hinekora's Lock"
+	SetFontSize 28
+	SetTextColor 255 220 220 255
+	SetBorderColor 255 60 60 255
+	SetBackgroundColor 140 0 0 255
+	PlayAlertSound 5 300
+	PlayEffect Red
+	MinimapIcon 0 Red Star
+
+#--- T-0c. FRACTURING ORB (~96.8c) + PERFECT CHAOS (~87.8c) — красно-оранжевый -
+Show
+	BaseType == "Fracturing Orb" "Perfect Chaos Orb"
+	SetFontSize 28
+	SetTextColor 255 240 180 255
+	SetBorderColor 255 120 30 255
+	SetBackgroundColor 130 40 0 255
+	PlayAlertSound 5 300
+	PlayEffect Orange
+	MinimapIcon 0 Orange Star
+
+#--- T-0d. DIVINE ORB (~10c) + PERFECT EXALTED (~29c) — яркий золотой ----------
+Show
+	BaseType == "Divine Orb" "Perfect Exalted Orb"
 	SetFontSize 28
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 255 0 255
-	SetBackgroundColor 130 30 0 255
+	SetBackgroundColor 130 90 0 255
 	PlayAlertSound 5 300
 	PlayEffect Yellow
 	MinimapIcon 0 Yellow Star
 
-#--- T1. TOP ORBS + FORBIDDEN RITES MECHANIC CURRENCY --------------------------
+#--- T1. ВЫСОКИЕ ОРБЫ (~2.8–5.7c) — зелёный ------------------------------------
 Show
-	BaseType == "Exalted Orb" "Greater Exalted Orb" "Orb of Annulment" "Fracturing Orb" "Eternal Orb" "Vaal Orb" "Perfect Chaos Orb" "Cryptic Key" "Shattered Triskelion" "Liquid Verisium" "Exceptional Verisium" "Perfect Jeweller's Orb" "Greater Jeweller's Orb"
-	SetFontSize 28
-	SetTextColor 255 200 0 255
-	SetBorderColor 255 200 0 255
-	SetBackgroundColor 60 40 0 255
-	PlayAlertSound 5 300
-	PlayEffect Yellow
-	MinimapIcon 0 Yellow Star
+	BaseType == "Perfect Orb of Augmentation" "Orb of Annulment" "Perfect Jeweller's Orb" "Greater Chaos Orb" "Cryptic Key"
+	SetFontSize 27
+	SetTextColor 190 255 170 255
+	SetBorderColor 120 235 110 255
+	SetBackgroundColor 0 60 10 255
+	PlayAlertSound 4 280
+	PlayEffect Green
+	MinimapIcon 0 Green Star
+
+#--- T1b. СРЕДНИЕ (~0.16–1.0c) — бирюзовый -------------------------------------
+Show
+	BaseType == "Gemcutter's Prism" "Perfect Regal Orb" "Arcanist's Etcher" "Greater Exalted Orb" "Glassblower's Bauble" "Armourer's Scrap" "Vaal Orb" "Orb of Chance" "Greater Jeweller's Orb" "Chaos Orb"
+	SetFontSize 26
+	SetTextColor 150 240 235 255
+	SetBorderColor 90 215 210 255
+	SetBackgroundColor 0 55 55 255
+	PlayAlertSound 3 250
+	PlayEffect Cyan
+	MinimapIcon 0 Cyan Star
+
+#--- T1c. ДЕШЁВЫЕ (~0.03–0.10c) — тусклый серо-оливковый -----------------------
+Show
+	BaseType == "Orb of Transmutation" "Greater Orb of Transmutation" "Perfect Orb of Transmutation" "Orb of Augmentation" "Greater Orb of Augmentation" "Regal Orb" "Greater Regal Orb" "Orb of Alchemy" "Blacksmith's Whetstone" "Artificer's Orb" "Artificer's Shard" "Regal Shard"
+	SetFontSize 24
+	SetTextColor 200 200 180 255
+	SetBorderColor 150 150 130 255
+	PlayAlertSound 2 200
+	MinimapIcon 1 White Diamond
 
 #--- T2. MECHANIC CURRENCY (Aldur/Kalguur forms, catalyzers, breachstones) ------
 Show
@@ -117,12 +164,12 @@ Show
 	SetTextColor 170 158 126 255
 	MinimapIcon 1 Yellow Circle
 
-#--- T4. ALL REST CURRENCY -------------------------------------------------------
+#--- T4. ALL REST CURRENCY (не перфорир. выше — нейтральный серый) --------------
 Show
 	Class == "Stackable Currency"
 	SetFontSize 22
-	SetTextColor 255 200 0 255
-	SetBorderColor 180 140 40 255
+	SetTextColor 190 190 190 255
+	SetBorderColor 140 140 140 255
 
 #--- C5. OTHER OMENS -------------------------------------------------------------
 Show
