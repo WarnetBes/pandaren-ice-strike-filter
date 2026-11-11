@@ -320,6 +320,30 @@ Show
 	PlayEffect Orange
 	MinimapIcon 0 Orange Star
 
+#--- V6. TIMELESS JEWELS (Undying Hate / Heroic Tragedy - SAME base "Timeless Jewel",
+#     confirmed by poe2db; price = seed number, 1 div and up) ------------------------
+Show
+	Rarity Unique
+	BaseType == "Timeless Jewel"
+	SetFontSize 27
+	SetTextColor 255 160 200 255
+	SetBorderColor 255 120 160 255
+	SetBackgroundColor 70 20 45 255
+	PlayAlertSound 4 300
+	PlayEffect Pink
+	MinimapIcon 0 Pink Star
+
+#--- V7. QUEST ITEMS (per owner 11.11: always visible - quest-critical, untradeable,
+#     can drop on ground and be lost; class "Quest Items" per poe2db/poe2wiki) ------
+Show
+	Class == "Quest Items"
+	SetFontSize 25
+	SetTextColor 120 220 255 255
+	SetBorderColor 80 180 255 255
+	SetBackgroundColor 0 40 60 255
+	PlayAlertSound 2 200
+	MinimapIcon 0 Blue Hexagon
+
 #--- FINAL. EVERYTHING ELSE IS HIDDEN --------------------------------------------
 Hide
 	SetFontSize 10
