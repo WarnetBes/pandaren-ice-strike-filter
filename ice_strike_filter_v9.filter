@@ -113,28 +113,68 @@ Show
 	SetTextColor 170 158 126 255
 	MinimapIcon 1 Yellow Circle
 
-#--- 2. КЛЮЧИ ПИНАКЛЯ / СЕЙФА / ЖУРНАЛЫ ЭКСПЕДИЦИИ / BARYA (Trial Coins) + CRISIS-ФРАГМЕНТЫ/Origin Core (Pinnacle Keys) -
+#--- 2. КЛЮЧИ/БАРИИ/УЛЬТИМАТУМЫ/ФРАГМЕНТЫ — разные цвета, цена = яркость (11.11) ----
+#   1=Красный(Pinnacle→Арбитр, самое дорогое) 2=Оранж(Inscribed) 3=Жёлт(Trial) 4=Голуб(MapFrag)
+#   5=Зелён(Vault) 6=Лил(Logbooks) 7=Бирюза(Quest)
 Show
-	Class == "Pinnacle Keys" "Vault Keys" "Expedition Logbook" "Trial Coins"
+	Class == "Pinnacle Keys" "Pinnacle Key"
 	SetFontSize 28
-	SetTextColor 255 255 0 255
-	SetBorderColor 255 255 0 255
-	SetBackgroundColor 80 60 0 255
+	SetTextColor 255 255 255 255
+	SetBorderColor 255 30 30 255
+	SetBackgroundColor 180 0 0 255
 	PlayAlertSound 5 300
+	PlayEffect Red
+	MinimapIcon 0 Red Star
+
+Show
+	Class == "Inscribed Ultimatum"
+	SetFontSize 27
+	SetTextColor 255 230 150 255
+	SetBorderColor 255 150 30 255
+	SetBackgroundColor 130 60 0 255
+	PlayAlertSound 5 300
+	PlayEffect Orange
+	MinimapIcon 0 Orange Star
+
+Show
+	Class == "Trial Coins"
+	SetFontSize 26
+	SetTextColor 255 240 120 255
+	SetBorderColor 255 220 60 255
+	SetBackgroundColor 110 85 0 255
+	PlayAlertSound 4 250
 	PlayEffect Yellow
 	MinimapIcon 0 Yellow Star
 
-
-#-- 2b. INSCRIBED ULTIMATUM + CHRONICLE OF ATZOATL (Misc Map Items) + AUDIENCE WITH THE KING (Map Fragments) --------
 Show
-	Class == "Inscribed Ultimatum" "Misc Map Items" "Map Fragments"
-	BaseType == "Inscribed Ultimatum" "Chronicle of Atzoatl" "An Audience with the King"
-	SetFontSize 28
-	SetTextColor 255 255 0 255
-	SetBorderColor 255 150 0 255
-	SetBackgroundColor 90 45 0 255
-	PlayAlertSound 5 250
-	MinimapIcon 0 Yellow Star
+	Class == "Map Fragments" "Misc Map Items"
+	SetFontSize 26
+	SetTextColor 140 240 255 255
+	SetBorderColor 40 200 255 255
+	SetBackgroundColor 0 70 90 255
+	PlayAlertSound 4 250
+	PlayEffect Cyan
+	MinimapIcon 0 Cyan Star
+
+Show
+	Class == "Vault Keys"
+	SetFontSize 25
+	SetTextColor 150 255 150 255
+	SetBorderColor 80 220 100 255
+	SetBackgroundColor 0 70 20 255
+	PlayAlertSound 3 250
+	PlayEffect Green
+	MinimapIcon 0 Green Hexagon
+
+Show
+	Class == "Expedition Logbooks"
+	SetFontSize 25
+	SetTextColor 220 170 255 255
+	SetBorderColor 190 110 255 255
+	SetBackgroundColor 60 0 90 255
+	PlayAlertSound 3 250
+	PlayEffect Pink
+	MinimapIcon 0 Pink Hexagon
 
 #--- 3. ЭССЕНЦИИ: Greater/Perfect — ГРОМКО (топ-модификаторы для апгрейда гира) -------------------------------------
 Show

@@ -333,37 +333,80 @@ Show
 	PlayEffect Pink
 	MinimapIcon 0 Pink Star
 
-#--- V8. PINNACLE KEYS + TRIAL COINS (Origin Spark/-Cradle → Arbiter; Djinn Barya high-tier)
-#     Class per poe2db: Origin Spark = Pinnacle Keys; Baрия Джинна = Trial Coins. Louder than C7. ----
+#=== 1. PINNACLE KEYS — САМОЕ ДОРОГОЕ (Origin Spark/Cradle → Arbiter of Divinity) =====
+#   Red most-vivid; drop can't be lost. Class "Pinnacle Keys" per poe2db/poe2wiki.
 Show
-	Class == "Pinnacle Keys" "Vault Keys" "Expedition Logbook" "Trial Coins"
+	Class == "Pinnacle Keys" "Pinnacle Key"
+	SetFontSize 28
+	SetTextColor 255 255 255 255
+	SetBorderColor 255 30 30 255
+	SetBackgroundColor 180 0 0 255
+	PlayAlertSound 5 300
+	PlayEffect Red
+	MinimapIcon 0 Red Star
+
+#=== 2. INSCRIBED ULTIMATUM — Trial of Chaos (10 trials) ================================
+Show
+	Class == "Inscribed Ultimatum"
+	SetFontSize 27
+	SetTextColor 255 230 150 255
+	SetBorderColor 255 150 30 255
+	SetBackgroundColor 130 60 0 255
+	PlayAlertSound 5 300
+	PlayEffect Orange
+	MinimapIcon 0 Orange Star
+
+#=== 3. TRIAL COINS — Djinn Barya (Sekhemas, 4-floors) ==================================
+Show
+	Class == "Trial Coins"
 	SetFontSize 26
-	SetTextColor 255 255 0 255
-	SetBorderColor 255 200 0 255
-	SetBackgroundColor 90 60 0 255
+	SetTextColor 255 240 120 255
+	SetBorderColor 255 220 60 255
+	SetBackgroundColor 110 85 0 255
 	PlayAlertSound 4 250
 	PlayEffect Yellow
 	MinimapIcon 0 Yellow Star
 
-#--- V9. INSCRIBED ULTIMATUM (Trial of Chaos, 10 trials) --- Class per poe2db --------
+#=== 4. MAP FRAGMENTS / MISC MAP ITEMS — Citadel / Simulacrum / Chronicle ===============
 Show
-	Class == "Inscribed Ultimatum"
+	Class == "Map Fragments" "Misc Map Items"
 	SetFontSize 26
-	SetTextColor 255 220 120 255
-	SetBorderColor 255 170 40 255
-	SetBackgroundColor 90 50 0 255
+	SetTextColor 140 240 255 255
+	SetBorderColor 40 200 255 255
+	SetBackgroundColor 0 70 90 255
 	PlayAlertSound 4 250
-	PlayEffect Orange
-	MinimapIcon 0 Orange Star
+	PlayEffect Cyan
+	MinimapIcon 0 Cyan Star
 
-#--- V7. QUEST ITEMS (per owner 11.11: always visible - quest-critical, untradeable,
-#     can drop on ground and be lost; class "Quest Items" per poe2db/poe2wiki) ------
+#=== 5. VAULT KEYS — Reliquary Key (Ritual/Twilight/etc) ================================
+Show
+	Class == "Vault Keys"
+	SetFontSize 25
+	SetTextColor 150 255 150 255
+	SetBorderColor 80 220 100 255
+	SetBackgroundColor 0 70 20 255
+	PlayAlertSound 3 250
+	PlayEffect Green
+	MinimapIcon 0 Green Hexagon
+
+#=== 6. EXPEDITION LOGBOOKS — (мн. число!) ==============================================
+Show
+	Class == "Expedition Logbooks"
+	SetFontSize 25
+	SetTextColor 220 170 255 255
+	SetBorderColor 190 110 255 255
+	SetBackgroundColor 60 0 90 255
+	PlayAlertSound 3 250
+	PlayEffect Pink
+	MinimapIcon 0 Pink Hexagon
+
+#=== 7. QUEST ITEMS — обычные квестовые (теряются на земле), бирюзовый ==================
 Show
 	Class == "Quest Items"
 	SetFontSize 25
-	SetTextColor 120 220 255 255
-	SetBorderColor 80 180 255 255
-	SetBackgroundColor 0 40 60 255
+	SetTextColor 120 240 220 255
+	SetBorderColor 60 210 190 255
+	SetBackgroundColor 0 55 50 255
 	PlayAlertSound 2 200
 	MinimapIcon 0 Blue Hexagon
 
