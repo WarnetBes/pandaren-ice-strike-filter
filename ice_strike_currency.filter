@@ -1,6 +1,6 @@
 #===============================================================================
 # CURRENCY + CRAFT + CONSUMABLES + MAPS LOOT FILTER v1.5-A (pandaren-ice-strike-filter, 10.11.2026)
-# Companion to ice_strike_filter_v9 (duet). Pure-currency view.
+# Companion to ice_strike_duet (duet). Pure-currency view.
 # CHANGES v1.5-A: MIRROR gets its own SINGLE TOP block (T-0a) above everything:
 #   Divine Orb & Hinekora's Lock & Perfect Exalted follow in T-0b. Both tiers
 #   loudest (font 28, sound 5/300, yellow star + beam). First-match-wins ->

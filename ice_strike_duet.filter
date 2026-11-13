@@ -91,7 +91,7 @@
 #
 # Синтаксис: BaseType "X" без == = substring-match (проверено). Class сверены по base_items 0.5.5.
 #
-# УСТАНОВКА: %userprofile%\Documents\My Games\Path of Exile 2\ice_strike_filter_v9.filter
+# УСТАНОВКА: %userprofile%\Documents\My Games\Path of Exile 2\ice_strike_duet.filter
 # В игре: Options -> UI -> Loot Filter -> выбрать -> Reload
 #
 # ЗВУКОВАЯ ЛЕСТНИЦА ТИРОВ (13.11, v9.2, единая для v7/v9/currency; цены poe2-kit FR 11.11):
