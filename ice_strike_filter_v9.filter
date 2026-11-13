@@ -93,18 +93,64 @@
 #
 # УСТАНОВКА: %userprofile%\Documents\My Games\Path of Exile 2\ice_strike_filter_v9.filter
 # В игре: Options -> UI -> Loot Filter -> выбрать -> Reload
+#
+# ЗВУКОВАЯ ЛЕСТНИЦА ТИРОВ (13.11, v9.2, единая для v7/v9/currency; цены poe2-kit FR 11.11):
+#   ТИР   ИМЯ        ЦЕНА (c)    ЗВУК    ПАЛИТРА текст/рамка/фон           ЛУЧ/ИКОНКА
+#   T0    «ЗЕРКАЛО»  >=10 000    5 300   255 255 255/255 255 0/200 0 0    Yellow/0 Yellow Star
+#   T1    «ЛЕГЕНДА»  300-10 000   4 300   255 220 220/255 60 60/140 0 0    Red/0 Red Star
+#   T2    «МЕГА»     80-300      6 300   255 240 180/255 130 0/150 60 0    Orange/0 Orange Star
+#   T3    «ЦЕННЫЙ»   3-30        3 250   190 255 170/120 235 110/0 60 10   -/1 Green Diamond
+#   T4    «СТАНДАРТ» 0.2-1       2 250   255 230 120/230 190 80/70 55 0    -/1 Yellow Diamond
+#   T5    «МЕЛОЧЬ»   ~0.03       1 200   200 200 180/150 150 130/-         -/1 White Diamond
+#   ФОН   «ШУМ»      <0.03       тишина
+#   Каналы: ЦЕННОСТЬ (валюта/уники/джевелы - цвет+звук строго по тиру) |
+#     ВЛАДЕЛЕЦ (её роза / его зелень: базы гира и билдовые руны, звуки по значимости,
+#     палитра сохранена) | КАТЕГОРИЯ (ключи/карты/гемы/квест - фирменный цвет,
+#     звук = тир ценности; формы иконок: Moon=гемы, Triangle=бижутерия).
+#   Присвоения (v9.2): T0: Mirror, Temporalis. T1: Hinekora, Pinnacle Keys,
+#     Time-Lost, Mageblood, Headhunter, Morior. T2: Fracturing, Perfect Chaos,
+#     Flawless/Pure Breachstone, Wombgifts, Inscribed Ultimatum, прочие уники.
+#     T3: Divine, Perfect Exalted, Annul, Perfect Jeweller, Perfect Augm.,
+#     эссенции, топ-омены, Uncut Skill 18+, джевелы-роллы, Timeless/уник-Ring,
+#     Waystones T15/16, Transcendent Arm/Leg. T4: мелкие орбы, сплинтеры 15+,
+#     Trial Coins, Vault Keys, Logbooks, MapFragments, Enriched/Charged Breach,
+#     Uncut Spirit (её-канал: 5 300). T5: трансмут-класс (только currency-вид).
+#   ВАЖНО: звук = приоритет подбора. Одинаковый звук в любом фильтре = одинаковый тир.
 #===============================================================================================================
 
-#--- 0. T0: ЛЕГЕНДАРНАЯ ВАЛЮТА (мега-громко) -------------------------------------------------------------------------
+#--- 0. T0 «ЗЕРКАЛО»: MIRROR OF KALANDRA (~65кc) — максимальный приоритет -------------------------------------------------------------------------
 Show
-	BaseType == "Mirror of Kalandra" "Hinekora's Lock" "Perfect Exalted Orb" "Divine Orb"
+	BaseType == "Mirror of Kalandra"
 	SetFontSize 28
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 255 0 255
-	SetBackgroundColor 130 30 0 255
+	SetBackgroundColor 200 0 0 255
 	PlayAlertSound 5 300
 	PlayEffect Yellow
 	MinimapIcon 0 Yellow Star
+
+#-- 0b. T1 «ЛЕГЕНДА»: Hinekora's Lock (~18 755c) — 2-й по цене лут игры
+Show
+	BaseType == "Hinekora's Lock"
+	SetFontSize 28
+	SetTextColor 255 220 220 255
+	SetBorderColor 255 60 60 255
+	SetBackgroundColor 140 0 0 255
+	PlayAlertSound 4 300
+	PlayEffect Red
+	MinimapIcon 0 Red Star
+
+#-- 0c. T3 «ЦЕННЫЙ»: Divine (~10c) + Perfect Exalted (~29c) — перенос из блока 0 (раньше
+#   звенели как Mirror). Полный T3-блок валюты см. 10a; этот блок выше ключей, чтобы
+#   драгоценности не перебивались категорийными блоками.
+Show
+	BaseType == "Divine Orb" "Perfect Exalted Orb"
+	SetFontSize 27
+	SetTextColor 190 255 170 255
+	SetBorderColor 120 235 110 255
+	SetBackgroundColor 0 60 10 255
+	PlayAlertSound 3 250
+	MinimapIcon 1 Green Diamond
 
 #--- 1. ГОЛД (тихо, всегда) -----------------------------------------------------------------------------------------
 Show
@@ -122,7 +168,7 @@ Show
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 30 30 255
 	SetBackgroundColor 180 0 0 255
-	PlayAlertSound 5 300
+	PlayAlertSound 4 300
 	PlayEffect Red
 	MinimapIcon 0 Red Star
 
@@ -132,7 +178,7 @@ Show
 	SetTextColor 255 230 150 255
 	SetBorderColor 255 150 30 255
 	SetBackgroundColor 130 60 0 255
-	PlayAlertSound 5 300
+	PlayAlertSound 6 300
 	PlayEffect Orange
 	MinimapIcon 0 Orange Star
 
@@ -142,7 +188,7 @@ Show
 	SetTextColor 255 240 120 255
 	SetBorderColor 255 220 60 255
 	SetBackgroundColor 110 85 0 255
-	PlayAlertSound 4 250
+	PlayAlertSound 2 250
 	PlayEffect Yellow
 	MinimapIcon 0 Yellow Star
 
@@ -152,7 +198,7 @@ Show
 	SetTextColor 140 240 255 255
 	SetBorderColor 40 200 255 255
 	SetBackgroundColor 0 70 90 255
-	PlayAlertSound 4 250
+	PlayAlertSound 3 250
 	PlayEffect Cyan
 	MinimapIcon 0 Cyan Star
 
@@ -162,7 +208,7 @@ Show
 	SetTextColor 150 255 150 255
 	SetBorderColor 80 220 100 255
 	SetBackgroundColor 0 70 20 255
-	PlayAlertSound 3 250
+	PlayAlertSound 2 250
 	PlayEffect Green
 	MinimapIcon 0 Green Hexagon
 
@@ -172,7 +218,7 @@ Show
 	SetTextColor 220 170 255 255
 	SetBorderColor 190 110 255 255
 	SetBackgroundColor 60 0 90 255
-	PlayAlertSound 3 250
+	PlayAlertSound 2 250
 	PlayEffect Pink
 	MinimapIcon 0 Pink Hexagon
 
@@ -183,9 +229,9 @@ Show
 	SetTextColor 200 240 120 255
 	SetBorderColor 200 240 120 255
 	SetBackgroundColor 0 60 0 255
-	PlayAlertSound 4 300
+	PlayAlertSound 3 250
 	PlayEffect Green
-	MinimapIcon 0 Green Star
+	MinimapIcon 1 Green Diamond
 
 #-- 3b. Эссенции обычные / Lesser
 Show
@@ -199,12 +245,12 @@ Show
 Show
 	BaseType "Flawless Breachstone" "Pure Breachstone"
 	SetFontSize 28
-	SetTextColor 255 120 255 255
-	SetBorderColor 200 80 255 255
-	SetBackgroundColor 60 0 70 255
-	PlayAlertSound 5 300
-	PlayEffect Pink
-	MinimapIcon 0 Purple Star
+	SetTextColor 255 240 180 255
+	SetBorderColor 255 130 0 255
+	SetBackgroundColor 150 60 0 255
+	PlayAlertSound 6 300
+	PlayEffect Orange
+	MinimapIcon 0 Orange Star
 
 #-- 4b. Enriched/Charged Breachstone — средне-громко
 Show
@@ -213,7 +259,7 @@ Show
 	SetTextColor 255 120 255 255
 	SetBorderColor 200 80 255 255
 	SetBackgroundColor 50 0 60 255
-	PlayAlertSound 3 200
+	PlayAlertSound 2 250
 	MinimapIcon 0 Purple Diamond
 
 
@@ -225,7 +271,7 @@ Show
 	SetTextColor 255 120 255 255
 	SetBorderColor 200 80 255 255
 	SetBackgroundColor 50 0 60 255
-	PlayAlertSound 3 200
+	PlayAlertSound 2 250
 	MinimapIcon 0 Purple Diamond
 #-- 4c. Катализсты + осколки Breach + plain Breachstone (вход в Breach — ловим всё, средне)
 Show
@@ -240,22 +286,22 @@ Show
 Show
 	Class == "Wombgifts"
 	SetFontSize 28
-	SetTextColor 255 200 120 255
-	SetBorderColor 255 160 60 255
-	SetBackgroundColor 70 40 0 255
-	PlayAlertSound 5 300
-	PlayEffect Yellow
-	MinimapIcon 0 Yellow Star
+	SetTextColor 255 240 180 255
+	SetBorderColor 255 130 0 255
+	SetBackgroundColor 150 60 0 255
+	PlayAlertSound 6 300
+	PlayEffect Orange
+	MinimapIcon 0 Orange Star
 
 #--- 6. OMEN'ы: топ-крафт со звуком ----------------------------------------------------------------------------------
 Show
 	BaseType == "Omen of Greater Exaltation" "Omen of Greater Annulment" "Omen of Sinistral Coronation" "Omen of Dextral Coronation"
 	SetFontSize 27
-	SetTextColor 90 200 255 255
-	SetBorderColor 90 200 255 255
-	SetBackgroundColor 0 45 70 255
+	SetTextColor 190 255 170 255
+	SetBorderColor 120 235 110 255
+	SetBackgroundColor 0 60 10 255
 	PlayAlertSound 3 250
-	MinimapIcon 0 Blue Star
+	MinimapIcon 1 Green Diamond
 
 #-- 6b. Остальные Omens — ярко, но без звука (50 видов очень шумели)
 Show
@@ -348,7 +394,7 @@ Show
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 120 0 255
 	SetBackgroundColor 110 50 0 255
-	PlayAlertSound 6 300
+	PlayAlertSound 3 250
 	MinimapIcon 0 Orange Star
 
 #-- 9b. T13–T14: громко, БЕЗ звонка (шум)
@@ -377,14 +423,36 @@ Show
 	SetFontSize 21
 	SetTextColor 200 200 200 255
 
-#--- 10. Валюта T1: ТОП-ОРБЫ + механика Forbidden Rites ---------------------------------------------------------------
-# Cryptic Key / Shattered Triskelion / Liquid Verisium — по канону NeverSink-PoE2 (top currency tier)
+#-- 10. ВАЛЮТА ПО ЛЕСТНИЦЕ ТИРОВ (раньше Fracturing/P.Chaos звенели как трансмут-класс) ------------------------------
+#-- 10-T2 «МЕГА»: Fracturing (~96.8c) + Perfect Chaos (~87.8c)
 Show
-	BaseType == "Exalted Orb" "Greater Exalted Orb" "Orb of Annulment" "Fracturing Orb" "Eternal Orb" "Vaal Orb" "Perfect Chaos Orb" "Cryptic Key" "Shattered Triskelion" "Liquid Verisium" "Exceptional Verisium" "Perfect Jeweller's Orb" "Greater Jeweller's Orb"
+	BaseType == "Fracturing Orb" "Perfect Chaos Orb"
+	SetFontSize 28
+	SetTextColor 255 240 180 255
+	SetBorderColor 255 130 0 255
+	SetBackgroundColor 150 60 0 255
+	PlayAlertSound 6 300
+	PlayEffect Orange
+	MinimapIcon 0 Orange Star
+
+#-- 10-T3 «ЦЕННЫЙ» (3-30c): Annul 4.28 | P.Jeweller 3.89 | G.Chaos 3.33 | P.Augm 5.71 | Cryptic 2.8
+#   + Eternal Orb + Triskelion/Verisium (механика FR, топ-канон NeverSink)
+Show
+	BaseType == "Orb of Annulment" "Perfect Jeweller's Orb" "Greater Chaos Orb" "Perfect Orb of Augmentation" "Cryptic Key" "Shattered Triskelion" "Liquid Verisium" "Exceptional Verisium" "Eternal Orb"
 	SetFontSize 27
-	SetTextColor 255 200 0 255
-	SetBorderColor 255 200 0 255
-	SetBackgroundColor 60 40 0 255
+	SetTextColor 190 255 170 255
+	SetBorderColor 120 235 110 255
+	SetBackgroundColor 0 60 10 255
+	PlayAlertSound 3 250
+	MinimapIcon 1 Green Diamond
+
+#-- 10-T4 «СТАНДАРТ» (0.2-1c): ординарные торговые орбы — валюта дуэта
+Show
+	BaseType == "Exalted Orb" "Greater Exalted Orb" "Greater Jeweller's Orb" "Vaal Orb" "Orb of Chance" "Chaos Orb" "Gemcutter's Prism" "Glassblower's Bauble" "Perfect Regal Orb" "Arcanist's Etcher"
+	SetFontSize 26
+	SetTextColor 255 230 120 255
+	SetBorderColor 230 190 80 255
+	SetBackgroundColor 70 55 0 255
 	PlayAlertSound 2 250
 	MinimapIcon 1 Yellow Diamond
 
@@ -411,7 +479,7 @@ Show
 	SetTextColor 255 80 220 255
 	SetBorderColor 255 80 220 255
 	SetBackgroundColor 60 0 45 255
-	PlayAlertSound 5 300
+	PlayAlertSound 5 250
 	PlayEffect Pink
 	MinimapIcon 0 Pink Star
 
@@ -424,7 +492,7 @@ Show
 	SetTextColor 0 240 240 255
 	SetBorderColor 0 240 240 255
 	SetBackgroundColor 0 40 40 255
-	PlayAlertSound 5 250
+	PlayAlertSound 3 250
 	PlayEffect Cyan
 	MinimapIcon 0 Cyan Star
 #-- 11b. Uncut Skill/Support
@@ -434,9 +502,7 @@ Show
 	SetTextColor 0 240 240 255
 	SetBorderColor 0 240 240 255
 	SetBackgroundColor 0 40 40 255
-	PlayAlertSound 3 300
-	PlayEffect Cyan
-	MinimapIcon 0 Cyan Star
+	MinimapIcon 1 Cyan Moon
 
 #--- 12. Готовые гемы ------------------------------------------------------------------------------------------------
 Show
@@ -449,12 +515,12 @@ Show
 Show
 	BaseType == "Time-Lost Ruby" "Time-Lost Emerald" "Time-Lost Sapphire" "Time-Lost Diamond"
 	SetFontSize 28
-	SetTextColor 255 150 255 255
-	SetBorderColor 255 80 255 255
-	SetBackgroundColor 70 0 100 255
-	PlayAlertSound 5 300
-	PlayEffect Pink
-	MinimapIcon 0 Pink Star
+	SetTextColor 255 220 220 255
+	SetBorderColor 255 60 60 255
+	SetBackgroundColor 140 0 0 255
+	PlayAlertSound 4 300
+	PlayEffect Red
+	MinimapIcon 0 Red Star
 
 #-- 13b. ДЖЕВЕЛЫ остальные (Heart of the Well ловится блоком 14 Unique; сапфиры/редкие — тут)
 Show
@@ -463,9 +529,8 @@ Show
 	SetTextColor 220 120 255 255
 	SetBorderColor 220 120 255 255
 	SetBackgroundColor 40 0 60 255
-	PlayAlertSound 4 250
-	PlayEffect Pink
-	MinimapIcon 0 Pink Hexagon
+	PlayAlertSound 3 250
+	MinimapIcon 1 Pink Triangle
 
 #-- 13c. Релики Sekhema
 Show
@@ -473,8 +538,6 @@ Show
 	SetFontSize 24
 	SetTextColor 0 240 190 255
 	SetBorderColor 0 240 190 255
-	PlayAlertSound 3 300
-	PlayEffect Blue Temp
 
 
 #-- 13d. SANCTIFIED RELIC — живой класс 0.5.5 (был мёртв в 0.3)
@@ -484,8 +547,6 @@ Show
 	SetTextColor 0 240 190 255
 	SetBorderColor 0 240 190 255
 	SetBackgroundColor 0 40 50 255
-	PlayAlertSound 3 200
-	PlayEffect Blue Temp
 	MinimapIcon 0 Blue Hexagon
 
 #-- 13e. TRANSCENDENT ARM/LEG (Incursion, 12 баз) — точный список ==
@@ -496,7 +557,7 @@ Show
 	SetTextColor 120 255 255 255
 	SetBorderColor 0 220 220 255
 	SetBackgroundColor 0 40 50 255
-	PlayAlertSound 4 250
+	PlayAlertSound 3 250
 	PlayEffect Cyan
 	MinimapIcon 0 Cyan Hexagon
 
@@ -509,54 +570,57 @@ Show
 	BaseType == "Silk Robe"
 	SetFontSize 28
 	SetTextColor 255 255 255 255
-	SetBorderColor 255 0 0 255
-	SetBackgroundColor 120 0 0 255
-	PlayAlertSound 5 300
-	PlayEffect Red
-	MinimapIcon 0 Red Star
-
-Show
-	Rarity Unique
-	BaseType == "Utility Belt"
-	SetFontSize 27
-	SetTextColor 255 200 0 255
-	SetBorderColor 255 200 0 255
-	SetBackgroundColor 70 40 0 255
+	SetBorderColor 255 255 0 255
+	SetBackgroundColor 200 0 0 255
 	PlayAlertSound 5 300
 	PlayEffect Yellow
 	MinimapIcon 0 Yellow Star
 
+# T1 «ЛЕГЕНДА»: Mageblood ~220 div (~2 200c)
+Show
+	Rarity Unique
+	BaseType == "Utility Belt"
+	SetFontSize 27
+	SetTextColor 255 220 220 255
+	SetBorderColor 255 60 60 255
+	SetBackgroundColor 140 0 0 255
+	PlayAlertSound 4 300
+	PlayEffect Red
+	MinimapIcon 0 Red Star
+
+# T1 «ЛЕГЕНДА»: Headhunter ~33 div (~330c)
 Show
 	Rarity Unique
 	BaseType == "Heavy Belt"
 	SetFontSize 26
-	SetTextColor 255 180 0 255
-	SetBorderColor 220 150 0 255
-	SetBackgroundColor 60 35 0 255
+	SetTextColor 255 220 220 255
+	SetBorderColor 255 60 60 255
+	SetBackgroundColor 140 0 0 255
 	PlayAlertSound 4 300
-	PlayEffect Orange
-	MinimapIcon 0 Orange Star
+	PlayEffect Red
+	MinimapIcon 0 Red Star
 
+# T1 «ЛЕГЕНДА»: Morior Invictus ~30 div (~300c)
 Show
 	Rarity Unique
 	BaseType == "Grand Regalia"
 	SetFontSize 26
-	SetTextColor 255 160 80 255
-	SetBorderColor 255 120 40 255
-	SetBackgroundColor 60 25 0 255
+	SetTextColor 255 220 220 255
+	SetBorderColor 255 60 60 255
+	SetBackgroundColor 140 0 0 255
 	PlayAlertSound 4 300
-	PlayEffect Orange
-	MinimapIcon 0 Orange Star
+	PlayEffect Red
+	MinimapIcon 0 Red Star
+# T3 «ЦЕННЫЙ»: уник-кольца (Ring и производные базы)
 Show
 	Rarity Unique
 	BaseType == "Ring"
 	SetFontSize 26
-	SetTextColor 255 200 0 255
-	SetBorderColor 255 180 0 255
-	SetBackgroundColor 70 45 0 255
-	PlayAlertSound 4 300
-	PlayEffect Orange
-	MinimapIcon 0 Orange Star
+	SetTextColor 190 255 170 255
+	SetBorderColor 120 235 110 255
+	SetBackgroundColor 0 60 10 255
+	PlayAlertSound 3 250
+	MinimapIcon 1 Green Diamond
 Show
 	Rarity Unique
 	BaseType == "Timeless Jewel"
@@ -564,19 +628,19 @@ Show
 	SetTextColor 255 160 200 255
 	SetBorderColor 255 120 160 255
 	SetBackgroundColor 70 20 45 255
-	PlayAlertSound 4 300
-	PlayEffect Pink
-	MinimapIcon 0 Pink Star
+	PlayAlertSound 3 250
+	MinimapIcon 1 Pink Triangle
 
 
 
+# T2 «МЕГА»: остальные уники — потенциальный SSF-сайдгард, оставлены громкими
 Show
 	Rarity Unique
 	SetFontSize 28
-	SetTextColor 255 180 0 255
-	SetBorderColor 255 180 0 255
-	SetBackgroundColor 60 30 0 255
-	PlayAlertSound 5 300
+	SetTextColor 255 240 180 255
+	SetBorderColor 255 130 0 255
+	SetBackgroundColor 150 60 0 255
+	PlayAlertSound 6 300
 	PlayEffect Orange
 	MinimapIcon 0 Orange Star
 
@@ -837,7 +901,7 @@ Show
 	SetTextColor 200 255 200 255
 	SetBorderColor 100 255 100 255
 	SetBackgroundColor 20 60 20 255
-	PlayAlertSound 3 200
+	PlayAlertSound 3 250
 	PlayEffect Green
 	MinimapIcon 0 Green Circle
 
