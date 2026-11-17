@@ -163,7 +163,7 @@ Show
 #   1=Красный(Pinnacle→Арбитр, самое дорогое) 2=Оранж(Inscribed) 3=Жёлт(Trial) 4=Голуб(MapFrag)
 #   5=Зелён(Vault) 6=Лил(Logbooks) 7=Бирюза(Quest)
 Show
-	Class == "Pinnacle Keys" "Pinnacle Key"
+	Class == "Pinnacle Keys"
 	SetFontSize 24
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 30 30 255
@@ -920,7 +920,7 @@ Show
 
 #--- 24. Прочее редкое оружие (для золота/разбора) — тише ------------------------------------------------------------
 Show
-	Class == "Bows" "Crossbows" "Sceptres" "Spears" "Bucklers" "Shields" "Quivers" "One Hand Maces" "Two Hand Maces" "Swords" "Axes" "Daggers"
+	Class == "Bows" "Crossbows" "Sceptres" "Spears" "Bucklers" "Shields" "Quivers" "One Hand Maces" "Two Hand Maces" "One Hand Swords" "Two Hand Swords" "One Hand Axes" "Two Hand Axes" "Daggers" "Flails"
 	Rarity Rare
 	SetFontSize 17
 	SetTextColor 220 220 220 255

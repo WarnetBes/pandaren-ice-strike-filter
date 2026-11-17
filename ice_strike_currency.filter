@@ -390,7 +390,7 @@ Show
 #=== 1. PINNACLE KEYS — САМОЕ ДОРОГОЕ (Origin Spark/Cradle → Arbiter of Divinity) =====
 #   Red most-vivid; drop can't be lost. Class "Pinnacle Keys" per poe2db/poe2wiki.
 Show
-	Class == "Pinnacle Keys" "Pinnacle Key"
+	Class == "Pinnacle Keys"
 	SetFontSize 24
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 30 30 255
