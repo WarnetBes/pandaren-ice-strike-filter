@@ -721,13 +721,13 @@ Show
 
 #--- 24. Прочее редкое оружие (для золота/разбора) — тише ------------------------------------------------------------
 Show
-	Class == "Bows" "Crossbows" "Sceptres" "Wands" "Staves" "Spears" "Bucklers" "Shields" "Foci" "Quivers" "One Hand Maces" "Two Hand Maces"
+	Class == "Bows" "Crossbows" "Sceptres" "Wands" "Staves" "Spears" "Bucklers" "Shields" "Foci" "Quivers" "One Hand Maces" "Two Hand Maces" "Swords" "Axes" "Daggers"
 	Rarity Rare
 	SetFontSize 21
 	SetTextColor 220 220 220 255
 	SetBorderColor 100 100 100 255
 
-#--- 25. ФИНАЛ: всё непойманное — скрыть -----------------------------------------------------------------------------
+#--- 25. КВЕСТ-КОНТЕНТ (ярко, приоритет над N/M-сеткой) + ФИНАЛ ------------------------
 Show
 	Class == "Quest Items"
 	SetFontSize 25
@@ -736,6 +736,15 @@ Show
 	SetBackgroundColor 0 40 60 255
 	PlayAlertSound 2 200
 	MinimapIcon 0 Blue Hexagon
+
+#--- 26. ФОН-БЕЗОПАСНОСТЬ (по отзыву «не всё видно»): весь непойманный N/M гир тускло,
+#   18pt, без звука — ничего не теряется из вида (крафт-заготовки + любой нормальный
+#   контент), но мусор не загораживает экран. Все топ-базы/тиры ловятся выше и ярче.
+Show
+	Rarity Normal Magic
+	SetFontSize 18
+	SetTextColor 140 150 150 255
+	SetBorderColor 70 80 80 255
 
 Hide
 	SetFontSize 10
