@@ -727,7 +727,17 @@ Show
 	SetTextColor 220 220 220 255
 	SetBorderColor 100 100 100 255
 
-#--- 25. КВЕСТ-КОНТЕНТ (ярко, приоритет над N/M-сеткой) + ФИНАЛ ------------------------
+#--- 25. Прочий контент-классы 0.5.5 (аудит NeverSink 18.11): талисманы, инкубаторы,
+#   Soul Cores (Instance Local Items), удочки — раньше проваливались в финальный Hide.
+Show
+	Class == "Talismans" "Incubators" "Instance Local Items" "Fishing Rods"
+	SetFontSize 20
+	SetTextColor 120 220 255 255
+	SetBorderColor 60 160 200 255
+	PlayAlertSound 1 200
+	MinimapIcon 0 Blue Circle
+
+#--- 25b. КВЕСТ-КОНТЕНТ (ярко, приоритет над N/M-сеткой) + ФИНАЛ ------------------------
 Show
 	Class == "Quest Items"
 	SetFontSize 21

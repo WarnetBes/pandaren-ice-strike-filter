@@ -454,6 +454,16 @@ Show
 	PlayEffect Pink
 	MinimapIcon 0 Pink Hexagon
 
+#=== 6b. Прочий контент-классы 0.5.5 (аудит NeverSink 18.11): талисманы, инкубаторы,
+#   Soul Cores (Instance Local Items), удочки — раньше проваливались в финальный Hide.
+Show
+	Class == "Talismans" "Incubators" "Instance Local Items" "Fishing Rods"
+	SetFontSize 20
+	SetTextColor 120 220 255 255
+	SetBorderColor 60 160 200 255
+	PlayAlertSound 1 200
+	MinimapIcon 0 Blue Circle
+
 #=== 7. QUEST ITEMS — обычные квестовые (теряются на земле), бирюзовый ==================
 Show
 	Class == "Quest Items"
