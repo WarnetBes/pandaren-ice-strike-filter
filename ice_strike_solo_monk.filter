@@ -92,9 +92,20 @@ Show
 	PlayEffect Red
 	MinimapIcon 0 Red Star
 
-#-- 0c. T3 «ЦЕННЫЙ»: Divine (~10c) + Perfect Exalted (~29c) — больше не звенят как Mirror
+#-- 0c. T1 «ЛЕГЕНДА»: DIVINE (~10c) — поднят из T3 (18.11, единая лестница фильтров). Громко+ярко.
 Show
-	BaseType == "Divine Orb" "Perfect Exalted Orb"
+	BaseType == "Divine Orb"
+	SetFontSize 24
+	SetTextColor 255 220 220 255
+	SetBorderColor 255 60 60 255
+	SetBackgroundColor 140 0 0 255
+	PlayAlertSound 4 300
+	PlayEffect Red
+	MinimapIcon 0 Red Star
+
+#-- 0c2. T3 «ЦЕННЫЙ»: Perfect Exalted (~29c) — остаётся T3
+Show
+	BaseType == "Perfect Exalted Orb"
 	SetFontSize 23
 	SetTextColor 190 255 170 255
 	SetBorderColor 120 235 110 255

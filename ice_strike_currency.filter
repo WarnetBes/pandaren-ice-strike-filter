@@ -74,9 +74,22 @@ Show
 	PlayEffect Orange
 	MinimapIcon 0 Orange Star
 
-#--- T-0d. T3 «ЦЕННЫЙ»: DIVINE ORB (~10c) + PERFECT EXALTED (~29c) ----------------
+#--- T-0d. T1 «ЛЕГЕНДА»: DIVINE ORB (~10c) — одна из самых ценных валют, громко+ярко.
+#   Поднят из T3 (владелец 18.11: «должна быть шумной и яркой»). Звук 4/300, красная
+#   палитра, луч Red, звезда — как Hinekora. Отдельный блок от Perfect Exalted.
 Show
-	BaseType == "Divine Orb" "Perfect Exalted Orb"
+	BaseType == "Divine Orb"
+	SetFontSize 24
+	SetTextColor 255 220 220 255
+	SetBorderColor 255 60 60 255
+	SetBackgroundColor 140 0 0 255
+	PlayAlertSound 4 300
+	PlayEffect Red
+	MinimapIcon 0 Red Star
+
+#--- T-0d2. T3 «ЦЕННЫЙ»: PERFECT EXALTED (~29c) — остаётся T3 (Divine вынесен в T-0d)
+Show
+	BaseType == "Perfect Exalted Orb"
 	SetFontSize 23
 	SetTextColor 190 255 170 255
 	SetBorderColor 120 235 110 255
@@ -262,17 +275,19 @@ Show
 	PlayEffect Red
 	MinimapIcon 0 Red Star
 
-#--- V2. ALL UNIQUES (valuables safety net) --- DISABLED per owner 10.11.2026 -
-#   Uniques now fall to the final Hide. Time-Lost jewels still show via V1.
-#Show
-#	Rarity Unique
-#	SetFontSize 24
-#	SetTextColor 255 180 0 255
-#	SetBorderColor 255 180 0 255
-#	SetBackgroundColor 60 30 0 255
-#	PlayAlertSound 5 300
-#	PlayEffect Orange
-#	MinimapIcon 0 Orange Star
+#--- V2. ALL OTHER UNIQUES (пылеулавливание «самых редких и дорогих вещей» из снаряжения).
+#   Включён 18.11 (владелец: «из снаряжения оставить самые редкие и дорогие»). Топ-базы
+#   V5 (Temporalis/Mageblood/HH/Morior/Ring/Timeless) ловятся ВЫШЕ (первым по правилу wins),
+#   сюда — остальные уники (SSF-сайдгард). T2 «МЕГА»: громко, оранж, звезда.
+Show
+	Rarity Unique
+	SetFontSize 24
+	SetTextColor 255 240 180 255
+	SetBorderColor 255 130 0 255
+	SetBackgroundColor 150 60 0 255
+	PlayAlertSound 6 300
+	PlayEffect Orange
+	MinimapIcon 0 Orange Star
 
 #--- V3. UNCUT SPIRIT GEM — её-канал (Herald-тройка чародейки), унифицирован с v7/v9 ---
 Show

@@ -142,9 +142,20 @@ Show
 
 #-- 0c. T3 «ЦЕННЫЙ»: Divine (~10c) + Perfect Exalted (~29c) — перенос из блока 0 (раньше
 #   звенели как Mirror). Полный T3-блок валюты см. 10a; этот блок выше ключей, чтобы
-#   драгоценности не перебивались категорийными блоками.
+#   драгоценности не перебивались категорийными блоками. Divine поднят до T1 (18.11,
+#   единая лестница: один предмет = один звук в любом фильтре, см. currency).
 Show
-	BaseType == "Divine Orb" "Perfect Exalted Orb"
+	BaseType == "Divine Orb"
+	SetFontSize 24
+	SetTextColor 255 220 220 255
+	SetBorderColor 255 60 60 255
+	SetBackgroundColor 140 0 0 255
+	PlayAlertSound 4 300
+	PlayEffect Red
+	MinimapIcon 0 Red Star
+
+Show
+	BaseType == "Perfect Exalted Orb"
 	SetFontSize 23
 	SetTextColor 190 255 170 255
 	SetBorderColor 120 235 110 255
