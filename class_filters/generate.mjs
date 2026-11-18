@@ -103,11 +103,16 @@ ${sectHide}
   return header(cls, stage) + "\n" + [sectCurrency, sectAugment, sectGear, sectContent, sectQuest].join("\n") + "\n" + tail + "\n";
 };
 
+// Ужатие шрифтов на -2pt (18.11, владелец «минимальный шрифт»): консистентно с 3 основными.
+// Hide 10 не тронут (в carте нет ключа 10); changelog-45 тоже не тронут (только комментарий).
+const SHRINK = { 45:43, 28:26, 27:25, 26:24, 25:23, 24:22, 23:21, 22:20, 21:19, 20:18, 19:17, 18:16, 17:15, 16:14, 15:13, 14:12 };
+const shrink = (t) => t.replace(/SetFontSize (\d+)/g, (m, n) => SHRINK[+n] !== undefined ? "SetFontSize " + SHRINK[+n] : m);
+
 let n = 0;
 for (const cls of Object.keys(CLASSES)) {
   for (const stage of ["leveling", "endgame"]) {
     const name = `class_${cls}_${stage}.filter`;
-    fs.writeFileSync(path.join(OUT, name), make(cls, stage), "utf8");
+    fs.writeFileSync(path.join(OUT, name), shrink(make(cls, stage)), "utf8");
     n++;
     console.log(name + "  " + String(fs.readFileSync(path.join(OUT, name), "utf8").split("\n").length).padStart(4) + " строк");
   }

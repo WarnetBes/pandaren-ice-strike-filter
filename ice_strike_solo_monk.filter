@@ -17,7 +17,7 @@
 #   + СПЛИНТЕРЫ Breach: StackSize >= 15 — звонок (блок 4c0, меньше — тихо как раньше)
 #   + UNCUT SKILL GEM GemLevel >= 18 — громко (блок 11b0)
 #   + Вэйстоуны T13–T14: звонок СНЯТ (шум) — визуал оставлен; T15/T16 без изменений
-#   + FIX: SetFontSize 45/48 вне диапазона 1–45 офиц. справочника → везде clamp до 45
+#   + FIX: SetFontSize 43/48 вне диапазона 1–45 офиц. справочника → везде clamp до 45
 #   + FIX: INSTALL-строка ссылалась на v5; также чин мусора (全) в комментарии блока 23
 # НЕ добавлено сознательно: Heist (не реализован), Pantheon Souls/Pieces/Memories/Incubators/Voidstone/Maven's
 #   Invitation (мёртвый датамайн 0.5.5); Import не используется (может молча съесть хвост — тред GGG 3710331).
@@ -73,7 +73,7 @@
 #--- 0. T0 «ЗЕРКАЛО»: MIRROR OF KALANDRA (~65кc) — максимальный приоритет -------------------------------------------------------------------------
 Show
 	BaseType == "Mirror of Kalandra"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 255 0 255
 	SetBackgroundColor 200 30 0 255
@@ -84,7 +84,7 @@ Show
 #-- 0b. T1 «ЛЕГЕНДА»: Hinekora's Lock (~18 755c)
 Show
 	BaseType == "Hinekora's Lock"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 255 220 220 255
 	SetBorderColor 255 60 60 255
 	SetBackgroundColor 140 0 0 255
@@ -95,7 +95,7 @@ Show
 #-- 0c. T1 «ЛЕГЕНДА»: DIVINE (~10c) — поднят из T3 (18.11, единая лестница фильтров). Громко+ярко.
 Show
 	BaseType == "Divine Orb"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 255 220 220 255
 	SetBorderColor 255 60 60 255
 	SetBackgroundColor 140 0 0 255
@@ -106,7 +106,7 @@ Show
 #-- 0c2. T3 «ЦЕННЫЙ»: Perfect Exalted (~29c) — остаётся T3
 Show
 	BaseType == "Perfect Exalted Orb"
-	SetFontSize 23
+	SetFontSize 21
 	SetTextColor 190 255 170 255
 	SetBorderColor 120 235 110 255
 	SetBackgroundColor 0 60 10 255
@@ -116,7 +116,7 @@ Show
 #--- 1. ГОЛД (тихо, всегда) -----------------------------------------------------------------------------------------
 Show
 	BaseType == "Gold"
-	SetFontSize 14
+	SetFontSize 12
 	SetTextColor 170 158 126 255
 	MinimapIcon 1 Yellow Circle
 
@@ -125,7 +125,7 @@ Show
 #   5=Зелён(Vault) 6=Лил(Logbooks) 7=Бирюза(Quest)
 Show
 	Class == "Pinnacle Keys"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 30 30 255
 	SetBackgroundColor 180 0 0 255
@@ -135,7 +135,7 @@ Show
 
 Show
 	Class == "Inscribed Ultimatum"
-	SetFontSize 23
+	SetFontSize 21
 	SetTextColor 255 230 150 255
 	SetBorderColor 255 150 30 255
 	SetBackgroundColor 130 60 0 255
@@ -145,7 +145,7 @@ Show
 
 Show
 	Class == "Trial Coins"
-	SetFontSize 22
+	SetFontSize 20
 	SetTextColor 255 240 120 255
 	SetBorderColor 255 220 60 255
 	SetBackgroundColor 110 85 0 255
@@ -155,7 +155,7 @@ Show
 
 Show
 	Class == "Map Fragments" "Misc Map Items"
-	SetFontSize 22
+	SetFontSize 20
 	SetTextColor 140 240 255 255
 	SetBorderColor 40 200 255 255
 	SetBackgroundColor 0 70 90 255
@@ -165,7 +165,7 @@ Show
 
 Show
 	Class == "Vault Keys"
-	SetFontSize 21
+	SetFontSize 19
 	SetTextColor 150 255 150 255
 	SetBorderColor 80 220 100 255
 	SetBackgroundColor 0 70 20 255
@@ -175,7 +175,7 @@ Show
 
 Show
 	Class == "Expedition Logbooks"
-	SetFontSize 21
+	SetFontSize 19
 	SetTextColor 220 170 255 255
 	SetBorderColor 190 110 255 255
 	SetBackgroundColor 60 0 90 255
@@ -186,7 +186,7 @@ Show
 #--- 3. ЭССЕНЦИИ: Greater/Perfect — ГРОМКО (топ-модификаторы для апгрейда гира) -------------------------------------
 Show
 	BaseType "Greater Essence" "Perfect Essence"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 200 240 120 255
 	SetBorderColor 200 240 120 255
 	SetBackgroundColor 0 60 0 255
@@ -197,7 +197,7 @@ Show
 #-- 3b. Эссенции обычные / Lesser
 Show
 	BaseType "Essence"
-	SetFontSize 18
+	SetFontSize 16
 	SetTextColor 160 220 120 255
 	SetBorderColor 120 180 100 255
 
@@ -205,7 +205,7 @@ Show
 #-- 4a. Flawless/Pure Breachstone — босс-камни: громко
 Show
 	BaseType "Flawless Breachstone" "Pure Breachstone"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 255 240 180 255
 	SetBorderColor 255 130 0 255
 	SetBackgroundColor 150 60 0 255
@@ -216,7 +216,7 @@ Show
 #-- 4b. Enriched/Charged Breachstone — средне-громко
 Show
 	BaseType "Enriched Breachstone" "Charged Breachstone"
-	SetFontSize 22
+	SetFontSize 20
 	SetTextColor 255 120 255 255
 	SetBorderColor 200 80 255 255
 	SetBackgroundColor 50 0 60 255
@@ -228,7 +228,7 @@ Show
 Show
 	BaseType "Splinter"
 	StackSize >= 15
-	SetFontSize 22
+	SetFontSize 20
 	SetTextColor 255 120 255 255
 	SetBorderColor 200 80 255 255
 	SetBackgroundColor 50 0 60 255
@@ -237,7 +237,7 @@ Show
 #-- 4c. Катализсты + осколки Breach + plain Breachstone (вход в Breach — ловим всё, средне)
 Show
 	BaseType "Catalyst" "Splinter" "Breachstone" "Breachlord"
-	SetFontSize 20
+	SetFontSize 18
 	SetTextColor 255 120 255 255
 	SetBorderColor 200 80 255 255
 	SetBackgroundColor 50 0 60 255
@@ -246,7 +246,7 @@ Show
 #--- 5. WOMBGIFTS — НОВАЯ механика 0.5.5 Forbidden Rites (генезис-бижутерия) — ВСЕ громко ---------------------------
 Show
 	Class == "Wombgifts"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 255 240 180 255
 	SetBorderColor 255 130 0 255
 	SetBackgroundColor 150 60 0 255
@@ -257,7 +257,7 @@ Show
 #--- 6. OMEN'ы: топ-крафт со звуком ----------------------------------------------------------------------------------
 Show
 	BaseType == "Omen of Greater Exaltation" "Omen of Greater Annulment" "Omen of Sinistral Coronation" "Omen of Dextral Coronation"
-	SetFontSize 23
+	SetFontSize 21
 	SetTextColor 190 255 170 255
 	SetBorderColor 120 235 110 255
 	SetBackgroundColor 0 60 10 255
@@ -267,7 +267,7 @@ Show
 #-- 6b. Остальные Omens — ярко, но без звука (50 видов очень шумели)
 Show
 	Class == "Omen"
-	SetFontSize 20
+	SetFontSize 18
 	SetTextColor 90 200 255 255
 	SetBorderColor 90 200 255 255
 	SetBackgroundColor 0 35 55 255
@@ -276,7 +276,7 @@ Show
 #--- 7. АУГМЕНТЫ: Perfect Glacial/Desert Rune — РУНЫ РЕЗИСТОВ БИЛДА (остаток холода −17) ----------------------------
 Show
 	BaseType == "Perfect Glacial Rune" "Perfect Desert Rune"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 150 255 150 255
 	SetBorderColor 150 255 150 255
 	SetBackgroundColor 10 60 10 255
@@ -287,7 +287,7 @@ Show
 #-- 7b. ГРЕЙТЕР-РУНЫ РЕЗИСТОВ БИЛДА (кап-этап: Greater Glacial в шлем/тело; Greater Desert на Light)
 Show
 	BaseType == "Greater Glacial Rune" "Greater Desert Rune"
-	SetFontSize 23
+	SetFontSize 21
 	SetTextColor 150 255 150 255
 	SetBorderColor 150 255 150 255
 	SetBackgroundColor 10 50 10 255
@@ -300,7 +300,7 @@ Show
 Show
 	Class == "Augment"
 	BaseType == "Greater Desert Rune" "Greater Glacial Rune" "Greater Storm Rune" "Greater Iron Rune" "Greater Body Rune" "Greater Mind Rune" "Greater Rebirth Rune" "Greater Inspiration Rune" "Greater Stone Rune" "Greater Vision Rune" "Greater Robust Rune" "Greater Adept Rune" "Greater Resolve Rune" "Greater Tempered Rune" "Greater Ward Rune" "Greater Charging Rune" "Greater Rune of Leadership" "Greater Rune of Tithing" "Greater Rune of Alacrity" "Greater Rune of Nobility"
-	SetFontSize 21
+	SetFontSize 19
 	SetTextColor 150 255 150 255
 	SetBorderColor 150 255 150 255
 	SetBackgroundColor 10 45 10 255
@@ -309,7 +309,7 @@ Show
 #-- 7c. Остальные Руны / Soul Cores / Идолы — весь класс Augment
 Show
 	Class == "Augment"
-	SetFontSize 20
+	SetFontSize 18
 	SetTextColor 150 255 150 255
 	SetBorderColor 150 255 150 255
 	SetBackgroundColor 10 45 10 255
@@ -318,7 +318,7 @@ Show
 #--- 8. ТАБЛЕТКИ (Ritual/Temple/Breach/Abyss/Expedition/Overseer/Irradiated/Delirium — 8 видов, класс Tablet) --------
 Show
 	Class == "Tablet"
-	SetFontSize 23
+	SetFontSize 21
 	SetTextColor 255 200 0 255
 	SetBorderColor 255 200 0 255
 	SetBackgroundColor 60 40 0 255
@@ -330,7 +330,7 @@ Show
 Show
 	WaystoneTier >= 15
 	Class == "Waystones"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 120 0 255
 	SetBackgroundColor 110 50 0 255
@@ -342,7 +342,7 @@ Show
 	WaystoneTier >= 13
 	WaystoneTier <= 14
 	Class == "Waystones"
-	SetFontSize 23
+	SetFontSize 21
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 120 0 255
 	SetBackgroundColor 90 40 0 255
@@ -353,21 +353,21 @@ Show
 	WaystoneTier >= 6
 	WaystoneTier <= 12
 	Class == "Waystones"
-	SetFontSize 20
+	SetFontSize 18
 	SetTextColor 220 220 200 255
 	SetBorderColor 200 190 100 255
 
 #-- 9d. T1–T5 — мелко
 Show
 	Class == "Waystones"
-	SetFontSize 17
+	SetFontSize 15
 	SetTextColor 200 200 200 255
 
 #--- 10. ВАЛЮТА ПО ЛЕСТНИЦЕ ТИРОВ (раньше Fracturing/P.Chaos звенели как трансмут-класс) ------------------------------
 #-- 10-T2 «МЕГА»: Fracturing (~96.8c) + Perfect Chaos (~87.8c)
 Show
 	BaseType == "Fracturing Orb" "Perfect Chaos Orb"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 255 240 180 255
 	SetBorderColor 255 130 0 255
 	SetBackgroundColor 150 60 0 255
@@ -379,7 +379,7 @@ Show
 #   + Eternal Orb + Triskelion/Verisium (механика FR, топ-канон NeverSink)
 Show
 	BaseType == "Orb of Annulment" "Perfect Jeweller's Orb" "Greater Chaos Orb" "Perfect Orb of Augmentation" "Cryptic Key" "Shattered Triskelion" "Liquid Verisium" "Exceptional Verisium" "Eternal Orb"
-	SetFontSize 23
+	SetFontSize 21
 	SetTextColor 190 255 170 255
 	SetBorderColor 120 235 110 255
 	SetBackgroundColor 0 60 10 255
@@ -389,7 +389,7 @@ Show
 #-- 10-T4 «СТАНДАРТ» (0.2-1c): ординарные торговые орбы
 Show
 	BaseType == "Exalted Orb" "Greater Exalted Orb" "Greater Jeweller's Orb" "Vaal Orb" "Orb of Chance" "Chaos Orb" "Gemcutter's Prism" "Glassblower's Bauble" "Perfect Regal Orb" "Arcanist's Etcher"
-	SetFontSize 22
+	SetFontSize 20
 	SetTextColor 255 230 120 255
 	SetBorderColor 230 190 80 255
 	SetBackgroundColor 70 55 0 255
@@ -399,7 +399,7 @@ Show
 #-- 10b. Валюта T2: механо-валюта Runes of Aldur / Kalguur (частая — icon, без звука)
 Show
 	BaseType "Thaumaturgic Flux" "Starlit Ore" "Alloy"
-	SetFontSize 20
+	SetFontSize 18
 	SetTextColor 255 200 0 255
 	SetBorderColor 200 160 60 255
 	MinimapIcon 1 Yellow Diamond
@@ -407,7 +407,7 @@ Show
 #-- 10c. Валюта T3: ОСТАЛЬНОЙ Stackable Currency — тихо (скроллы/осадки не должны звенеть; выше уже поймано всё ценное)
 Show
 	Class == "Stackable Currency"
-	SetFontSize 18
+	SetFontSize 16
 	SetTextColor 255 200 0 255
 	SetBorderColor 180 140 40 255
 
@@ -415,7 +415,7 @@ Show
 #-- 11a. Uncut SPIRIT Gem (Herald-тройка/Blasphemy — твой резерв-бюджет)
 Show
 	BaseType == "Uncut Spirit Gem"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 255 80 220 255
 	SetBorderColor 255 80 220 255
 	SetBackgroundColor 60 0 45 255
@@ -428,7 +428,7 @@ Show
 Show
 	BaseType == "Uncut Skill Gem"
 	GemLevel >= 18
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 0 240 240 255
 	SetBorderColor 0 240 240 255
 	SetBackgroundColor 0 40 40 255
@@ -438,7 +438,7 @@ Show
 #-- 11b. Uncut Skill/Support
 Show
 	BaseType "Uncut Skill Gem" "Uncut Support Gem"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 0 240 240 255
 	SetBorderColor 0 240 240 255
 	SetBackgroundColor 0 40 40 255
@@ -447,14 +447,14 @@ Show
 #--- 12. Готовые гемы ------------------------------------------------------------------------------------------------
 Show
 	Class == "Skill Gems" "Support Gems"
-	SetFontSize 20
+	SetFontSize 18
 	SetTextColor 0 240 240 255
 	SetBorderColor 0 240 240 255
 
 #-- 13a. TIME-LOST ДЖЕВЕЛЫ (50+ div, билд-цель: Time-Lost Sapphire под крит-вилку) — мега-громко
 Show
 	BaseType == "Time-Lost Ruby" "Time-Lost Emerald" "Time-Lost Sapphire" "Time-Lost Diamond"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 255 220 220 255
 	SetBorderColor 255 60 60 255
 	SetBackgroundColor 140 0 0 255
@@ -465,7 +465,7 @@ Show
 #-- 13b. ДЖЕВЕЛЫ остальные (Heart of the Well ловится блоком 14 Unique; сапфиры/редкие — тут)
 Show
 	Class == "Jewels"
-	SetFontSize 23
+	SetFontSize 21
 	SetTextColor 220 120 255 255
 	SetBorderColor 220 120 255 255
 	SetBackgroundColor 40 0 60 255
@@ -475,7 +475,7 @@ Show
 #-- 13c. Релики Sekhema
 Show
 	BaseType == "Amphora Relic" "Coffer Relic" "Incense Relic" "Seal Relic" "Tapestry Relic" "Urn Relic" "Vase Relic"
-	SetFontSize 20
+	SetFontSize 18
 	SetTextColor 0 240 190 255
 	SetBorderColor 0 240 190 255
 
@@ -483,7 +483,7 @@ Show
 #-- 13d. SANCTIFIED RELIC — живой класс 0.5.5 (был мёртв в 0.3)
 Show
 	Class == "Sanctified Relics"
-	SetFontSize 21
+	SetFontSize 19
 	SetTextColor 0 240 190 255
 	SetBorderColor 0 240 190 255
 	SetBackgroundColor 0 40 50 255
@@ -493,7 +493,7 @@ Show
 Show
 	Class == "Transcendent Arm" "Transcendent Leg"
 	BaseType == "Guarding Arm" "Caster Arm" "Commanding Arm" "Combat Arm" "Decrepifying Arm" "Deflective Arm" "Calm Leg" "Evasive Leg" "Restorative Leg" "Sprinters Leg" "Sturdy Leg" "Surefooted Leg"
-	SetFontSize 23
+	SetFontSize 21
 	SetTextColor 120 255 255 255
 	SetBorderColor 0 220 220 255
 	SetBackgroundColor 0 40 50 255
@@ -508,7 +508,7 @@ Show
 Show
 	Rarity Unique
 	BaseType == "Silk Robe"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 255 0 255
 	SetBackgroundColor 200 0 0 255
@@ -520,7 +520,7 @@ Show
 Show
 	Rarity Unique
 	BaseType == "Utility Belt"
-	SetFontSize 23
+	SetFontSize 21
 	SetTextColor 255 220 220 255
 	SetBorderColor 255 60 60 255
 	SetBackgroundColor 140 0 0 255
@@ -532,7 +532,7 @@ Show
 Show
 	Rarity Unique
 	BaseType == "Heavy Belt"
-	SetFontSize 22
+	SetFontSize 20
 	SetTextColor 255 220 220 255
 	SetBorderColor 255 60 60 255
 	SetBackgroundColor 140 0 0 255
@@ -544,7 +544,7 @@ Show
 Show
 	Rarity Unique
 	BaseType == "Grand Regalia"
-	SetFontSize 22
+	SetFontSize 20
 	SetTextColor 255 220 220 255
 	SetBorderColor 255 60 60 255
 	SetBackgroundColor 140 0 0 255
@@ -555,7 +555,7 @@ Show
 Show
 	Rarity Unique
 	BaseType == "Ring"
-	SetFontSize 22
+	SetFontSize 20
 	SetTextColor 190 255 170 255
 	SetBorderColor 120 235 110 255
 	SetBackgroundColor 0 60 10 255
@@ -565,7 +565,7 @@ Show
 Show
 	Rarity Unique
 	BaseType == "Timeless Jewel"
-	SetFontSize 23
+	SetFontSize 21
 	SetTextColor 255 160 200 255
 	SetBorderColor 255 120 160 255
 	SetBackgroundColor 70 20 45 255
@@ -577,7 +577,7 @@ Show
 # T2 «МЕГА»: остальные уники — потенциальный SSF-сайдгард, оставлены громкими
 Show
 	Rarity Unique
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 255 240 180 255
 	SetBorderColor 255 130 0 255
 	SetBackgroundColor 150 60 0 255
@@ -594,7 +594,7 @@ Show
 	Class == "Quarterstaves"
 	BaseType == "Aegis Quarterstaff" "Wyrm Quarterstaff" "Lunar Quarterstaff" "Striking Quarterstaff" "Dreaming Quarterstaff" "Guardian Quarterstaff" "Bladed Quarterstaff" "Sinister Quarterstaff" "Bolting Quarterstaff" "Razor Quarterstaff" "Skullcrusher Quarterstaff" "Warding Quarterstaff"
 	Rarity Normal Magic
-	SetFontSize 23
+	SetFontSize 21
 	SetTextColor 120 255 255 255
 	SetBorderColor 0 220 220 255
 	SetBackgroundColor 0 40 50 255
@@ -605,7 +605,7 @@ Show
 Show
 	Class == "Quarterstaves"
 	Rarity Rare
-	SetFontSize 22
+	SetFontSize 20
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 150 0 255
 	SetBackgroundColor 60 25 0 255
@@ -620,7 +620,7 @@ Show
 	Class == "Body Armours"
 	BaseType == "Assassin Garb" "Devout Garb" "Torment Jacket" "Ascetic Garb" "Clandestine Jacket" "Monastic Garb" "Sleek Jacket"
 	Rarity Normal Magic
-	SetFontSize 23
+	SetFontSize 21
 	SetTextColor 120 255 150 255
 	SetBorderColor 120 255 150 255
 	SetBackgroundColor 0 50 20 255
@@ -632,7 +632,7 @@ Show
 	Class == "Helmets"
 	BaseType == "Ancestral Tiara" "Kamasan Tiara" "Sorcerous Tiara" "Grinning Mask" "Soaring Mask" "Faridun Mask"
 	Rarity Normal Magic
-	SetFontSize 21
+	SetFontSize 19
 	SetTextColor 200 200 255 255
 	SetBorderColor 120 120 255 255
 	SetBackgroundColor 20 20 60 255
@@ -643,7 +643,7 @@ Show
 	Class == "Gloves"
 	BaseType == "Sirenscale Gloves" "Secured Wraps" "Vaal Wraps" "Elegant Wraps"
 	Rarity Normal Magic
-	SetFontSize 20
+	SetFontSize 18
 	SetTextColor 200 200 255 255
 	SetBorderColor 120 120 255 255
 	SetBackgroundColor 20 20 60 255
@@ -654,7 +654,7 @@ Show
 	Class == "Boots"
 	BaseType == "Sekhema Sandals" "Quickslip Shoes" "Daggerfoot Shoes" "Charmed Shoes" "Wanderer Shoes"
 	Rarity Normal Magic
-	SetFontSize 20
+	SetFontSize 18
 	SetTextColor 200 200 255 255
 	SetBorderColor 120 120 255 255
 	SetBackgroundColor 20 20 60 255
@@ -665,7 +665,7 @@ Show
 	Class == "Rings"
 	BaseType == "Two-Stone Ring" "Ruby Ring" "Sapphire Ring" "Topaz Ring" "Amethyst Ring" "Prismatic Ring" "Unset Ring"
 	Rarity Normal Magic
-	SetFontSize 21
+	SetFontSize 19
 	SetTextColor 255 220 120 255
 	SetBorderColor 255 200 80 255
 	SetBackgroundColor 50 40 0 255
@@ -676,7 +676,7 @@ Show
 	Class == "Belts"
 	BaseType == "Fine Belt" "Heavy Belt" "Double Belt"
 	Rarity Normal Magic
-	SetFontSize 20
+	SetFontSize 18
 	SetTextColor 255 220 120 255
 	SetBorderColor 255 200 80 255
 	SetBackgroundColor 50 40 0 255
@@ -686,7 +686,7 @@ Show
 	Class == "Amulets"
 	BaseType == "Lunar Amulet" "Lapis Amulet" "Stellar Amulet" "Veridical Chain" "Gold Amulet" "Pearlescent Amulet" "Solar Amulet"
 	Rarity Normal Magic
-	SetFontSize 20
+	SetFontSize 18
 	SetTextColor 255 220 120 255
 	SetBorderColor 255 200 80 255
 	SetBackgroundColor 50 40 0 255
@@ -697,7 +697,7 @@ Show
 Show
 	Class == "Rings" "Amulets" "Belts"
 	Rarity Rare
-	SetFontSize 21
+	SetFontSize 19
 	SetTextColor 255 220 120 255
 	SetBorderColor 255 200 80 255
 	SetBackgroundColor 50 40 0 255
@@ -707,7 +707,7 @@ Show
 Show
 	Class == "Body Armours" "Helmets" "Gloves" "Boots"
 	Rarity Rare
-	SetFontSize 20
+	SetFontSize 18
 	SetTextColor 255 255 255 255
 	SetBorderColor 200 200 200 255
 	SetBackgroundColor 30 30 40 255
@@ -715,7 +715,7 @@ Show
 #--- 23. ЧАРМЫ (все, громко — решение владельца 18.10: обереги с обрядами ловить ВСЕ, цены неважны) + ФЛЯКИ только эндгейм-уровня ----
 Show
 	Class == "Charms"
-	SetFontSize 23
+	SetFontSize 21
 	SetTextColor 200 255 200 255
 	SetBorderColor 100 255 100 255
 	SetBackgroundColor 20 60 20 255
@@ -726,7 +726,7 @@ Show
 Show
 	Class == "Life Flasks" "Mana Flasks"
 	ItemLevel >= 60
-	SetFontSize 17
+	SetFontSize 15
 	SetTextColor 200 255 200 255
 	SetBorderColor 100 160 100 255
 
@@ -734,7 +734,7 @@ Show
 Show
 	Class == "Bows" "Crossbows" "Sceptres" "Wands" "Staves" "Spears" "Bucklers" "Shields" "Foci" "Quivers" "One Hand Maces" "Two Hand Maces" "One Hand Swords" "Two Hand Swords" "One Hand Axes" "Two Hand Axes" "Daggers" "Flails"
 	Rarity Rare
-	SetFontSize 17
+	SetFontSize 15
 	SetTextColor 220 220 220 255
 	SetBorderColor 100 100 100 255
 
@@ -742,7 +742,7 @@ Show
 #   Soul Cores (Instance Local Items), удочки — раньше проваливались в финальный Hide.
 Show
 	Class == "Talismans" "Incubators" "Instance Local Items" "Fishing Rods"
-	SetFontSize 20
+	SetFontSize 18
 	SetTextColor 120 220 255 255
 	SetBorderColor 60 160 200 255
 	PlayAlertSound 1 200
@@ -751,7 +751,7 @@ Show
 #--- 25b. КВЕСТ-КОНТЕНТ (ярко, приоритет над N/M-сеткой) + ФИНАЛ ------------------------
 Show
 	Class == "Quest Items"
-	SetFontSize 21
+	SetFontSize 19
 	SetTextColor 120 220 255 255
 	SetBorderColor 80 180 255 255
 	SetBackgroundColor 0 40 60 255
@@ -763,7 +763,7 @@ Show
 #   контент), но мусор не загораживает экран. Все топ-базы/тиры ловятся выше и ярче.
 Show
 	Rarity Normal Magic
-	SetFontSize 14
+	SetFontSize 12
 	SetTextColor 140 150 150 255
 	SetBorderColor 70 80 80 255
 

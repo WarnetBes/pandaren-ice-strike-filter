@@ -45,7 +45,7 @@
 #--- T-0a. MIRROR OF KALANDRA (~65 000c) — самый дорогой, самый яркий ----------
 Show
 	BaseType == "Mirror of Kalandra"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 255 0 255
 	SetBackgroundColor 200 0 0 255
@@ -56,7 +56,7 @@ Show
 #--- T-0b. T1 «ЛЕГЕНДА»: HINEKORA'S LOCK (~18 755c) — 2-й по цене ------------------
 Show
 	BaseType == "Hinekora's Lock"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 255 220 220 255
 	SetBorderColor 255 60 60 255
 	SetBackgroundColor 140 0 0 255
@@ -67,7 +67,7 @@ Show
 #--- T-0c. T2 «МЕГА»: FRACTURING ORB (~96.8c) + PERFECT CHAOS (~87.8c) ------------
 Show
 	BaseType == "Fracturing Orb" "Perfect Chaos Orb"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 255 240 180 255
 	SetBorderColor 255 130 0 255
 	SetBackgroundColor 150 60 0 255
@@ -80,7 +80,7 @@ Show
 #   палитра, луч Red, звезда — как Hinekora. Отдельный блок от Perfect Exalted.
 Show
 	BaseType == "Divine Orb"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 255 220 220 255
 	SetBorderColor 255 60 60 255
 	SetBackgroundColor 140 0 0 255
@@ -91,7 +91,7 @@ Show
 #--- T-0d2. T3 «ЦЕННЫЙ»: PERFECT EXALTED (~29c) — остаётся T3 (Divine вынесен в T-0d)
 Show
 	BaseType == "Perfect Exalted Orb"
-	SetFontSize 23
+	SetFontSize 21
 	SetTextColor 190 255 170 255
 	SetBorderColor 120 235 110 255
 	SetBackgroundColor 0 60 10 255
@@ -101,7 +101,7 @@ Show
 #--- T1. T3 «ЦЕННЫЙ» ВЫСОКИЕ ОРБЫ (~2.8–5.7c) ------------------------------------
 Show
 	BaseType == "Perfect Orb of Augmentation" "Orb of Annulment" "Perfect Jeweller's Orb" "Greater Chaos Orb" "Eternal Orb" "Cryptic Key" "Shattered Triskelion" "Liquid Verisium" "Exceptional Verisium"
-	SetFontSize 23
+	SetFontSize 21
 	SetTextColor 190 255 170 255
 	SetBorderColor 120 235 110 255
 	SetBackgroundColor 0 60 10 255
@@ -111,7 +111,7 @@ Show
 #--- T1b. T4 «СТАНДАРТ» СРЕДНИЕ (~0.16–1.0c) -------------------------------------
 Show
 	BaseType == "Gemcutter's Prism" "Perfect Regal Orb" "Arcanist's Etcher" "Greater Exalted Orb" "Glassblower's Bauble" "Vaal Orb" "Orb of Chance" "Greater Jeweller's Orb" "Chaos Orb" "Exalted Orb"
-	SetFontSize 22
+	SetFontSize 20
 	SetTextColor 255 230 120 255
 	SetBorderColor 230 190 80 255
 	SetBackgroundColor 70 55 0 255
@@ -121,7 +121,7 @@ Show
 #--- T1c. T5 «МЕЛОЧЬ» ДЕШЁВЫЕ (~0.03–0.10c) — тихий щелчок -------------------------
 Show
 	BaseType == "Orb of Transmutation" "Greater Orb of Transmutation" "Perfect Orb of Transmutation" "Orb of Augmentation" "Greater Orb of Augmentation" "Regal Orb" "Greater Regal Orb" "Orb of Alchemy" "Blacksmith's Whetstone" "Artificer's Orb" "Artificer's Shard" "Regal Shard"
-	SetFontSize 20
+	SetFontSize 18
 	SetTextColor 200 200 180 255
 	SetBorderColor 150 150 130 255
 	PlayAlertSound 1 200
@@ -130,7 +130,7 @@ Show
 #--- T2. MECHANIC CURRENCY (Aldur/Kalguur forms, catalyzers, breachstones) — T4 палитра, тише
 Show
 	BaseType "Thaumaturgic Flux" "Starlit Ore" "Alloy" "Catalyst" "Breachstone" "Breachlord"
-	SetFontSize 21
+	SetFontSize 19
 	SetTextColor 255 230 120 255
 	SetBorderColor 230 190 80 255
 	SetBackgroundColor 70 55 0 255
@@ -141,7 +141,7 @@ Show
 	Class == "Stackable Currency"
 	BaseType "Splinter"
 	StackSize >= 15
-	SetFontSize 21
+	SetFontSize 19
 	SetTextColor 255 120 255 255
 	SetBorderColor 200 80 255 255
 	SetBackgroundColor 50 0 60 255
@@ -151,7 +151,7 @@ Show
 #--- C1. GREATER/PERFECT ESSENCE — T3 «ЦЕННЫЙ» ------------------------------------
 Show
 	BaseType "Greater Essence" "Perfect Essence"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 190 255 170 255
 	SetBorderColor 120 235 110 255
 	SetBackgroundColor 0 60 10 255
@@ -161,7 +161,7 @@ Show
 #--- C2. TOP CRAFT OMENS — T3 «ЦЕННЫЙ» --------------------------------------------
 Show
 	BaseType == "Omen of Greater Exaltation" "Omen of Greater Annulment" "Omen of Sinistral Coronation" "Omen of Dextral Coronation"
-	SetFontSize 23
+	SetFontSize 21
 	SetTextColor 190 255 170 255
 	SetBorderColor 120 235 110 255
 	SetBackgroundColor 0 60 10 255
@@ -171,7 +171,7 @@ Show
 #--- C4. WOMBGIFTS — T2 «МЕГА» ------------------------------------------------------
 Show
 	Class == "Wombgifts"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 255 240 180 255
 	SetBorderColor 255 130 0 255
 	SetBackgroundColor 150 60 0 255
@@ -182,21 +182,21 @@ Show
 #--- T3. GOLD --------------------------------------------------------------------
 Show
 	BaseType == "Gold"
-	SetFontSize 14
+	SetFontSize 12
 	SetTextColor 170 158 126 255
 	MinimapIcon 1 Yellow Circle
 
 #--- T4. ALL REST CURRENCY (не перфорир. выше — нейтральный серый) --------------
 Show
 	Class == "Stackable Currency"
-	SetFontSize 18
+	SetFontSize 16
 	SetTextColor 190 190 190 255
 	SetBorderColor 140 140 140 255
 
 #--- C5. OTHER OMENS -------------------------------------------------------------
 Show
 	Class == "Omen"
-	SetFontSize 20
+	SetFontSize 18
 	SetTextColor 90 200 255 255
 	SetBorderColor 90 200 255 255
 	SetBackgroundColor 0 35 55 255
@@ -206,14 +206,14 @@ Show
 Show
 	Class == "Augment"
 	BaseType "Soul Core"
-	SetFontSize 18
+	SetFontSize 16
 	SetTextColor 150 255 150 255
 	SetBorderColor 120 200 120 255
 
 #--- C7. TRIAL COINS / BARYA -----------------------------------------------------
 Show
 	Class == "Trial Coins"
-	SetFontSize 20
+	SetFontSize 18
 	SetTextColor 255 200 0 255
 	SetBorderColor 200 160 60 255
 	MinimapIcon 1 Yellow Diamond
@@ -222,7 +222,7 @@ Show
 Show
 	WaystoneTier >= 15
 	Class == "Waystones"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 120 0 255
 	SetBackgroundColor 110 50 0 255
@@ -234,7 +234,7 @@ Show
 	WaystoneTier >= 13
 	WaystoneTier <= 14
 	Class == "Waystones"
-	SetFontSize 23
+	SetFontSize 21
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 120 0 255
 	SetBackgroundColor 90 40 0 255
@@ -245,20 +245,20 @@ Show
 	WaystoneTier >= 6
 	WaystoneTier <= 12
 	Class == "Waystones"
-	SetFontSize 21
+	SetFontSize 19
 	SetTextColor 220 220 200 255
 	SetBorderColor 200 190 100 255
 
 #--- D4. WAYSTONES T1-T5 ---------------------------------------------------------
 Show
 	Class == "Waystones"
-	SetFontSize 17
+	SetFontSize 15
 	SetTextColor 200 200 200 255
 
 #--- D5. TABLETS -----------------------------------------------------------------
 Show
 	Class == "Tablet"
-	SetFontSize 23
+	SetFontSize 21
 	SetTextColor 255 200 0 255
 	SetBorderColor 255 200 0 255
 	SetBackgroundColor 60 40 0 255
@@ -268,7 +268,7 @@ Show
 #--- V1. TIME-LOST JEWELS — T1 «ЛЕГЕНДА» (~50+ div) --------------------------------
 Show
 	BaseType == "Time-Lost Ruby" "Time-Lost Emerald" "Time-Lost Sapphire" "Time-Lost Diamond"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 255 220 220 255
 	SetBorderColor 255 60 60 255
 	SetBackgroundColor 140 0 0 255
@@ -282,7 +282,7 @@ Show
 #   сюда — остальные уники (SSF-сайдгард). T2 «МЕГА»: громко, оранж, звезда.
 Show
 	Rarity Unique
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 255 240 180 255
 	SetBorderColor 255 130 0 255
 	SetBackgroundColor 150 60 0 255
@@ -293,7 +293,7 @@ Show
 #--- V3. UNCUT SPIRIT GEM — её-канал (Herald-тройка чародейки), унифицирован с v7/v9 ---
 Show
 	BaseType == "Uncut Spirit Gem"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 255 80 220 255
 	SetBorderColor 255 80 220 255
 	SetBackgroundColor 60 0 45 255
@@ -304,7 +304,7 @@ Show
 Show
 	BaseType == "Uncut Skill Gem"
 	GemLevel >= 18
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 0 240 240 255
 	SetBorderColor 0 240 240 255
 	SetBackgroundColor 0 40 40 255
@@ -315,7 +315,7 @@ Show
 #--- V3b. Lesser uncut gems --------------------------------------------------------
 Show
 	BaseType "Uncut Skill Gem" "Uncut Support Gem"
-	SetFontSize 18
+	SetFontSize 16
 	SetTextColor 0 240 240 255
 	SetBorderColor 0 200 200 255
 	MinimapIcon 1 Cyan Moon
@@ -323,7 +323,7 @@ Show
 #--- V4. RARE/MAGIC JEWELS (роллы достигают 40-100 div; Time-Lost громче через V1) --
 Show
 	Class == "Jewels"
-	SetFontSize 23
+	SetFontSize 21
 	SetTextColor 220 120 255 255
 	SetBorderColor 220 120 255 255
 	SetBackgroundColor 40 0 60 255
@@ -336,7 +336,7 @@ Show
 Show
 	Rarity Unique
 	BaseType == "Silk Robe"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 255 0 255
 	SetBackgroundColor 200 0 0 255
@@ -348,7 +348,7 @@ Show
 Show
 	Rarity Unique
 	BaseType == "Utility Belt"
-	SetFontSize 23
+	SetFontSize 21
 	SetTextColor 255 220 220 255
 	SetBorderColor 255 60 60 255
 	SetBackgroundColor 140 0 0 255
@@ -360,7 +360,7 @@ Show
 Show
 	Rarity Unique
 	BaseType == "Heavy Belt"
-	SetFontSize 22
+	SetFontSize 20
 	SetTextColor 255 220 220 255
 	SetBorderColor 255 60 60 255
 	SetBackgroundColor 140 0 0 255
@@ -372,7 +372,7 @@ Show
 Show
 	Rarity Unique
 	BaseType == "Grand Regalia"
-	SetFontSize 22
+	SetFontSize 20
 	SetTextColor 255 220 220 255
 	SetBorderColor 255 60 60 255
 	SetBackgroundColor 140 0 0 255
@@ -384,7 +384,7 @@ Show
 Show
 	Rarity Unique
 	BaseType == "Ring"
-	SetFontSize 22
+	SetFontSize 20
 	SetTextColor 190 255 170 255
 	SetBorderColor 120 235 110 255
 	SetBackgroundColor 0 60 10 255
@@ -396,7 +396,7 @@ Show
 Show
 	Rarity Unique
 	BaseType == "Timeless Jewel"
-	SetFontSize 23
+	SetFontSize 21
 	SetTextColor 255 160 200 255
 	SetBorderColor 255 120 160 255
 	SetBackgroundColor 70 20 45 255
@@ -407,7 +407,7 @@ Show
 #   Red most-vivid; drop can't be lost. Class "Pinnacle Keys" per poe2db/poe2wiki.
 Show
 	Class == "Pinnacle Keys"
-	SetFontSize 24
+	SetFontSize 22
 	SetTextColor 255 255 255 255
 	SetBorderColor 255 30 30 255
 	SetBackgroundColor 180 0 0 255
@@ -418,7 +418,7 @@ Show
 #=== 2. INSCRIBED ULTIMATUM — Trial of Chaos (10 trials) ================================
 Show
 	Class == "Inscribed Ultimatum"
-	SetFontSize 23
+	SetFontSize 21
 	SetTextColor 255 230 150 255
 	SetBorderColor 255 150 30 255
 	SetBackgroundColor 130 60 0 255
@@ -429,7 +429,7 @@ Show
 #=== 3. TRIAL COINS — Djinn Barya (Sekhemas, 4-floors) ==================================
 Show
 	Class == "Trial Coins"
-	SetFontSize 22
+	SetFontSize 20
 	SetTextColor 255 240 120 255
 	SetBorderColor 255 220 60 255
 	SetBackgroundColor 110 85 0 255
@@ -440,7 +440,7 @@ Show
 #=== 4. MAP FRAGMENTS / MISC MAP ITEMS — Citadel / Simulacrum / Chronicle ===============
 Show
 	Class == "Map Fragments" "Misc Map Items"
-	SetFontSize 22
+	SetFontSize 20
 	SetTextColor 140 240 255 255
 	SetBorderColor 40 200 255 255
 	SetBackgroundColor 0 70 90 255
@@ -451,7 +451,7 @@ Show
 #=== 5. VAULT KEYS — Reliquary Key (Ritual/Twilight/etc) ================================
 Show
 	Class == "Vault Keys"
-	SetFontSize 21
+	SetFontSize 19
 	SetTextColor 150 255 150 255
 	SetBorderColor 80 220 100 255
 	SetBackgroundColor 0 70 20 255
@@ -462,7 +462,7 @@ Show
 #=== 6. EXPEDITION LOGBOOKS — (мн. число!) ==============================================
 Show
 	Class == "Expedition Logbooks"
-	SetFontSize 21
+	SetFontSize 19
 	SetTextColor 220 170 255 255
 	SetBorderColor 190 110 255 255
 	SetBackgroundColor 60 0 90 255
@@ -474,7 +474,7 @@ Show
 #   Soul Cores (Instance Local Items), удочки — раньше проваливались в финальный Hide.
 Show
 	Class == "Talismans" "Incubators" "Instance Local Items" "Fishing Rods"
-	SetFontSize 20
+	SetFontSize 18
 	SetTextColor 120 220 255 255
 	SetBorderColor 60 160 200 255
 	PlayAlertSound 1 200
@@ -483,7 +483,7 @@ Show
 #=== 7. QUEST ITEMS — обычные квестовые (теряются на земле), бирюзовый ==================
 Show
 	Class == "Quest Items"
-	SetFontSize 21
+	SetFontSize 19
 	SetTextColor 120 240 220 255
 	SetBorderColor 60 210 190 255
 	SetBackgroundColor 0 55 50 255
